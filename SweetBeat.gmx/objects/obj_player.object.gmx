@@ -298,7 +298,9 @@ else
 
 if (obj_manager.cmd_blast){
     in_blast = blast_length;
-    my_blast = instance_create(x,y-sprite_get_height(sprite_index),obj_blast);
+    x_offset = -(sprite_get_width(spr_player)-sprite_get_width(spr_blast))/2;
+    y_offset = -sprite_get_height(spr_blast);
+    my_blast = instance_create(x+x_offset,y+y_offset,obj_blast);
     show_debug_message('blast');
 }
     
@@ -307,6 +309,8 @@ if (obj_manager.cmd_blast){
 if (in_blast &gt; 0)
 {
     in_blast -= 1;
+    my_blast.x=x+x_offset;
+    my_blast.y=y+y_offset;
 }else if(in_blast==0)
 {
     with(my_blast){
