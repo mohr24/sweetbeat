@@ -13,6 +13,7 @@
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_kill</sprite>
     <sprite>sprites\spr_beat</sprite>
+    <sprite>sprites\spr_blast</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -24,6 +25,7 @@
     <object>objects\obj_beat</object>
     <object>objects\obj_solid_parent</object>
     <object>objects\obj_audio</object>
+    <object>objects\obj_blast</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_0</room>
