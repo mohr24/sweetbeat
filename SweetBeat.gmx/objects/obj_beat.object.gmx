@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>/// variable initialization
-sequence = ds_map_create(); // modify me! (add)
+beats[0] = 0;
+sequence[0] = commands.none;
 </string>
           </argument>
         </arguments>
@@ -53,6 +54,7 @@ sequence = ds_map_create(); // modify me! (add)
 if (obj_manager.beat_id != id)
 {
     obj_manager.beat_id = id;
+    obj_manager.beats = beats;
     obj_manager.sequence = sequence;
 }
 </string>

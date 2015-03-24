@@ -32,13 +32,18 @@ bpm = 4;            // beats per measure
 fpb = 60;           // frames per beat
 
 // constants!
-// bf_ex = 1 &lt;&lt;     n;      // this is a bitfeild (e.g. n = 5 : 0b0000 0000 0010 0000)
-bf_stall = 1 &lt;&lt;     0;      // stall in the air
-bf_blast = 1 &lt;&lt;     1;      // shoot in a direction
+enum commands
+{
+    stall,
+    blast,
+    
+    none
+}
 
 
 // modify me
-sequence = ds_map_create();
+beats[0] = 0;
+sequence[0] = commands.none;
 beat_id = 0;
 mark_kill_player = false;
 
@@ -54,6 +59,7 @@ kill_player = false;
 
 // counter
 counter = 0;
+arr_counter = 0;
 
 
 // create other components
@@ -81,13 +87,28 @@ instance_create(0,0,obj_audio);
           <argument>
             <kind>1</kind>
             <string>/// read check the timeline
-var now = ds_map_find_value(sequence,counter / fpb);
-if (is_undefined(now))
-    now = 0;
-// now is a bitfeild representing the current actions
-    
-cmd_stall = (now &amp; bf_stall) != 0;
-cmd_blast = (now &amp; bf_blast) != 0;
+
+// set all variable to false
+cmd_stall = false;
+cmd_blast = false;
+
+// check for all actions (before this beat that haven't been processed yet)
+while (arr_counter &lt; array_length_1d(beats) &amp;&amp; beats[arr_counter] &lt; counter / fpb)
+{
+    var action = sequence[arr_counter];
+    switch(action)
+    {
+    case commands.stall:
+        cmd_stall = true;
+        break;
+    case commands.blast:
+        cmd_blast = true;
+        break;
+    default:    // none
+        break;
+    }
+    arr_counter += 1;
+}
 
 tick_beat = counter % fpb == 0;
 down_beat = counter == 0;
@@ -98,7 +119,10 @@ mark_kill_player = false;
 // increment the counter
 counter += 1;
 if (counter == bpm*fpb)
+{
     counter = 0;
+    arr_counter = 0;
+}
 </string>
           </argument>
         </arguments>
