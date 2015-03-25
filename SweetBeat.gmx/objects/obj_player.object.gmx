@@ -97,8 +97,8 @@ blast_length = .125 * obj_manager.fpb;
 
 my_blast = noone;
 
-x_blast_offset = -(sprite_get_width(spr_player)-sprite_get_width(spr_blast))/2;
-y_blast_offset = sprite_get_height(spr_player)/2;
+x_blast_offset = 0;//-(sprite_get_width(spr_player)-sprite_get_width(spr_blast))/2;
+y_blast_offset = 0;//sprite_get_height(spr_player)/2;
 </string>
           </argument>
         </arguments>

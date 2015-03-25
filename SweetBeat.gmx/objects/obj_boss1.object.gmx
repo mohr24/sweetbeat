@@ -42,8 +42,8 @@ for (i = 0; i &lt; killer_count; i += 1)
 
 }
 
-x_blast_offset = -(sprite_get_width(kill_pieces[0].sprite_index)-sprite_get_width(spr_blast))/2;
-y_blast_offset = -sprite_get_height(spr_blast);
+x_blast_offset = 0;//-(sprite_get_width(kill_pieces[0].sprite_index)-sprite_get_width(spr_blast))/2;
+y_blast_offset = 0;//-sprite_get_height(spr_blast);
 
 in_blast=0;
 blast_length = .5 * obj_manager.fpb;
@@ -150,7 +150,9 @@ if (in_blast &gt; 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (obj_manager.cmd_blast)
+            <string>effect_create_above(ef_firework,other.x,y-(sprite_height/2),1,c_aqua);
+
+if (obj_manager.cmd_blast)
 {
     boss_health -= 1;
     if (boss_health == 0)
