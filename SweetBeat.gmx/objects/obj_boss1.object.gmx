@@ -73,8 +73,10 @@ blast_length = .5 * obj_manager.fpb;
             <kind>1</kind>
             <string>/// move around
 
+if(obj_manager.down_beat){
 
-if (obj_manager.tick_beat)
+}else
+if (obj_manager.tick_beat )
 {
     var swap = kill_pieces[swap_index]
     var sx = swap.x;
@@ -110,11 +112,12 @@ if (obj_manager.down_beat)
     // program upwards blast at kill_pieces[0-2] location
     for(i=0;i&lt;killer_count;i++){
         my_blast[i] = instance_create(kill_pieces[i].x+x_blast_offset,kill_pieces[i].y+y_blast_offset,obj_enemy_blast);
-        in_blast = blast_length;
+        
+        
     }
+    in_blast = blast_length;
     
 }
-
 if (in_blast &gt; 0)
 {
     in_blast -= 1;
