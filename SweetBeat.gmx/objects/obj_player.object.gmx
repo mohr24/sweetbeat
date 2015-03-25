@@ -92,7 +92,8 @@ stall_length = .5 * obj_manager.fpb;  // half beat
 
 in_blast = 0;
 
-blast_length = .5 * obj_manager.fpb;
+blast_knockback = -10;
+blast_length = .125 * obj_manager.fpb;
 
 my_blast = noone;
 
@@ -302,6 +303,7 @@ else
 if (obj_manager.cmd_blast){
     in_blast = blast_length;
     my_blast = instance_create(x+x_blast_offset,y+y_blast_offset,obj_player_blast);
+    y_vel = blast_knockback;
     show_debug_message('blast');
 }
     
@@ -312,11 +314,12 @@ if (in_blast &gt; 0)
     in_blast -= 1;
     my_blast.x=x+x_blast_offset;
     my_blast.y=y+y_blast_offset;
-}else if(in_blast==0)
+}else if (my_blast != noone)
 {
     with(my_blast){
         instance_destroy();
     }
+    my_blast = noone;
 }
 </string>
           </argument>

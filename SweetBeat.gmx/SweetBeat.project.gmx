@@ -14,7 +14,7 @@
     <sprite>sprites\spr_kill</sprite>
     <sprite>sprites\spr_beat</sprite>
     <sprite>sprites\spr_blast</sprite>
-    <sprite>sprites\sprite5</sprite>
+    <sprite>sprites\spr_boss</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
