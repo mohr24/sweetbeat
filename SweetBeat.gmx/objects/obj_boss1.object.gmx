@@ -49,6 +49,9 @@ in_blast=0;
 blast_length = .5 * obj_manager.fpb;
     
 
+image_speed = 0;
+image_index = 0;
+
 </string>
           </argument>
         </arguments>
@@ -155,6 +158,7 @@ if (in_blast &gt; 0)
 if (obj_manager.cmd_blast)
 {
     boss_health -= 1;
+    image_index += 1;
     if (boss_health == 0)
     {
         for (i = 0; i &lt; killer_count; i += 1)

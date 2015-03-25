@@ -16,6 +16,7 @@
     <sprite>sprites\spr_blast</sprite>
     <sprite>sprites\spr_boss1_blast</sprite>
     <sprite>sprites\spr_boss</sprite>
+    <sprite>sprites\sprite8</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
