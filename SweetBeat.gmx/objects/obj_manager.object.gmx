@@ -36,6 +36,7 @@ enum commands
 {
     stall,
     blast,
+    jump,
     
     none
 }
@@ -53,6 +54,7 @@ down_beat = false;  // first beat of the measure
 
 cmd_stall = false;
 cmd_blast = false;
+cmd_jump = false;
 
 kill_player = false;
 
@@ -91,6 +93,7 @@ instance_create(0,0,obj_audio);
 // set all variable to false
 cmd_stall = false;
 cmd_blast = false;
+cmd_jump = false;
 
 // check for all actions (before this beat that haven't been processed yet)
 while (arr_counter &lt; array_length_1d(beats) &amp;&amp; beats[arr_counter] &lt; counter / fpb)
@@ -103,6 +106,9 @@ while (arr_counter &lt; array_length_1d(beats) &amp;&amp; beats[arr_counter] &lt
         break;
     case commands.blast:
         cmd_blast = true;
+        break;
+    case commands.jump:
+        cmd_jump = true;
         break;
     default:    // none
         break;
