@@ -99,8 +99,11 @@
     <instance objName="obj_kill_destruct" x="5824" y="512" name="inst_6AA884EC" locked="0" code="" scaleX="4" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill_destruct" x="5824" y="640" name="inst_1B68FC3B" locked="0" code="" scaleX="4" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="5984" y="832" name="inst_3111CCEE" locked="0" code="" scaleX="9" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="6208" y="672" name="inst_1195BD0D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="6016" y="672" name="inst_1195BD0D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="4640" y="768" name="inst_6655931A" locked="0" code="" scaleX="5" scaleY="6" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="6528" y="480" name="inst_5DADCF61" locked="0" code="" scaleX="8" scaleY="15" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="6176" y="224" name="inst_613CD932" locked="0" code="" scaleX="3" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_finish" x="6208" y="672" name="inst_E29E2C41" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

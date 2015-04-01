@@ -56,8 +56,6 @@
   <rooms name="rooms">
     <room>rooms\room1</room>
     <room>rooms\lvl_0</room>
-    <room>rooms\rm_0</room>
-    <room>rooms\rm_x</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
