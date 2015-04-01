@@ -61,10 +61,8 @@
     <instance objName="obj_kill" x="1792" y="832" name="inst_8D229674" locked="0" code="" scaleX="4" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2048" y="768" name="inst_6D914B1E" locked="0" code="" scaleX="4" scaleY="6" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2560" y="800" name="inst_BF05E70E" locked="0" code="" scaleX="4" scaleY="5" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="0" y="0" name="inst_4EB9AB8A" locked="0" code="" scaleX="0" scaleY="0" colour="0" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="0" y="0" name="inst_52B007FE" locked="0" code="" scaleX="0" scaleY="0" colour="0" rotation="0"/>
     <instance objName="obj_kill" x="2304" y="832" name="inst_D512E205" locked="0" code="" scaleX="4" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat" x="1312" y="608" name="inst_C403FD17" locked="0" code="sequence[0] = Pair(0,command.jump);&#xA;sequence[1] = Pair(2,command.jump);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat" x="1312" y="608" name="inst_C403FD17" locked="0" code="sequence[0] = Pair(0,command.jump);&#xA;sequence[1] = Pair(2,command.jump);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="2048" y="224" name="inst_BE47AB69" locked="0" code="" scaleX="1" scaleY="7" colour="4294967295" rotation="0"/>
     <instance objName="obj_checkpoint" x="2560" y="608" name="inst_4CF8EE1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="3008" y="832" name="inst_CF802D35" locked="0" code="" scaleX="10" scaleY="4" colour="4294967295" rotation="0"/>

@@ -45,17 +45,16 @@
     <object>objects\obj_player_blast</object>
     <object>objects\obj_enemy_parent</object>
     <object>objects\obj_boss1</object>
-
     <object>objects\obj_door</object>
     <object>objects\obj_switch</object>
-	<object>objects\obj_destruct</object>
+    <object>objects\obj_destruct</object>
     <object>objects\obj_checkpoint</object>
     <object>objects\obj_kill_destruct</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_0</room>
     <room>rooms\room1</room>
     <room>rooms\lvl_0</room>
+    <room>rooms\rm_0</room>
     <room>rooms\rm_x</room>
   </rooms>
   <help>

@@ -26,6 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>sprite_index = spr_switch_on;
+with(obj_door){
+    key = string_replace(key,other.key,"");
+}
 </string>
           </argument>
         </arguments>
