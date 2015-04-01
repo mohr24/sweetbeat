@@ -26,8 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// variable initialization
-beats[0] = 0;
-sequence[0] = commands.none;
+sequence[0] = Pair(0,command.none);
 </string>
           </argument>
         </arguments>
@@ -54,9 +53,9 @@ sequence[0] = commands.none;
 if (obj_manager.beat_id != id)
 {
     obj_manager.beat_id = id;
-    obj_manager.beats = beats;
     obj_manager.sequence = sequence;
 }
+obj_manager.checkpoint_id = id;
 </string>
           </argument>
         </arguments>

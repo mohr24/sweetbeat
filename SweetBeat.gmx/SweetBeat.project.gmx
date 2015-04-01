@@ -7,22 +7,31 @@
   <sounds name="sound">
     <sound>sound\snd_down_beat</sound>
     <sound>sound\snd_beat_tick</sound>
+    <sound>sound\snd_jump</sound>
+    <sound>sound\snd_blast</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_door</sprite>
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_kill</sprite>
+    <sprite>sprites\spr_kiill_destruct</sprite>
     <sprite>sprites\spr_beat</sprite>
+    <sprite>sprites\spr_checkpoint</sprite>
     <sprite>sprites\spr_blast</sprite>
     <sprite>sprites\spr_boss1_blast</sprite>
     <sprite>sprites\spr_boss</sprite>
     <sprite>sprites\sprite8</sprite>
     <sprite>sprites\spr_switch_off</sprite>
     <sprite>sprites\spr_switch_on</sprite>
+    <sprite>sprites\spr_manager</sprite>
+    <sprite>sprites\spr_destruct</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\Pair.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
@@ -36,12 +45,18 @@
     <object>objects\obj_player_blast</object>
     <object>objects\obj_enemy_parent</object>
     <object>objects\obj_boss1</object>
+
     <object>objects\obj_door</object>
     <object>objects\obj_switch</object>
+	<object>objects\obj_destruct</object>
+    <object>objects\obj_checkpoint</object>
+    <object>objects\obj_kill_destruct</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_0</room>
     <room>rooms\room1</room>
+    <room>rooms\lvl_0</room>
+    <room>rooms\rm_x</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

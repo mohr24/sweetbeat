@@ -45,7 +45,6 @@ move_accel = 1;
 move_speed = 8;
 
 max_speed = min(sprite_width,sprite_height);
-jmp_vel = -20;
 </string>
           </argument>
         </arguments>
@@ -220,15 +219,15 @@ else
 
 if (obj_manager.kill_player)
 {
-    if (obj_manager.beat_id == 0)
+    if (obj_manager.checkpoint_id == 0)
     {
         x = x_start;
         y = y_start;
     }
     else
     {
-        x = obj_manager.beat_id.x;
-        y = obj_manager.beat_id.y;
+        x = obj_manager.checkpoint_id.x;
+        y = obj_manager.checkpoint_id.y;
     }
     x_vel = 0;
     y_vel = 0;
@@ -255,7 +254,10 @@ if (obj_manager.kill_player)
             <kind>1</kind>
             <string>/// jump action
 if (obj_manager.cmd_jump)
+{
     y_vel = jmp_vel;
+    audio_play_sound(snd_jump,10,false);
+}
 </string>
           </argument>
         </arguments>
@@ -312,7 +314,11 @@ if (in_stall &gt; 0)
             <string>///blast action
 
 if (obj_manager.cmd_blast){
+    audio_play_sound(snd_blast,10,false);
     in_blast = blast_length;
+    if (my_blast != noone)
+        with (my_blast)
+            instance_destroy();
     my_blast = instance_create(x+x_blast_offset,y+y_blast_offset,obj_player_blast);
     blast_x_stick = x_stick_square;
     blast_y_stick = y_stick_square;
@@ -360,7 +366,8 @@ if (in_blast &gt; 0)
     in_blast -= 1;
     my_blast.x=x+x_blast_offset;
     my_blast.y=y+y_blast_offset;
-}else if (my_blast != noone)
+}
+else if (my_blast != noone)
 {
     with(my_blast){
         instance_destroy();
@@ -418,6 +425,56 @@ if (place_meeting(x, y + y_vel, obj_solid_parent))
 }
 else
     y += y_vel;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// debug! set position to mouse coordinates
+x = mouse_x;
+y = mouse_y;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// signal our death
+
+obj_manager.mark_kill_player = true;
 </string>
           </argument>
         </arguments>
