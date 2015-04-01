@@ -10,6 +10,7 @@
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_door</sprite>
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_kill</sprite>
     <sprite>sprites\spr_beat</sprite>
@@ -17,6 +18,8 @@
     <sprite>sprites\spr_boss1_blast</sprite>
     <sprite>sprites\spr_boss</sprite>
     <sprite>sprites\sprite8</sprite>
+    <sprite>sprites\spr_switch_off</sprite>
+    <sprite>sprites\spr_switch_on</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -33,9 +36,12 @@
     <object>objects\obj_player_blast</object>
     <object>objects\obj_enemy_parent</object>
     <object>objects\obj_boss1</object>
+    <object>objects\obj_door</object>
+    <object>objects\obj_switch</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_0</room>
+    <room>rooms\room1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
