@@ -91,20 +91,22 @@ action_step_array[max_num,max_num] = 0;
 var i = 0;
 //move 
 i+=1;
-action_array[i,0] = 1; //command length
+action_array[i,0] = 2; //command length
 action_array[i,1] = snd_Ab; //note id : 1st note acquired
+action_array[i,2] = snd_Ab;
 action_step_array[i,0] = 0; //command id see spt_process 
 action_step_array[i,1] = 0; //1st step always 0
+action_step_array[i,2] = 10;
 action_text[i] = "Move."
 
 //turn
 i+=1;
-action_array[i,0] = 2; //command length
+action_array[i,0] = 1; //command length
 action_array[i,1] = snd_Ab; //note id : 1st note acquired
-action_array[i,2] = snd_Ab;
+//action_array[i,2] = snd_Ab;
 action_step_array[i,0] = 1; //command id see spt_process 
 action_step_array[i,1] = 0; //1st step always 0
-action_step_array[i,2] = 10;
+//action_step_array[i,2] = 10;
 action_text[i] = "Turn."
 
 //jump v
@@ -234,11 +236,14 @@ if (alarm0_cnt &gt;0){
             <string>///animation
 phy_speed_x = max(min(phy_speed_x,max_speed),-max_speed);
 
+
 if (phy_speed_x &gt; 0.1 || phy_speed_x &lt; -0.1){
     sprite_index = spr_player_moving;
+    image_speed = abs(phy_speed_x) / 10;
 }
 else{
     sprite_index = spr_player;
+    image_speed = 0.2;
 }
 background_x[0] = - phy_position_x / 5;
 background_y[0] = - phy_position_y / 5;
