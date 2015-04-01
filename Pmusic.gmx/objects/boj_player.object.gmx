@@ -3,7 +3,7 @@
   <spriteName>spr_player</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -128,6 +128,18 @@ action_step_array[i,0] = 3; //command id see spt_process
 action_step_array[i,1] = 0; //1st step always 0
 action_step_array[i,2] = 10;
 action_text[i] = "Jump."
+
+//attack
+i+=1;
+action_array[i,0] = 3; //command length
+action_array[i,1] = snd_A; //note id : 1st note acquired
+action_array[i,2] = snd_Ab;
+action_array[i,3] = snd_A;
+action_step_array[i,0] = 4; //command id see spt_process 
+action_step_array[i,1] = 0; //1st step always 0
+action_step_array[i,2] = 10;
+action_step_array[i,3] = 20;
+action_text[i] = "Attack."
 </string>
           </argument>
         </arguments>
