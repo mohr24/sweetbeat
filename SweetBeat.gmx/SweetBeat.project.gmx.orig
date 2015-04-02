@@ -27,11 +27,14 @@
     <sprite>sprites\spr_manager</sprite>
     <sprite>sprites\spr_destruct</sprite>
     <sprite>sprites\spr_finish</sprite>
+<<<<<<< HEAD
+    <sprite>sprites\spr_player_wall_kick_border</sprite>
+=======
     <sprite>sprites\spr_jump_icon</sprite>
     <sprite>sprites\spr_blast_icon</sprite>
     <sprite>sprites\spr_stall_icon</sprite>
     <sprite>sprites\spr_none_icon</sprite>
-    <sprite>sprites\spr_player_wall_kick_border</sprite>
+>>>>>>> c00213dcb592bad8065a3f528a26e13db29b5ddb
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>

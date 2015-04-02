@@ -22,6 +22,8 @@
     <sprite>sprites\spr_block</sprite>
     <sprite>sprites\spr_item</sprite>
     <sprite>sprites\spr_notice</sprite>
+    <sprite>sprites\spr_fireball</sprite>
+    <sprite>sprites\spr_enemy</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_moon</background>
@@ -43,6 +45,8 @@
     <object>objects\obj_item</object>
     <object>objects\obj_Global</object>
     <object>objects\obj_notice</object>
+    <object>objects\obj_fireball</object>
+    <object>objects\obj_enemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
