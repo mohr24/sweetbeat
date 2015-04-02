@@ -36,10 +36,10 @@ block_width = 0.5;
 
 
 with(obj_manager){
-    other.sprites[ command.stall] = c_green;
-    other.sprites[ command.blast] = c_yellow;
-    other.sprites[ command.jump] = c_blue;
-    other.sprites[ command.none] = 0;
+    other.sprites[ command.stall] = spr_stall_icon;
+    other.sprites[ command.blast] = spr_blast_icon;
+    other.sprites[ command.jump] = spr_jump_icon;
+    other.sprites[ command.none] = spr_none_icon;
 }
 
 
@@ -126,9 +126,9 @@ for (var i = 0; i &lt; array_length_1d(obj_manager.sequence); i += 1)
             other.current_index = (i) % array_length_1d(obj_manager.sequence);        
         }
     }
-    draw_set_color(sprites[action]);
-    draw_rectangle(x1 + time * width,y1, x1 + (time + block_width) * width,y2,false);
-    
+    //draw_set_color(sprites[action]);
+    //draw_rectangle(x1 + time * width,y1, x1 + (time + block_width) * width,y2,false);
+    draw_sprite_stretched(sprites[action], -1, x1 + time * width,y1, block_width * width, height);
     
     
     var counterN = obj_manager.counter;
