@@ -57,6 +57,7 @@
     <object>objects\obj_kill_destruct</object>
     <object>objects\obj_finish</object>
     <object>objects\obj_actions</object>
+    <object>objects\obj_action_player</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
