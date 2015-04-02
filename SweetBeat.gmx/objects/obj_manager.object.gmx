@@ -34,7 +34,7 @@ fpb = 60;           // frames per beat
 // constants!
 enum command
 {
-    stall,
+    stall = 0,
     blast,
     jump,
     

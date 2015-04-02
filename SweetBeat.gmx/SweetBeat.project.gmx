@@ -27,6 +27,8 @@
     <sprite>sprites\spr_manager</sprite>
     <sprite>sprites\spr_destruct</sprite>
     <sprite>sprites\spr_finish</sprite>
+    <sprite>sprites\spr_jump_icon</sprite>
+    <sprite>sprites\spr_blast_icon</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -52,6 +54,7 @@
     <object>objects\obj_checkpoint</object>
     <object>objects\obj_kill_destruct</object>
     <object>objects\obj_finish</object>
+    <object>objects\obj_actions</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
