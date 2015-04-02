@@ -27,6 +27,7 @@
     <sprite>sprites\spr_manager</sprite>
     <sprite>sprites\spr_destruct</sprite>
     <sprite>sprites\spr_finish</sprite>
+    <sprite>sprites\spr_player_wall_kick_border</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>

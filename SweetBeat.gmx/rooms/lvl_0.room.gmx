@@ -57,7 +57,7 @@
     <instance objName="obj_wall" x="512" y="832" name="inst_BAEBE0CA" locked="0" code="" scaleX="12" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1088" y="816" name="inst_39DBE0CF" locked="0" code="" scaleX="6" scaleY="4.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1472" y="800" name="inst_DBCEF23C" locked="0" code="" scaleX="6" scaleY="5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat" x="608" y="672" name="inst_7932C73B" locked="0" code="sequence[0] = Pair(0,command.jump);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat" x="608" y="672" name="inst_7932C73B" locked="0" code="sequence[0] = Pair(0,command.wall_kick);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="1792" y="832" name="inst_8D229674" locked="0" code="" scaleX="4" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2048" y="768" name="inst_6D914B1E" locked="0" code="" scaleX="4" scaleY="6" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2560" y="800" name="inst_BF05E70E" locked="0" code="" scaleX="4" scaleY="5" colour="4294967295" rotation="0"/>

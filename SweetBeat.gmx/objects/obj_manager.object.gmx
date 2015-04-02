@@ -37,6 +37,7 @@ enum command
     stall,
     blast,
     jump,
+    wall_kick,
     
     none
 }
@@ -55,6 +56,7 @@ down_beat = false;  // first beat of the measure
 cmd_stall = false;
 cmd_blast = false;
 cmd_jump = false;
+cmd_wall_kick = false;
 
 kill_player = false;
 
@@ -93,6 +95,7 @@ instance_create(0,0,obj_audio);
 cmd_stall = false;
 cmd_blast = false;
 cmd_jump = false;
+cmd_wall_kick = false;
 
 var fpm = bpm*fpb;
 
@@ -118,6 +121,9 @@ for (index = 0; index &lt; array_length_1d(sequence); index += 1)
             break;
         case command.jump:
             cmd_jump = true;
+            break;
+        case command.wall_kick:
+            cmd_wall_kick = true;
             break;
         default:    // none
             break;
