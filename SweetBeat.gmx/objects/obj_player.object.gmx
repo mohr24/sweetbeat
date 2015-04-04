@@ -34,6 +34,8 @@ x_vel = 0;
 y_vel = 0;
 
 on_ground = false;
+on_left_wall = false;
+on_right_wall = false;
 
 x_stick = 0;    // 8 point direction (center included)
 y_stick = 0;
@@ -145,6 +147,37 @@ y_blast_offset = 0;//sprite_get_height(spr_player)/2;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// wall kick variables
+
+wall_kick_h_vel = 20;
+wall_kick_v_vel = 18;
+
+wall_kick_animation = 5;
+wall_kick_scale = 1.1;
+
+wall_kick_count = 0;
+
+wall_kick_stretch = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+	  <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///grapple variables
 
 my_swing = noone;
@@ -158,7 +191,6 @@ in_swing = false;
 swing_vel = 10;
 mark_for_finish = false;
 
-    
 </string>
           </argument>
         </arguments>
@@ -429,13 +461,61 @@ else if (my_blast != noone)
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// wall kick action
+if (obj_manager.cmd_wall_kick)
+{
+    wall_kick_count = wall_kick_animation;
+    if (on_ground || on_left_wall || on_right_wall)
+    {
+        y_vel = -wall_kick_v_vel;
+        if (on_left_wall)
+            x_vel = wall_kick_h_vel;
+        else if (on_right_wall)
+            x_vel = -wall_kick_h_vel;
+    }
+}
+
+if (wall_kick_count &gt; 0)
+{
+    var inter = wall_kick_count / wall_kick_animation;
+    wall_kick_stretch = wall_kick_scale * inter + 1*(1 - inter);
+    wall_kick_count -= 1;
+}
+else
+    wall_kick_stretch = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// player movement and collision triggering
 
 x_vel = clamp(x_vel, -max_speed, max_speed);
 y_vel = clamp(y_vel, -max_speed, max_speed);
 
+on_left_wall = false;
+on_right_wall = false;
 if (place_meeting(x + x_vel, y, obj_solid_parent))
 {
+    if (x_vel &gt; 0)
+        on_right_wall = true;
+    else
+        on_left_wall = true;
     while (!place_meeting(x + sign(x_vel), y, obj_solid_parent))
         x += sign(x_vel);
     var wall = instance_place(x + sign(x_vel), y, obj_solid_parent);
@@ -640,6 +720,39 @@ y = mouse_y;
             <string>/// signal our death
 
 obj_manager.mark_kill_player = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// manual draw object
+
+if (wall_kick_count &gt; 0)
+{
+    d3d_transform_set_identity();
+    d3d_transform_add_scaling(wall_kick_stretch, wall_kick_stretch, 1);
+    d3d_transform_add_translation(x, y, 0);
+    draw_sprite(spr_player_wall_kick_border, 0, 0, 0);
+    d3d_transform_set_identity();
+}
+draw_sprite(sprite_index,image_index,x,y);
 </string>
           </argument>
         </arguments>
