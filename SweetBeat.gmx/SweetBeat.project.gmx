@@ -63,9 +63,10 @@
     <object>objects\obj_action_player</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room3</room>
     <room>rooms\room2</room>
-    <room>rooms\room1</room>
     <room>rooms\lvl_0</room>
+    <room>rooms\room1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

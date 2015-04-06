@@ -43,11 +43,11 @@ x_stick_square = 1; // 4 points not 8 (no center)
 y_stick_square = 0;
 
 grav_accel = 1;
-move_accel = 0.5;
+move_accel = 1;
 move_speed = 20;
 
 //max_speed = min(sprite_width,sprite_height);
-max_speed = 100;
+max_speed = 150;
 </string>
           </argument>
         </arguments>
@@ -162,7 +162,7 @@ wall_kick_stretch = 1;
           </argument>
         </arguments>
       </action>
-	  <action>
+      <action>
         <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
@@ -184,7 +184,7 @@ my_swing = noone;
 swing_x_stick = 0;
 swing_y_stick = 0;
 //in_shooting_grapple = false;
-grapple_length = 80;
+grapple_length = 150;
 //grapple_vel = 45;
 in_swing = false;
 //swing_duration = .125 * obj_manager.fpb;
@@ -563,9 +563,16 @@ else
             <string>///grapple action
 
 if(obj_manager.cmd_swing){
+    
     if (my_swing != noone)
         with (my_swing)
             instance_destroy();
+    if(place_meeting(x+1,y,obj_solid_parent)||
+     place_meeting(x-1,y,obj_solid_parent)||
+     place_meeting(x,y+1,obj_solid_parent)||
+     place_meeting(x,y-1,obj_solid_parent)){
+        return 0;
+    }
     my_swing = instance_create(x,y,obj_swing);
     swing_x_stick = x_stick_square;
     swing_y_stick = y_stick_square;
@@ -601,9 +608,11 @@ if(obj_manager.cmd_swing){
 }
 
 if(in_swing){
+    
    // show_debug_message("goal"+string(goal_angle));
    // show_debug_message("grapple"+string(grapple_angle));
    // show_debug_message("diff"+string(angle_difference(goal_angle,grapple_angle)));
+   
     if(mark_for_finish){
         in_swing=false;
         if (my_swing != noone)
@@ -615,6 +624,13 @@ if(in_swing){
         }
         x_vel = init_magnitude*dcos(goal_angle);
         y_vel = init_magnitude*-dsin(goal_angle);
+        return 0;
+    }
+    if(place_meeting(x+1,y,obj_solid_parent)||
+     place_meeting(x-1,y,obj_solid_parent)||
+     place_meeting(x,y+1,obj_solid_parent)||
+     place_meeting(x,y-1,obj_solid_parent)){
+        mark_for_finish = true;
         return 0;
     }
     if(swing_dir == "clockwise"){
@@ -631,6 +647,7 @@ if(in_swing){
         mark_for_finish = true;
         
     }
+    
     
     with(my_swing){
         start_x = other.x;
