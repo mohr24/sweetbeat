@@ -32,6 +32,7 @@
     <sprite>sprites\spr_stall_icon</sprite>
     <sprite>sprites\spr_none_icon</sprite>
     <sprite>sprites\spr_player_wall_kick_border</sprite>
+    <sprite>sprites\spr_dive_icon</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -63,6 +64,7 @@
     <object>objects\obj_action_player</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_test</room>
     <room>rooms\room3</room>
     <room>rooms\room2</room>
     <room>rooms\lvl_0</room>

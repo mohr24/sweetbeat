@@ -39,6 +39,7 @@ enum command
     jump,
     swing,
     wall_kick,
+    dive,
     none
 }
 
@@ -100,6 +101,7 @@ cmd_blast = false;
 cmd_jump = false;
 cmd_swing = false;
 cmd_wall_kick = false;
+cmd_dive = false;
 
 var fpm = bpm*fpb;
 
@@ -128,10 +130,13 @@ for (index = 0; index &lt; array_length_1d(sequence); index += 1)
             break;
         case command.swing:
             cmd_swing = true;
-			break;
+            break;
         case command.wall_kick:
             cmd_wall_kick = true;
             break;
+        case command.dive :
+            cmd_dive = true;
+            
         default:    // none
             break;
         }
