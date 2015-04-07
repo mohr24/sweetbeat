@@ -370,7 +370,7 @@ if (obj_manager.cmd_action == command.jump)
             <kind>1</kind>
             <string>/// stall action
 
-if (obj_manager.cmd_stall){
+if (obj_manager.cmd_action == command.stall){
     in_stall = stall_length;
     show_debug_message('stall');
 }
@@ -403,7 +403,7 @@ if (in_stall &gt; 0)
             <kind>1</kind>
             <string>///blast action
 
-if (obj_manager.cmd_blast){
+if (obj_manager.cmd_action == command.blast){
     audio_play_sound(snd_blast,10,false);
     in_blast = blast_length;
     if (my_blast != noone)
@@ -485,7 +485,7 @@ else if (my_blast != noone)
           <argument>
             <kind>1</kind>
             <string>/// wall kick action
-if (obj_manager.cmd_wall_kick)
+if (obj_manager.cmd_action == command.wall_kick)
 {
     wall_kick_count = wall_kick_animation;
     if (on_ground || on_left_wall || on_right_wall)
@@ -585,7 +585,7 @@ else
             <kind>1</kind>
             <string>///grapple action
 
-if(obj_manager.cmd_swing){
+if(obj_manager.cmd_action == command.swing){
     
     if (my_swing != noone)
         with (my_swing)
