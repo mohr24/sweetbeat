@@ -9,6 +9,7 @@
     <sound>sound\snd_beat_tick</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_blast</sound>
+    <sound>sound\electroswing120bpm</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -34,6 +35,7 @@
     <sprite>sprites\spr_player_wall_kick_border</sprite>
     <sprite>sprites\spr_dive_icon</sprite>
     <sprite>sprites\spr_speed_up_icon</sprite>
+    <sprite>sprites\spr_grapple_icon</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -65,11 +67,13 @@
     <object>objects\obj_action_player</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_grapple</room>
+    <room>rooms\rm_grapple_2</room>
     <room>rooms\rm_test</room>
     <room>rooms\lvl_0</room>
     <room>rooms\room1</room>
-    <room>rooms\room3</room>
     <room>rooms\room2</room>
+    <room>rooms\room5</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

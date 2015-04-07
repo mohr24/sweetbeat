@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// variable initialization
 sequence[0] = Pair(0,command.none);
+first_beat_sequence=false;
 </string>
           </argument>
         </arguments>
@@ -52,10 +53,13 @@ sequence[0] = Pair(0,command.none);
             <string>/// set beat
 if (obj_manager.beat_id != id)
 {
+    if(first_beat_sequence)
+        audio_play_sound(electroswing120bpm,10,false);
     obj_manager.beat_id = id;
     obj_manager.sequence = sequence;
 }
 obj_manager.checkpoint_id = id;
+
 </string>
           </argument>
         </arguments>

@@ -42,6 +42,7 @@ with(obj_manager){
     other.sprites[ command.none] = spr_none_icon;
     other.sprites[ command.dive] = spr_dive_icon;
     other.sprites[ command.speed_up] = spr_speed_up_icon;
+    other.sprites[ command.swing] = spr_grapple_icon;
 }
 
 

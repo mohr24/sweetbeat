@@ -283,8 +283,10 @@ if (y_stick == 0)
     y_stick_square = 0;
     if (x_stick &lt; 0)
         x_stick_square = -1;
-    else
+    else if (x_stick &gt; 0)
         x_stick_square = 1;
+    else 
+        x_stick_square = 0;
 }
 else
 {
