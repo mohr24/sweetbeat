@@ -211,9 +211,15 @@ mark_for_finish = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///dive var
-max_move = 100;
+            <string>///dive and speed up
+max_move = 100; // for dive
 continue_move = false;
+
+
+speed_up_step = .25 * room_speed;
+step_left = 0;
+speed_up_s = 10;
+continue_speed = false;
 </string>
           </argument>
         </arguments>
@@ -742,6 +748,37 @@ if ((obj_manager.cmd_action == command.dive) or continue_move){
     }
     if (place_meeting(x, y+1, obj_solid_parent))
         continue_move = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///speed up
+
+
+if (obj_manager.cmd_action == command.speed_up){
+    step_left = speed_up_step;   
+}
+
+if (step_left &gt; 0){
+    step_left--;
+    x_vel += horizontal_axis * speed_up_s;
 }
 </string>
           </argument>
