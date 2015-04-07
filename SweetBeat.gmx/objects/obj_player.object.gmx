@@ -343,7 +343,7 @@ if (obj_manager.kill_player)
           <argument>
             <kind>1</kind>
             <string>/// jump action
-if (obj_manager.cmd_jump)
+if (obj_manager.cmd_action == command.jump)
 {
     y_vel = jmp_vel;
     audio_play_sound(snd_jump,10,false);
@@ -732,7 +732,7 @@ if(in_shooting_grapple){
             <kind>1</kind>
             <string>///dive
 
-if (obj_manager.cmd_dive or continue_move){
+if ((obj_manager.cmd_action == command.dive) or continue_move){
     continue_move = true;
     var i = 0;
     while (not place_meeting(x, y + 1, obj_solid_parent)){

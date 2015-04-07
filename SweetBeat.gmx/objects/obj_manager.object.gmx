@@ -40,6 +40,7 @@ enum command
     swing,
     wall_kick,
     dive,
+    speedup,
     none
 }
 
@@ -103,6 +104,8 @@ cmd_swing = false;
 cmd_wall_kick = false;
 cmd_dive = false;
 
+cmd_action = command.none;
+
 var fpm = bpm*fpb;
 
 if (counter &gt;= fpm)
@@ -116,7 +119,8 @@ for (index = 0; index &lt; array_length_1d(sequence); index += 1)
     var action = pair[1];
     if (((counter - 1)/fpb &lt;= time &amp;&amp; counter / fpb &gt; time)
     || ((counter + fpm - 1)/fpb &lt;= time &amp;&amp; (counter + fpm) &gt; time))
-    {
+    {   
+        cmd_action = action;
         switch(action)
         {
         case command.stall:
