@@ -45,9 +45,6 @@ y_stick_square = 0;
 grav_accel = 1;
 move_accel = 1;
 move_speed = 20;
-
-//max_speed = min(sprite_width,sprite_height);
-max_speed = 150;
 </string>
           </argument>
         </arguments>
@@ -536,41 +533,56 @@ else
             <kind>1</kind>
             <string>/// player movement and collision triggering
 
-x_vel = clamp(x_vel, -max_speed, max_speed);
-y_vel = clamp(y_vel, -max_speed, max_speed);
+var speed_cap = min(sprite_width, sprite_height);
 
 on_left_wall = false;
 on_right_wall = false;
-if (place_meeting(x + x_vel, y, obj_solid_parent))
+
+x_vel_remain = x_vel;
+
+while (x_vel_remain != 0)
 {
-    if (x_vel &gt; 0)
-        on_right_wall = true;
-    else
-        on_left_wall = true;
-    while (!place_meeting(x + sign(x_vel), y, obj_solid_parent))
-        x += sign(x_vel);
-    var wall = instance_place(x + sign(x_vel), y, obj_solid_parent);
-    with (wall)
-        event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
-    x_vel = 0;
+    var x_vel_now = clamp(x_vel_remain, -speed_cap, speed_cap);
+    if (place_meeting(x + x_vel_now, y, obj_solid_parent))
+    {
+        if (x_vel_now &gt; 0)
+            on_right_wall = true;
+        else
+            on_left_wall = true;
+        while (!place_meeting(x + sign(x_vel_now), y, obj_solid_parent))
+            x += sign(x_vel);
+        var wall = instance_place(x + sign(x_vel_now), y, obj_solid_parent);
+        with (wall)
+            event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
+        x_vel = 0;
+        break;
+    }
+    x += x_vel_now;
+    x_vel_remain -= x_vel_now;
 }
-else
-    x += x_vel;
 
 on_ground = false;
-if (place_meeting(x, y + y_vel, obj_solid_parent))
+
+y_vel_remain = y_vel;
+
+while (y_vel_remain != 0)
 {
-    if (y_vel &gt; 0)
-        on_ground = true;
-    while (!place_meeting(x, y + sign(y_vel), obj_solid_parent))
-        y += sign(y_vel);
-    var wall = instance_place(x, y + sign(y_vel), obj_solid_parent);
-    with (wall)
-        event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
-    y_vel = 0;
+    var y_vel_now = clamp(y_vel_remain, -speed_cap, speed_cap);
+    if (place_meeting(x, y + y_vel_now, obj_solid_parent))
+    {
+        if (y_vel_now &gt; 0)
+            on_ground = true;
+        while (!place_meeting(x, y + sign(y_vel_now), obj_solid_parent))
+            y += sign(y_vel);
+        var wall = instance_place(x, y + sign(y_vel_now), obj_solid_parent);
+        with (wall)
+            event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
+        y_vel = 0;
+        break;
+    }
+    y += y_vel_now;
+    y_vel_remain -= y_vel_now;
 }
-else
-    y += y_vel;
 </string>
           </argument>
         </arguments>
