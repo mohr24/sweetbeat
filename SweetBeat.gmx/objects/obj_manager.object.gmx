@@ -43,6 +43,8 @@ enum command
     wall_kick,
     dive,
     speed_up,
+    swipe,
+    
     none
 }
 

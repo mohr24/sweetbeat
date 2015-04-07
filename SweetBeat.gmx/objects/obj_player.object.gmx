@@ -39,7 +39,7 @@ on_right_wall = false;
 
 x_stick = 0;    // 8 point direction (center included)
 y_stick = 0;
-x_stick_square = 1; // 4 points not 8 (no center)
+x_stick_square = 0; // 4 points not 8 (center included)
 y_stick_square = 0;
 
 grav_accel = 1;
@@ -221,6 +221,38 @@ continue_speed = false;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// swipe variables
+
+swipe_length = .25*obj_manager.fpb;
+swipe_count = 0;
+
+swipe_vel = 28;
+
+swipe_instance = noone;
+swipe_offset = sprite_width / 2;
+
+swipe_off_x = 0;
+swipe_off_y = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -244,6 +276,9 @@ continue_speed = false;
 var horizontal_axis;
 var vertical_axis;
 
+var h_axis_2;
+var v_axis_2;
+
 var deadzone = .5;
 
 // controller check
@@ -252,14 +287,23 @@ if (gamepad_is_connected(0))
     horizontal_axis = gamepad_axis_value(0, gp_axislh);
     vertical_axis = gamepad_axis_value(0, gp_axislv);
     
+    h_axis_2 = gamepad_axis_value(0, gp_axisrh);
+    v_axis_2 = gamepad_axis_value(0, gp_axisrv);
+    
     // deadzone checks
     if (abs(horizontal_axis) &lt; deadzone)
         horizontal_axis = 0;
     if (abs(vertical_axis) &lt; deadzone)
         vertical_axis = 0;
+    if (abs(h_axis_2) &lt; deadzone)
+        h_axis_2 = 0;
+    if (abs(v_axis_2) &lt; deadzone)
+        v_axis_2 = 0;
 }
 else // keyboard check
 {
+    h_axis_2 = keyboard_check(ord('D')) - keyboard_check(ord('A'));
+    v_axis_2 = keyboard_check(ord('S')) - keyboard_check(ord('W'));
     horizontal_axis = keyboard_check(vk_right) - keyboard_check(vk_left);
     vertical_axis = keyboard_check(vk_down) - keyboard_check(vk_up);
 }
@@ -273,17 +317,12 @@ else if (x_vel &lt; x_vel_target - move_accel)
 else
     x_vel = x_vel_target;
 y_vel += grav_accel;
-x_stick = clamp(horizontal_axis / deadzone, -1, 1); // -1, 0, or 1
-y_stick = clamp(vertical_axis / deadzone, -1, 1);   // division by deadzone to make easy math
+x_stick = clamp(h_axis_2 / deadzone, -1, 1); // -1, 0, or 1
+y_stick = clamp(v_axis_2 / deadzone, -1, 1);   // division by deadzone to make easy math
 if (y_stick == 0)
 {
     y_stick_square = 0;
-    if (x_stick &lt; 0)
-        x_stick_square = -1;
-    else if (x_stick &gt; 0)
-        x_stick_square = 1;
-    else 
-        x_stick_square = 0;
+    x_stick_square = x_stick;
 }
 else
 {
@@ -582,6 +621,63 @@ while (y_vel_remain != 0)
     }
     y += y_vel_now;
     y_vel_remain -= y_vel_now;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// swipe
+
+if (CheckCommand(command.swipe))
+{
+    swipe_count = swipe_length;
+    if (swipe_instance != noone)
+    {
+        with (swipe_instance)
+            instance_destroy();
+        swipe_instance = noone;
+    }
+    swipe_off_x = x_stick_square * swipe_offset;
+    swipe_off_y = y_stick_square * swipe_offset;
+    if (x_stick_square != 0 || y_stick_square != 0)
+    {
+        swipe_instance = instance_create(x + swipe_off_x, y + swipe_off_y, obj_swipe);
+        swipe_instance.image_angle = point_direction(0,0,x_stick_square,y_stick_square);
+    }
+}
+    
+if (swipe_count &gt; 0)
+{
+    if (swipe_instance != noone)
+    {
+        swipe_instance.x = x + swipe_off_x;
+        swipe_instance.y = y + swipe_off_y;
+    }
+    x_vel = sign(swipe_off_x)*swipe_vel;
+    y_vel = sign(swipe_off_y)*swipe_vel;
+    swipe_count -= 1;
+}
+else if (swipe_instance != noone)
+{
+    with (swipe_instance)
+        instance_destroy();
+    swipe_instance = noone;
 }
 </string>
           </argument>
