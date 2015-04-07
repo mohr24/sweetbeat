@@ -42,6 +42,7 @@
   <scripts name="scripts">
     <script>scripts\Pair.gml</script>
     <script>scripts\outside_view.gml</script>
+    <script>scripts\CheckCommand.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -67,8 +68,8 @@
     <object>objects\obj_action_player</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_grapple</room>
     <room>rooms\room2</room>
+    <room>rooms\rm_grapple</room>
     <room>rooms\room1</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_grapple_2</room>
