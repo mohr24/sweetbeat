@@ -59,11 +59,7 @@ mark_kill_player = false;
 tick_beat = false;  // every beat
 down_beat = false;  // first beat of the measure
 
-cmd_stall = false;
-cmd_blast = false;
-cmd_jump = false;
-cmd_swing = false;
-cmd_wall_kick = false;
+command_bitmask = 0;
 
 kill_player = false;
 
@@ -98,31 +94,12 @@ instance_create(0,0,obj_audio);
             <kind>1</kind>
             <string>/// read check the timeline
 
-// set all variable to false
-
-//Don't add code here 
-//Use obj_manager.cmd_action == command.[your_action] to test in your action code
-//Eg. 
-//      if (obj_manager.cmd_action == command.jump)
-//      {
-//             Jump code here.
-//      }
-//  This approach can also extend for concurrent actions if needed in the future.
-//  By Yan
-
-/*cmd_stall = false;
-cmd_blast = false;
-cmd_jump = false;
-cmd_swing = false;
-cmd_wall_kick = false;
-cmd_dive = false;
-*/
-cmd_action = command.none;
-
 var fpm = bpm*fpb;
 
 if (counter &gt;= fpm)
     counter = counter % fpm;
+    
+command_bitmask = 0;
 
 // check for all actions (before this beat that haven't been processed yet)
 for (index = 0; index &lt; array_length_1d(sequence); index += 1)
@@ -133,41 +110,7 @@ for (index = 0; index &lt; array_length_1d(sequence); index += 1)
     if (((counter - 1)/fpb &lt;= time &amp;&amp; counter / fpb &gt; time)
     || ((counter + fpm - 1)/fpb &lt;= time &amp;&amp; (counter + fpm) &gt; time))
     {   
-        cmd_action = action;
-        //Don't add code here 
-        //Use obj_manager.cmd_action == command.[your_action] to test in your action code
-        //Eg. 
-        //      if (obj_manager.cmd_action == command.jump)
-        //      {
-        //             Jump code here.
-        //      }
-        //  By Yan
-
-
-/*        switch(action)
-        {
-        case command.stall:
-            cmd_stall = true;
-            break;
-        case command.blast:
-            cmd_blast = true;
-            break;
-        case command.jump:
-            cmd_jump = true;
-            break;
-        case command.swing:
-            cmd_swing = true;
-            break;
-        case command.wall_kick:
-            cmd_wall_kick = true;
-            break;
-        case command.dive :
-            cmd_dive = true;
-            
-        default:    // none
-            break;
-        }
-        */
+        command_bitmask = command_bitmask | (1 &lt;&lt; action);
     }
 }
 

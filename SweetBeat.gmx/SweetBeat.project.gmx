@@ -42,6 +42,7 @@
   <scripts name="scripts">
     <script>scripts\Pair.gml</script>
     <script>scripts\outside_view.gml</script>
+    <script>scripts\CheckCommand.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
