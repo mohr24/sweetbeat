@@ -268,7 +268,7 @@ else // keyboard check
 // variable updates
 var x_vel_target = horizontal_axis * move_speed;
 
-
+    
 if(on_ground){
     if (x_vel &gt; x_vel_target + move_accel)
         x_vel -= move_accel;
