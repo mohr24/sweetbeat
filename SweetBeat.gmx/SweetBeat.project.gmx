@@ -10,6 +10,7 @@
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_blast</sound>
     <sound>sound\electroswing120bpm</sound>
+    <sound>sound\snd_dive</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -37,6 +38,7 @@
     <sprite>sprites\spr_speed_up_icon</sprite>
     <sprite>sprites\spr_grapple_icon</sprite>
     <sprite>sprites\spr_swipe</sprite>
+    <sprite>sprites\spr_select_room</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -51,6 +53,7 @@
     <object>objects\obj_kill</object>
     <object>objects\obj_manager</object>
     <object>objects\obj_beat</object>
+    <object>objects\obj_beat_test</object>
     <object>objects\obj_solid_parent</object>
     <object>objects\obj_audio</object>
     <object>objects\obj_blast</object>
@@ -68,14 +71,15 @@
     <object>objects\obj_actions</object>
     <object>objects\obj_action_player</object>
     <object>objects\obj_swipe</object>
+    <object>objects\obj_select_room</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_test</room>
     <room>rooms\room2</room>
     <room>rooms\rm_grapple</room>
     <room>rooms\room1</room>
-    <room>rooms\rm_test</room>
     <room>rooms\rm_grapple_2</room>
-    <room>rooms\lvl_0</room>
+    <room>rooms\rm_lvl_1</room>
     <room>rooms\room5</room>
   </rooms>
   <help>
