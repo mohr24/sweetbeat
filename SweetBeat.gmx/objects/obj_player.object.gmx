@@ -44,7 +44,8 @@ y_stick_square = 0;
 
 grav_accel = 1;
 move_accel = 1;
-move_speed = 20;
+move_speed = 8;
+air_speed = 15;
 </string>
           </argument>
         </arguments>
@@ -310,12 +311,29 @@ else // keyboard check
 
 // variable updates
 var x_vel_target = horizontal_axis * move_speed;
-if (x_vel &gt; x_vel_target + move_accel)
-    x_vel -= move_accel;
-else if (x_vel &lt; x_vel_target - move_accel)
-    x_vel += move_accel;
-else
-    x_vel = x_vel_target;
+
+    
+if(on_ground){
+    if (x_vel &gt; x_vel_target + move_accel)
+        x_vel -= move_accel;
+    else if (x_vel &lt; x_vel_target - move_accel)
+        x_vel += move_accel;
+    else
+        x_vel = x_vel_target;
+}else{
+    if(horizontal_axis &gt; 0){
+        if(x_vel &lt; x_vel_target - move_accel)
+            x_vel += move_accel;
+        else if(x_vel == x_vel_target - move_accel)
+            x_vel = x_vel_target;
+    }else if(horizontal_axis &lt; 0){
+        if(x_vel &gt; x_vel_target + move_accel)
+            x_vel -= move_accel;
+        else if(x_vel == x_vel_target + move_accel)
+            x_vel = x_vel_target;
+    }
+}
+
 y_vel += grav_accel;
 x_stick = clamp(h_axis_2 / deadzone, -1, 1); // -1, 0, or 1
 y_stick = clamp(v_axis_2 / deadzone, -1, 1);   // division by deadzone to make easy math
@@ -848,7 +866,7 @@ if(in_shooting_grapple){
             <kind>1</kind>
             <string>///dive
 
-if ((CheckCommand(command.dive)) || continue_move){
+if (CheckCommand(command.dive) or continue_move){
     continue_move = true;
     var i = 0;
     while (not place_meeting(x, y + 1, obj_solid_parent)){

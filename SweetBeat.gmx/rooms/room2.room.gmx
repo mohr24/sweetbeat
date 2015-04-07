@@ -53,7 +53,7 @@
   <instances>
     <instance objName="obj_manager" x="64" y="32" name="inst_994BE62E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="192" y="320" name="inst_02830789" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat" x="192" y="384" name="inst_5F0B720F" locked="0" code="sequence[0] = Pair(0,command.swing);&#xA;sequence[1] = Pair(3,command.jump);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat" x="192" y="384" name="inst_5F0B720F" locked="0" code="sequence[0] = Pair(0,command.jump);&#xA;sequence[1] = Pair(2,command.jump);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="32" y="448" name="inst_1E2DE1B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="96" y="448" name="inst_D4087E73" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="160" y="448" name="inst_5EB54819" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
