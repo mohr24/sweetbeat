@@ -189,6 +189,7 @@ in_swing = false;
 swing_vel = 10;
 mark_for_finish = false;
 
+y_adjust = 2;
 </string>
           </argument>
         </arguments>
@@ -673,8 +674,8 @@ if(in_swing){
    // show_debug_message("goal"+string(goal_angle));
    // show_debug_message("grapple"+string(grapple_angle));
    // show_debug_message("diff"+string(angle_difference(goal_angle,grapple_angle)));
-   
-    if(mark_for_finish){
+    
+    if(mark_for_finish || obj_manager.mark_kill_player){
         in_swing=false;
         if (my_swing != noone)
         {
@@ -684,7 +685,7 @@ if(in_swing){
             my_swing = noone;
         }
         x_vel = init_magnitude*dcos(goal_angle);
-        y_vel = init_magnitude*-dsin(goal_angle);
+        y_vel = init_magnitude*-dsin(goal_angle)-y_adjust;
         return 0;
     }
     if(place_meeting(x+1,y,obj_solid_parent)||
