@@ -9,6 +9,7 @@
     <sound>sound\snd_beat_tick</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_blast</sound>
+    <sound>sound\electroswing120bpm</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -27,19 +28,22 @@
     <sprite>sprites\spr_manager</sprite>
     <sprite>sprites\spr_destruct</sprite>
     <sprite>sprites\spr_finish</sprite>
-<<<<<<< HEAD
-    <sprite>sprites\spr_player_wall_kick_border</sprite>
-=======
     <sprite>sprites\spr_jump_icon</sprite>
     <sprite>sprites\spr_blast_icon</sprite>
     <sprite>sprites\spr_stall_icon</sprite>
     <sprite>sprites\spr_none_icon</sprite>
->>>>>>> c00213dcb592bad8065a3f528a26e13db29b5ddb
+    <sprite>sprites\spr_player_wall_kick_border</sprite>
+    <sprite>sprites\spr_dive_icon</sprite>
+    <sprite>sprites\spr_speed_up_icon</sprite>
+    <sprite>sprites\spr_grapple_icon</sprite>
+    <sprite>sprites\spr_swipe</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\Pair.gml</script>
+    <script>scripts\outside_view.gml</script>
+    <script>scripts\CheckCommand.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -60,12 +64,28 @@
     <object>objects\obj_checkpoint</object>
     <object>objects\obj_kill_destruct</object>
     <object>objects\obj_finish</object>
+    <object>objects\obj_swing</object>
     <object>objects\obj_actions</object>
     <object>objects\obj_action_player</object>
+    <object>objects\obj_swipe</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room1</room>
+<<<<<<< HEAD
     <room>rooms\lvl_0</room>
+=======
+    <room>rooms\room2</room>
+>>>>>>> 86b2afb5c32f3f38c5fb8b163b47ccf91e4d6b06
+    <room>rooms\rm_grapple</room>
+    <room>rooms\room1</room>
+    <room>rooms\rm_test</room>
+<<<<<<< HEAD
+    <room>rooms\room1</room>
+    <room>rooms\room2</room>
+=======
+    <room>rooms\rm_grapple_2</room>
+    <room>rooms\lvl_0</room>
+>>>>>>> 86b2afb5c32f3f38c5fb8b163b47ccf91e4d6b06
+    <room>rooms\room5</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
