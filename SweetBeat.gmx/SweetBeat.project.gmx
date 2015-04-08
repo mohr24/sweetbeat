@@ -77,11 +77,10 @@
     <object>objects\obj_select_room</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\lvl_2</room>
     <room>rooms\lvl_3</room>
     <room>rooms\rm_grapple_2</room>
-    <room>rooms\lvl_2</room>
     <room>rooms\rm_grapple</room>
-    <room>rooms\rm_grapple_2</room>
     <room>rooms\rm_test</room>
   </rooms>
   <help>
