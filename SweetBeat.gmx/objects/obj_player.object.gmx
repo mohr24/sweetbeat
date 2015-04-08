@@ -46,6 +46,8 @@ grav_accel = 1;
 move_accel = 1;
 move_speed = 8;
 air_speed = 15;
+wall_slide_speed = 6.5;
+wall_deccel = 2;
 </string>
           </argument>
         </arguments>
@@ -147,8 +149,8 @@ y_blast_offset = 0;//sprite_get_height(spr_player)/2;
             <kind>1</kind>
             <string>/// wall kick variables
 
-wall_kick_h_vel = 20;
-wall_kick_v_vel = 18;
+wall_kick_h_vel = 16;
+wall_kick_v_vel = 16;
 
 wall_kick_animation = 5;
 wall_kick_scale = 1.1;
@@ -189,6 +191,7 @@ in_swing = false;
 swing_vel = 10;
 mark_for_finish = false;
 
+y_adjust = 2;
 </string>
           </argument>
         </arguments>
@@ -250,6 +253,34 @@ swipe_offset = sprite_width / 2;
 
 swipe_off_x = 0;
 swipe_off_y = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// pause variables
+
+pause_length = .5*obj_manager.fpb;
+
+pause_counter = 0;
+
+pause_x_vel = 0;
+pause_y_vel = 0;
 </string>
           </argument>
         </arguments>
@@ -546,28 +577,54 @@ else if (my_blast != noone)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// wall kick action
-if (CheckCommand(command.wall_kick))
-{
-    wall_kick_count = wall_kick_animation;
-    if (on_ground || on_left_wall || on_right_wall)
-    {
-        y_vel = -wall_kick_v_vel;
-        if (on_left_wall)
-            x_vel = wall_kick_h_vel;
-        else if (on_right_wall)
-            x_vel = -wall_kick_h_vel;
-    }
-}
+            <string>/// wall slide
 
-if (wall_kick_count &gt; 0)
+if ((on_left_wall || on_right_wall) &amp;&amp; y_vel &gt; wall_slide_speed)
 {
-    var inter = wall_kick_count / wall_kick_animation;
-    wall_kick_stretch = wall_kick_scale * inter + 1*(1 - inter);
-    wall_kick_count -= 1;
+    y_vel -= wall_deccel;
+    if (y_vel &lt; wall_slide_speed)
+        y_vel = wall_slide_speed;
 }
-else
-    wall_kick_stretch = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// pause action
+
+if (CheckCommand(command.pause))
+{
+    pause_counter = pause_length;
+    pause_x_vel = 0;
+    pause_y_vel = 0;
+}
+    
+if (pause_counter &gt; 0)
+{
+    x_vel = 0;
+    y_vel = 0;
+    pause_counter -= 1;
+}
+else if (pause_x_vel != 0 || pause_y_vel != 0)
+{
+    x_vel = pause_x_vel;
+    y_vel = pause_y_vel;
+}
 </string>
           </argument>
         </arguments>
@@ -608,9 +665,19 @@ while (x_vel_remain != 0)
             on_left_wall = true;
         while (!place_meeting(x + sign(x_vel_now), y, obj_solid_parent))
             x += sign(x_vel);
-        var wall = instance_place(x + sign(x_vel_now), y, obj_solid_parent);
-        with (wall)
-            event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
+        var c_list;
+        for (var i = 0; true; i += 1)
+        {
+            var wall = instance_place(x + sign(x_vel_now), y, obj_solid_parent);
+            if (wall == noone)
+                break;
+            c_list[i] = wall;
+            with (wall)
+                event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
+            instance_deactivate_object(wall);
+        }
+        for (var i = 0; i &lt; array_length_1d(c_list); i += 1)
+            instance_activate_object(c_list[i]);
         x_vel = 0;
         break;
     }
@@ -631,9 +698,19 @@ while (y_vel_remain != 0)
             on_ground = true;
         while (!place_meeting(x, y + sign(y_vel_now), obj_solid_parent))
             y += sign(y_vel);
-        var wall = instance_place(x, y + sign(y_vel_now), obj_solid_parent);
-        with (wall)
-            event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
+        var c_list;
+        for (var i = 0; true; i += 1)
+        {
+            var wall = instance_place(x, y + sign(y_vel_now), obj_solid_parent);
+            if (wall == noone)
+                break;
+            c_list[i] = wall;
+            with (wall)
+                event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
+            instance_deactivate_object(wall);
+        }
+        for (var i = 0; i &lt; array_length_1d(c_list); i += 1)
+            instance_activate_object(c_list[i]);
         y_vel = 0;
         break;
     }
@@ -660,10 +737,57 @@ while (y_vel_remain != 0)
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// wall kick action
+if (CheckCommand(command.wall_kick))
+{
+    wall_kick_count = wall_kick_animation;
+    if (on_ground || on_left_wall || on_right_wall)
+    {
+        y_vel = -wall_kick_v_vel;
+        if (!on_ground)
+        {
+            if (on_left_wall)
+                x_vel = wall_kick_h_vel;
+            else if (on_right_wall)
+                x_vel = -wall_kick_h_vel;
+        }
+    }
+    audio_play_sound(snd_wall_kick,10,false);
+}
+
+if (wall_kick_count &gt; 0)
+{
+    var inter = wall_kick_count / wall_kick_animation;
+    wall_kick_stretch = wall_kick_scale * inter + 1*(1 - inter);
+    wall_kick_count -= 1;
+}
+else
+    wall_kick_stretch = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// swipe
 
 if (CheckCommand(command.swipe))
 {
+    audio_play_sound(snd_swipe, 10, false);
     swipe_count = swipe_length;
     if (swipe_instance != noone)
     {
@@ -678,6 +802,8 @@ if (CheckCommand(command.swipe))
         swipe_instance = instance_create(x + swipe_off_x, y + swipe_off_y, obj_swipe);
         swipe_instance.image_angle = point_direction(0,0,x_stick_square,y_stick_square);
     }
+    else
+        swipe_instance = instance_create(x + swipe_offset, y, obj_swipe);
 }
     
 if (swipe_count &gt; 0)
@@ -727,9 +853,11 @@ if(CheckCommand(command.swing)){
     if(place_meeting(x+1,y,obj_solid_parent)||
      place_meeting(x-1,y,obj_solid_parent)||
      place_meeting(x,y+1,obj_solid_parent)||
-     place_meeting(x,y-1,obj_solid_parent)){
+     place_meeting(x,y-1,obj_solid_parent)||
+     x_stick_square == 0 &amp;&amp; y_stick_square == 0){
         return 0;
     }
+    
     my_swing = instance_create(x,y,obj_swing);
     swing_x_stick = x_stick_square;
     swing_y_stick = y_stick_square;
@@ -769,8 +897,8 @@ if(in_swing){
    // show_debug_message("goal"+string(goal_angle));
    // show_debug_message("grapple"+string(grapple_angle));
    // show_debug_message("diff"+string(angle_difference(goal_angle,grapple_angle)));
-   
-    if(mark_for_finish){
+    
+    if(mark_for_finish || obj_manager.mark_kill_player){
         in_swing=false;
         if (my_swing != noone)
         {
@@ -780,7 +908,7 @@ if(in_swing){
             my_swing = noone;
         }
         x_vel = init_magnitude*dcos(goal_angle);
-        y_vel = init_magnitude*-dsin(goal_angle);
+        y_vel = init_magnitude*-dsin(goal_angle)-y_adjust;
         return 0;
     }
     if(place_meeting(x+1,y,obj_solid_parent)||
