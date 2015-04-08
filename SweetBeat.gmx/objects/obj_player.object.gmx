@@ -999,8 +999,10 @@ if (CheckCommand(command.dive) or continue_move){
         i++;
         if (i&gt;=max_move) break;
     }
-    if (place_meeting(x, y+1, obj_solid_parent))
+    if (place_meeting(x, y+1, obj_solid_parent)){
         continue_move = false;
+        audio_play_sound(snd_dive,10,false);
+    }
 }
 </string>
           </argument>
