@@ -853,9 +853,11 @@ if(CheckCommand(command.swing)){
     if(place_meeting(x+1,y,obj_solid_parent)||
      place_meeting(x-1,y,obj_solid_parent)||
      place_meeting(x,y+1,obj_solid_parent)||
-     place_meeting(x,y-1,obj_solid_parent)){
+     place_meeting(x,y-1,obj_solid_parent)||
+     x_stick_square == 0 &amp;&amp; y_stick_square == 0){
         return 0;
     }
+    
     my_swing = instance_create(x,y,obj_swing);
     swing_x_stick = x_stick_square;
     swing_y_stick = y_stick_square;
