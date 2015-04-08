@@ -43,6 +43,11 @@ with(obj_manager){
     other.sprites[ command.dive] = spr_dive_icon;
     other.sprites[ command.speed_up] = spr_speed_up_icon;
     other.sprites[ command.swing] = spr_grapple_icon;
+<<<<<<< HEAD
+=======
+    other.sprites[ command.wall_kick] = spr_wall_kick_icon;
+    other.sprites[ command.swipe] = spr_swipe_icon;
+>>>>>>> 4c100fa263213980ea08b29cb7b6046f27d336bb
 }
 
 

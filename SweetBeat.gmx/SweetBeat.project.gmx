@@ -39,6 +39,11 @@
     <sprite>sprites\spr_grapple_icon</sprite>
     <sprite>sprites\spr_swipe</sprite>
     <sprite>sprites\spr_select_room</sprite>
+<<<<<<< HEAD
+=======
+    <sprite>sprites\spr_wall_kick_icon</sprite>
+    <sprite>sprites\spr_swipe_icon</sprite>
+>>>>>>> 4c100fa263213980ea08b29cb7b6046f27d336bb
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
