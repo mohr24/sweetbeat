@@ -80,11 +80,9 @@
     <room>rooms\lvl_3</room>
     <room>rooms\rm_grapple_2</room>
     <room>rooms\lvl_2</room>
-    <room>rooms\rm_test</room>
-    <room>rooms\room2</room>
-    <room>rooms\room1</room>
-    <room>rooms\rm_lvl_1</room>
     <room>rooms\rm_grapple</room>
+    <room>rooms\rm_grapple_2</room>
+    <room>rooms\rm_test</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
