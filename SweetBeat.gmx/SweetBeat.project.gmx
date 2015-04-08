@@ -10,6 +10,8 @@
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_blast</sound>
     <sound>sound\electroswing120bpm</sound>
+    <sound>sound\snd_wall_kick</sound>
+    <sound>sound\snd_swipe</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -70,6 +72,7 @@
     <object>objects\obj_swipe</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\lvl_2</room>
     <room>rooms\room2</room>
     <room>rooms\rm_grapple</room>
     <room>rooms\room1</room>
