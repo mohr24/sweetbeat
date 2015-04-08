@@ -81,6 +81,7 @@
     <room>rooms\rm_grapple_2</room>
     <room>rooms\rm_lvl_1</room>
     <room>rooms\room5</room>
+    <room>rooms\rm_learn</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
