@@ -41,6 +41,7 @@
     <sprite>sprites\spr_grapple_icon</sprite>
     <sprite>sprites\spr_swipe</sprite>
     <sprite>sprites\spr_select_room</sprite>
+    <sprite>sprites\spr_wall_kick_icon</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
