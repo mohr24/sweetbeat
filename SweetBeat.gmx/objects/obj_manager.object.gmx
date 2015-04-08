@@ -44,7 +44,6 @@ enum command
     dive,
     speed_up,
     swipe,
-    pause,
     
     none
 }

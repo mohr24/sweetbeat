@@ -10,8 +10,6 @@
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_blast</sound>
     <sound>sound\electroswing120bpm</sound>
-    <sound>sound\snd_wall_kick</sound>
-    <sound>sound\snd_swipe</sound>
     <sound>sound\snd_dive</sound>
   </sounds>
   <sprites name="sprites">
@@ -41,8 +39,11 @@
     <sprite>sprites\spr_grapple_icon</sprite>
     <sprite>sprites\spr_swipe</sprite>
     <sprite>sprites\spr_select_room</sprite>
+<<<<<<< HEAD
+=======
     <sprite>sprites\spr_wall_kick_icon</sprite>
     <sprite>sprites\spr_swipe_icon</sprite>
+>>>>>>> 4c100fa263213980ea08b29cb7b6046f27d336bb
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -83,6 +84,7 @@
     <room>rooms\lvl_3</room>
     <room>rooms\rm_grapple_2</room>
     <room>rooms\rm_grapple</room>
+	<room>rooms\rm_learn</room>
     <room>rooms\rm_test</room>
   </rooms>
   <help>
