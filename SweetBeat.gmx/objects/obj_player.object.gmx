@@ -158,6 +158,8 @@ wall_kick_scale = 1.1;
 wall_kick_count = 0;
 
 wall_kick_stretch = 1;
+
+wall_kick_error = 3;
 </string>
           </argument>
         </arguments>
@@ -665,19 +667,13 @@ while (x_vel_remain != 0)
             on_left_wall = true;
         while (!place_meeting(x + sign(x_vel_now), y, obj_solid_parent))
             x += sign(x_vel);
-        var c_list;
-        for (var i = 0; true; i += 1)
+        var c_list = ds_list_create();
+        InstancePlaceList(c_list, x + sign(x_vel_now), y, obj_solid_parent);
+        for (var i = 0; i &lt; ds_list_size(c_list); i += 1)
         {
-            var wall = instance_place(x + sign(x_vel_now), y, obj_solid_parent);
-            if (wall == noone)
-                break;
-            c_list[i] = wall;
-            with (wall)
+            with (ds_list_find_value(c_list,i))
                 event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
-            instance_deactivate_object(wall);
         }
-        for (var i = 0; i &lt; array_length_1d(c_list); i += 1)
-            instance_activate_object(c_list[i]);
         x_vel = 0;
         break;
     }
@@ -698,19 +694,13 @@ while (y_vel_remain != 0)
             on_ground = true;
         while (!place_meeting(x, y + sign(y_vel_now), obj_solid_parent))
             y += sign(y_vel);
-        var c_list;
-        for (var i = 0; true; i += 1)
+        var c_list = ds_list_create();
+        InstancePlaceList(c_list, x, y + sign(y_vel_now), obj_solid_parent);
+        for (var i = 0; i &lt; ds_list_size(c_list); i += 1)
         {
-            var wall = instance_place(x, y + sign(y_vel_now), obj_solid_parent);
-            if (wall == noone)
-                break;
-            c_list[i] = wall;
-            with (wall)
+            with (ds_list_find_value(c_list, i))
                 event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
-            instance_deactivate_object(wall);
         }
-        for (var i = 0; i &lt; array_length_1d(c_list); i += 1)
-            instance_activate_object(c_list[i]);
         y_vel = 0;
         break;
     }
@@ -741,6 +731,18 @@ while (y_vel_remain != 0)
 if (CheckCommand(command.wall_kick))
 {
     wall_kick_count = wall_kick_animation;
+    var overlap_list = ds_list_create();
+    InstancePlaceList(overlap_list, x - wall_kick_error, y, obj_solid_parent);
+    if (!ds_list_empty(overlap_list))
+        on_left_wall = true;
+    InstancePlaceList(overlap_list, x + wall_kick_error, y, obj_solid_parent);
+    if (!on_left_wall &amp;&amp; !ds_list_empty(overlap_list))
+        on_right_wall = true;
+    for (var i = 0; i &lt; ds_list_size(overlap_list); i += 1)
+    {
+        with (ds_list_find_value(overlap_list, i))
+            event_perform(ev_collision, obj_player);
+    }
     if (on_ground || on_left_wall || on_right_wall)
     {
         y_vel = -wall_kick_v_vel;
