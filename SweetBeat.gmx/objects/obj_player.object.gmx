@@ -48,6 +48,9 @@ move_speed = 8;
 air_speed = 15;
 wall_slide_speed = 6.5;
 wall_deccel = 2;
+
+current_collision_list_h = ds_list_create();
+current_collision_list_v = ds_list_create();
 </string>
           </argument>
         </arguments>
@@ -159,7 +162,12 @@ wall_kick_count = 0;
 
 wall_kick_stretch = 1;
 
-wall_kick_error = 3;
+wall_kick_tolerance = 5;
+
+wall_kick_left_wall = 0;
+wall_kick_right_wall = 0;
+
+wall_kick_cols = ds_list_create();
 </string>
           </argument>
         </arguments>
@@ -655,6 +663,8 @@ on_left_wall = false;
 on_right_wall = false;
 
 x_vel_remain = x_vel;
+current_collision_list_h = ds_list_create();
+current_collision_list_v = ds_list_create();
 
 while (x_vel_remain != 0)
 {
@@ -666,12 +676,11 @@ while (x_vel_remain != 0)
         else
             on_left_wall = true;
         while (!place_meeting(x + sign(x_vel_now), y, obj_solid_parent))
-            x += sign(x_vel);
-        var c_list = ds_list_create();
-        InstancePlaceList(c_list, x + sign(x_vel_now), y, obj_solid_parent);
-        for (var i = 0; i &lt; ds_list_size(c_list); i += 1)
+            x += sign(x_vel_now);
+        InstancePlaceList(current_collision_list_h, x + sign(x_vel_now), y, obj_solid_parent);
+        for (var i = 0; i &lt; ds_list_size(current_collision_list_h); i += 1)
         {
-            with (ds_list_find_value(c_list,i))
+            with (ds_list_find_value(current_collision_list_h,i))
                 event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
         }
         x_vel = 0;
@@ -693,12 +702,11 @@ while (y_vel_remain != 0)
         if (y_vel_now &gt; 0)
             on_ground = true;
         while (!place_meeting(x, y + sign(y_vel_now), obj_solid_parent))
-            y += sign(y_vel);
-        var c_list = ds_list_create();
-        InstancePlaceList(c_list, x, y + sign(y_vel_now), obj_solid_parent);
-        for (var i = 0; i &lt; ds_list_size(c_list); i += 1)
+            y += sign(y_vel_now);
+        InstancePlaceList(current_collision_list_v, x, y + sign(y_vel_now), obj_solid_parent);
+        for (var i = 0; i &lt; ds_list_size(current_collision_list_v); i += 1)
         {
-            with (ds_list_find_value(c_list, i))
+            with (ds_list_find_value(current_collision_list_v, i))
                 event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
         }
         y_vel = 0;
@@ -728,30 +736,50 @@ while (y_vel_remain != 0)
           <argument>
             <kind>1</kind>
             <string>/// wall kick action
+
+if (wall_kick_left_wall &gt; 0)
+    wall_kick_left_wall -= 1;
+
+if (wall_kick_right_wall &gt; 0)
+    wall_kick_right_wall -= 1;
+
+if (on_left_wall)
+{
+    wall_kick_left_wall = wall_kick_tolerance;
+    wall_kick_cols = current_collision_list_h;
+}
+if (on_right_wall)
+{
+    wall_kick_right_wall = wall_kick_tolerance;
+    wall_kick_cols = current_collision_list_h;
+}
+    
 if (CheckCommand(command.wall_kick))
 {
     wall_kick_count = wall_kick_animation;
-    var overlap_list = ds_list_create();
-    InstancePlaceList(overlap_list, x - wall_kick_error, y, obj_solid_parent);
-    if (!ds_list_empty(overlap_list))
-        on_left_wall = true;
-    InstancePlaceList(overlap_list, x + wall_kick_error, y, obj_solid_parent);
-    if (!on_left_wall &amp;&amp; !ds_list_empty(overlap_list))
-        on_right_wall = true;
-    for (var i = 0; i &lt; ds_list_size(overlap_list); i += 1)
-    {
-        with (ds_list_find_value(overlap_list, i))
-            event_perform(ev_collision, obj_player);
-    }
-    if (on_ground || on_left_wall || on_right_wall)
+    if (on_ground || wall_kick_left_wall &gt; 0 || wall_kick_right_wall &gt; 0)
     {
         y_vel = -wall_kick_v_vel;
-        if (!on_ground)
+        if (on_ground)
         {
-            if (on_left_wall)
+            for (var i = 0; i &lt; ds_list_size(current_collision_list_v); i += 1)
+                with (ds_list_find_value(current_collision_list_v, i))
+                    trigger = true;
+        }
+        else
+        {
+            if (wall_kick_left_wall &gt; wall_kick_right_wall)
                 x_vel = wall_kick_h_vel;
-            else if (on_right_wall)
+            else
                 x_vel = -wall_kick_h_vel;
+            for (var i = 0; i &lt; ds_list_size(wall_kick_cols); i += 1)
+            {
+                with (ds_list_find_value(wall_kick_cols, i))
+                {
+                    event_perform(ev_collision, obj_player);    // we kick the wall even if we left it already
+                    trigger = true;
+                }
+            }
         }
     }
     audio_play_sound(snd_wall_kick,10,false);
