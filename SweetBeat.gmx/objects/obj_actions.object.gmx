@@ -29,7 +29,7 @@
 x_offset = 20;
 y_offset = 20;
 width = 100;
-height = 100;
+height = 50;
 frame = 3;
 current_index = 0;
 block_width = 0.5;

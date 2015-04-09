@@ -45,7 +45,11 @@
     <sprite>sprites\spr_swipe_icon</sprite>
     <sprite>sprites\spr_anchor</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_0</background>
+    <background>background\bg_1</background>
+    <background>background\bg_3</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\Pair.gml</script>
