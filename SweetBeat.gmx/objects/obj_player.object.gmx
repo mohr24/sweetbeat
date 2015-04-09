@@ -322,6 +322,8 @@ if (gamepad_is_connected(0))
     h_axis_2 = gamepad_axis_value(0, gp_axisrh);
     v_axis_2 = gamepad_axis_value(0, gp_axisrv);
     
+    
+    
     // deadzone checks
     if (abs(horizontal_axis) &lt; deadzone)
         horizontal_axis = 0;
@@ -338,6 +340,11 @@ else // keyboard check
     v_axis_2 = keyboard_check(ord('S')) - keyboard_check(ord('W'));
     horizontal_axis = keyboard_check(vk_right) - keyboard_check(vk_left);
     vertical_axis = keyboard_check(vk_down) - keyboard_check(vk_up);
+
+}
+if(h_axis_2 == 0 &amp;&amp; v_axis_2 == 0){
+    h_axis_2 = horizontal_axis;
+    v_axis_2 = vertical_axis;
 }
 
 // variable updates
