@@ -135,6 +135,8 @@
     <instance objName="obj_kill" x="4512" y="672" name="inst_BEAE4016" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="3840" y="608" name="inst_CF0C122D" locked="0" code="" scaleX="2" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="3904" y="416" name="inst_1FAC3916" locked="0" code="" scaleX="4" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="4576" y="480" name="inst_46BD7DD4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="4768" y="352" name="inst_789A7F66" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
