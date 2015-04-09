@@ -193,11 +193,8 @@ wall_kick_cols = ds_list_create();
 my_swing = noone;
 swing_x_stick = 0;
 swing_y_stick = 0;
-//in_shooting_grapple = false;
-grapple_length = 150;
-//grapple_vel = 45;
+grapple_length = 400;
 in_swing = false;
-//swing_duration = .125 * obj_manager.fpb;
 swing_vel = 10;
 mark_for_finish = false;
 

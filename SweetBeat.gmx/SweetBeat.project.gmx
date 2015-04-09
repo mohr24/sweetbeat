@@ -43,6 +43,7 @@
     <sprite>sprites\spr_select_room</sprite>
     <sprite>sprites\spr_wall_kick_icon</sprite>
     <sprite>sprites\spr_swipe_icon</sprite>
+    <sprite>sprites\spr_anchor</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -79,12 +80,14 @@
     <object>objects\obj_select_room</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\lvl_2</room>
+    <room>rooms\rm_grapple_3</room>
     <room>rooms\lvl_3</room>
+    <room>rooms\lvl_2</room>
     <room>rooms\rm_grapple_2</room>
     <room>rooms\rm_grapple</room>
     <room>rooms\rm_learn</room>
     <room>rooms\rm_test</room>
+    <room>rooms\room7</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
