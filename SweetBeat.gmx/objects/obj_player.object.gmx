@@ -726,8 +726,8 @@ if (swipe_count &gt; 0)
 if (swipe_delay &gt;= 0)
 {
     swipe_delay -= 1;
-    x_vel = 0;
-    y_vel = 0;
+    //x_vel = 0;
+    //y_vel = 0;
 }
 </string>
           </argument>
