@@ -162,7 +162,7 @@ wall_kick_count = 0;
 
 wall_kick_stretch = 1;
 
-wall_kick_tolerance = 5;
+wall_kick_tolerance = 10;
 
 wall_kick_left_wall = 0;
 wall_kick_right_wall = 0;
@@ -253,8 +253,10 @@ continue_speed = false;
             <kind>1</kind>
             <string>/// swipe variables
 
+swipe_life = .5*obj_manager.fpb;
 swipe_length = .25*obj_manager.fpb;
 swipe_count = 0;
+swipe_life_count = 0;
 
 swipe_vel = 28;
 
@@ -696,6 +698,7 @@ if (swipe_delay == 0)
 {
     swipe_delay = -1;
     swipe_count = swipe_length;
+    swipe_life_count = swipe_life;
     if (swipe_instance != noone)
     {
         with (swipe_instance)
@@ -710,25 +713,17 @@ if (swipe_delay == 0)
         swipe_instance.image_angle = point_direction(0,0,swipe_stick_x,swipe_stick_y);
     }
     else
+    {
         swipe_instance = instance_create(x + swipe_offset, y, obj_swipe);
+    }
 }
     
 if (swipe_count &gt; 0)
 {
-    if (swipe_instance != noone)
-    {
-        swipe_instance.x = x + swipe_off_x;
-        swipe_instance.y = y + swipe_off_y;
-    }
-    x_vel = sign(swipe_off_x)*swipe_vel;
-    y_vel = sign(swipe_off_y)*swipe_vel;
+    var inter = (swipe_length - swipe_count) / swipe_length;
+    x_vel = inter * sign(swipe_off_x)*swipe_vel;
+    y_vel = inter * sign(swipe_off_y)*swipe_vel;
     swipe_count -= 1;
-}
-else if (swipe_instance != noone)
-{
-    with (swipe_instance)
-        instance_destroy();
-    swipe_instance = noone;
 }
 
 if (swipe_delay &gt;= 0)
@@ -816,6 +811,51 @@ while (y_vel_remain != 0)
     }
     y += y_vel_now;
     y_vel_remain -= y_vel_now;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// swipe position update
+
+if (swipe_life_count &gt; 0)
+{
+    if (swipe_instance != noone)
+    {
+        if (swipe_off_x == 0 &amp;&amp; swipe_off_y == 0)
+        {
+            swipe_instance.x = x + swipe_offset;
+            swipe_instance.y = y;
+        }
+        else
+        {
+            swipe_instance.x = x + swipe_off_x;
+            swipe_instance.y = y + swipe_off_y;
+        }
+    }
+    swipe_life_count -= 1;
+}
+else if (swipe_instance != noone)
+{
+    with (swipe_instance)
+        instance_destroy();
+    swipe_instance = noone;
 }
 </string>
           </argument>
