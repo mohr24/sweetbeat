@@ -51,6 +51,12 @@ wall_deccel = 2;
 
 current_collision_list_h = ds_list_create();
 current_collision_list_v = ds_list_create();
+
+death_wait = obj_manager.fpb;
+death_count = -1;
+
+// view manager must come after us
+instance_create(x,y,obj_view_manager);
 </string>
           </argument>
         </arguments>
@@ -434,8 +440,7 @@ if (obj_manager.kill_player)
         x = obj_manager.checkpoint_id.x;
         y = obj_manager.checkpoint_id.y;
     }
-    x_vel = 0;
-    y_vel = 0;
+    death_count = death_wait;
 }
 </string>
           </argument>
@@ -728,6 +733,41 @@ if (swipe_delay &gt;= 0)
     swipe_delay -= 1;
     //x_vel = 0;
     //y_vel = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// check respawn timer
+
+if (death_count &gt; 0)
+{
+    death_count -= 1;
+    x_vel = 0;
+    y_vel = 0;
+}
+
+if (death_count == 0)
+{
+    death_count = 1;
+    if (obj_manager.tick_beat)
+        death_count = -1;
 }
 </string>
           </argument>
@@ -1220,16 +1260,18 @@ obj_manager.mark_kill_player = true;
           <argument>
             <kind>1</kind>
             <string>/// manual draw object
-
-if (wall_kick_count &gt; 0)
+if (death_count == -1)  // don't show until respawned completely
 {
-    d3d_transform_set_identity();
-    d3d_transform_add_scaling(wall_kick_stretch, wall_kick_stretch, 1);
-    d3d_transform_add_translation(x, y, 0);
-    draw_sprite(spr_player_wall_kick_border, 0, 0, 0);
-    d3d_transform_set_identity();
+    if (wall_kick_count &gt; 0)
+    {
+        d3d_transform_set_identity();
+        d3d_transform_add_scaling(wall_kick_stretch, wall_kick_stretch, 1);
+        d3d_transform_add_translation(x, y, 0);
+        draw_sprite(spr_player_wall_kick_border, 0, 0, 0);
+        d3d_transform_set_identity();
+    }
+    draw_sprite(sprite_index,image_index,x,y);
 }
-draw_sprite(sprite_index,image_index,x,y);
 </string>
           </argument>
         </arguments>
