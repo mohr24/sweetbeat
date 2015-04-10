@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -193,12 +193,15 @@ wall_kick_cols = ds_list_create();
 my_swing = noone;
 swing_x_stick = 0;
 swing_y_stick = 0;
-grapple_length = 400;
-in_swing = false;
+grapple_length = 0;
+max_length = 400;
+in_swing = 0;
 swing_vel = 10;
 mark_for_finish = false;
-
+rotation_boost = 2;
 y_adjust = 2;
+
+swing_duration = 45;
 </string>
           </argument>
         </arguments>
@@ -874,6 +877,98 @@ else if (swipe_instance != noone)
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///new_grapple
+
+if(CheckCommand(command.swing)){
+    if (my_swing != noone)
+        with (my_swing)
+            instance_destroy();
+
+    anchor = instance_nearest(x,y,obj_anchor);
+    grapple_length = point_distance(x,y,anchor.x,anchor.y);
+    if(grapple_length &gt; max_length){
+        //do something
+        return 0;
+    }
+    my_swing = instance_create(x,y,obj_swing);
+    with(my_swing){
+        start_x = other.x;
+        start_y = other.y;
+        end_x = other.anchor.x;
+        end_y = other.anchor.y;
+    }
+    player_angle = point_direction(0,0,x_vel,y_vel);
+    grapple_angle = point_direction(x,y,anchor.x,anchor.y);
+    
+    vel_magnitude = point_distance(0,0,x_vel,y_vel)+.01;
+    
+     show_debug_message("player_angle "+string(player_angle));
+    show_debug_message("grapple_angle + 90 "+string(grapple_angle +90));
+    //projection of player velocity onto swing direction
+    swing_velocity = vel_magnitude  * dcos(angle_difference(player_angle, grapple_angle-90));
+    /*if(swing_magnitude &gt; 0){
+        swing_dir = "clockwise";
+    }else if(swing_magnitude &lt; 0){
+        swing_dir = "counter-clockwise";
+    } */
+    rotation_speed = 360*(swing_velocity) / (grapple_length*2 * pi); 
+      show_debug_message("vel_magnitude "+string(vel_magnitude));
+    show_debug_message("swing_velocity "+string(swing_velocity));
+    show_debug_message("grapple_length "+string(grapple_length));
+    show_debug_message("rotation_speed "+string(rotation_speed));
+    show_debug_message("grapple_angle "+string(grapple_angle));
+    in_swing = swing_duration;
+
+}
+if(in_swing &gt; 0){
+    in_swing --;
+    grapple_angle += rotation_speed;
+    //show_debug_message("grapple_angle in swing"+string(grapple_angle));
+    with(my_swing){
+        start_x = other.x;
+        start_y = other.y;
+        end_x = other.anchor.x;
+        end_y = other.anchor.y;
+    }
+    x_vel = 0;
+    y_vel = 0;
+    x_vel = anchor.x-grapple_length*dcos(grapple_angle) - x;
+    y_vel = anchor.y-grapple_length*-dsin(grapple_angle) - y;
+
+    
+} else if(in_swing == 0){
+    with(my_swing){
+        instance_destroy();
+    }
+    my_swing = noone;
+}
+else if (my_swing != noone)
+{
+    with(my_swing){
+        instance_destroy();
+    }
+    my_swing = noone;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// wall kick action
 
 if (wall_kick_left_wall &gt; 0)
@@ -954,7 +1049,7 @@ else
             <kind>1</kind>
             <string>///grapple action
 
-if(CheckCommand(command.swing)){
+/*if(CheckCommand(command.swing)){
     
     if (my_swing != noone)
         with (my_swing)
