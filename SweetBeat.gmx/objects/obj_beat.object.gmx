@@ -55,7 +55,7 @@ first_beat_sequence=false;
 if (obj_manager.beat_id != id)
 {
     if(obj_manager.beat_id == 0)
-        audio_play_sound(electroswing120bpm,10,false);
+        audio_play_sound(obj_manager.music,10,false);
     obj_manager.beat_id = id;
     obj_manager.sequence = sequence;
     obj_manager.bpm = bpm;

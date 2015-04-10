@@ -27,11 +27,15 @@
             <kind>1</kind>
             <string>/// variable initialization
 
+show_debug_message("manager Create");
+
 audio_stop_all();
 
-// constants?
+// alter in obj_manager creation code if necessary
+
 bpm = 4;            // beats per measure
 fpb = 30;           // frames per beat
+music = electroswing120bpm;
 
 // constants!
 enum command
