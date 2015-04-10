@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// variable initialization
 
+show_debug_message("player Create");
+
 x_start = x;
 y_start = y;
 
@@ -81,7 +83,7 @@ instance_create(x,y,obj_view_manager);
 
 in_stall = 0;
 
-stall_length = .5 * obj_manager.fpb;  // half beat
+stall_length = .5 * 30;  // half beat
 </string>
           </argument>
         </arguments>
@@ -130,7 +132,7 @@ jmp_vel = -20;
 in_blast = 0;
 
 blast_knockback = -10;
-blast_length = .125 * obj_manager.fpb;
+blast_length = .125 * 30;
 
 my_blast = noone;
 
@@ -256,8 +258,8 @@ continue_speed = false;
             <kind>1</kind>
             <string>/// swipe variables
 
-swipe_life = .5*obj_manager.fpb;
-swipe_length = .25*obj_manager.fpb;
+swipe_life = .5*30;
+swipe_length = .25*30;
 swipe_count = 0;
 swipe_life_count = 0;
 
