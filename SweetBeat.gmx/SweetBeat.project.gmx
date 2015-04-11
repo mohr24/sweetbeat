@@ -50,12 +50,15 @@
     <background>background\bg_1</background>
     <background>background\bg_3</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\test_path</path>
+  </paths>
   <scripts name="scripts">
     <script>scripts\Pair.gml</script>
     <script>scripts\outside_view.gml</script>
     <script>scripts\CheckCommand.gml</script>
     <script>scripts\InstancePlaceList.gml</script>
+    <script>scripts\Quadrant.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -83,6 +86,7 @@
     <object>objects\obj_swipe</object>
     <object>objects\obj_select_room</object>
     <object>objects\obj_view_manager</object>
+    <object>objects\obj_moving_plat</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_grapple_3</room>

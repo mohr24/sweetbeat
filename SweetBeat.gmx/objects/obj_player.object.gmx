@@ -35,6 +35,8 @@ y_start = y;
 x_vel = 0;
 y_vel = 0;
 
+x_vel_ground = 0;
+
 on_ground = false;
 on_left_wall = false;
 on_right_wall = false;
@@ -375,6 +377,7 @@ var x_vel_target = horizontal_axis * move_speed;
 
     
 if(on_ground){
+    x_vel_target += x_vel_ground;
     if (x_vel &gt; x_vel_target + move_accel)
         x_vel -= move_accel;
     else if (x_vel &lt; x_vel_target - move_accel)
@@ -795,6 +798,9 @@ if (death_count == 0)
 
 var speed_cap = min(sprite_width, sprite_height);
 
+x_vel = floor(x_vel);   // odd errors with non integer velocities?
+y_vel = floor(y_vel);
+
 on_left_wall = false;
 on_right_wall = false;
 
@@ -814,19 +820,22 @@ while (x_vel_remain != 0)
         while (!place_meeting(x + sign(x_vel_now), y, obj_solid_parent))
             x += sign(x_vel_now);
         InstancePlaceList(current_collision_list_h, x + sign(x_vel_now), y, obj_solid_parent);
+        x_vel = 0;
         for (var i = 0; i &lt; ds_list_size(current_collision_list_h); i += 1)
         {
             with (ds_list_find_value(current_collision_list_h,i))
                 event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
         }
-        x_vel = 0;
         break;
     }
     x += x_vel_now;
     x_vel_remain -= x_vel_now;
 }
 
+x_vel_remain = 0;
+
 on_ground = false;
+x_vel_ground = 0;   // reset so if we hit no moving platforms we are fine
 
 y_vel_remain = y_vel;
 
@@ -840,17 +849,19 @@ while (y_vel_remain != 0)
         while (!place_meeting(x, y + sign(y_vel_now), obj_solid_parent))
             y += sign(y_vel_now);
         InstancePlaceList(current_collision_list_v, x, y + sign(y_vel_now), obj_solid_parent);
+        y_vel = 0;
         for (var i = 0; i &lt; ds_list_size(current_collision_list_v); i += 1)
         {
             with (ds_list_find_value(current_collision_list_v, i))
                 event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
         }
-        y_vel = 0;
         break;
     }
     y += y_vel_now;
     y_vel_remain -= y_vel_now;
 }
+
+y_vel_remain = 0;
 </string>
           </argument>
         </arguments>

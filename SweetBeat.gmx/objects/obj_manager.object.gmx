@@ -49,6 +49,7 @@ enum command
     speed_up,
     swipe,
     pause,
+    plat_move,
     
     none
 }
