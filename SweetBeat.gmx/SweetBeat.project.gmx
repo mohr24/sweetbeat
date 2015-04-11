@@ -85,13 +85,15 @@
     <object>objects\obj_action_player</object>
     <object>objects\obj_swipe</object>
     <object>objects\obj_select_room</object>
+    <object>objects\obj_anchor</object>
     <object>objects\obj_view_manager</object>
     <object>objects\obj_moving_plat</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_grapple_3</room>
+    <room>rooms\rm_swing_new</room>
     <room>rooms\lvl_3</room>
     <room>rooms\lvl_2</room>
+    <room>rooms\rm_grapple_3</room>
     <room>rooms\rm_grapple_2</room>
     <room>rooms\rm_grapple</room>
     <room>rooms\rm_learn</room>
