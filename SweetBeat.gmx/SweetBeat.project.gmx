@@ -47,6 +47,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
+    <background>background\bg_2</background>
     <background>background\bg_1</background>
     <background>background\bg_3</background>
   </backgrounds>
@@ -88,6 +89,7 @@
     <object>objects\obj_anchor</object>
     <object>objects\obj_view_manager</object>
     <object>objects\obj_moving_plat</object>
+    <object>objects\obj_background</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_swing_new</room>
