@@ -13,6 +13,7 @@
     <sound>sound\snd_wall_kick</sound>
     <sound>sound\snd_swipe</sound>
     <sound>sound\snd_dive</sound>
+    <sound>sound\snd_r_cymbal</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -24,8 +25,8 @@
     <sprite>sprites\spr_checkpoint</sprite>
     <sprite>sprites\spr_blast</sprite>
     <sprite>sprites\spr_boss1_blast</sprite>
+    <sprite>sprites\spr_boss_spire</sprite>
     <sprite>sprites\spr_boss</sprite>
-    <sprite>sprites\sprite8</sprite>
     <sprite>sprites\spr_switch_off</sprite>
     <sprite>sprites\spr_switch_on</sprite>
     <sprite>sprites\spr_manager</sprite>
@@ -52,6 +53,7 @@
   </backgrounds>
   <paths name="paths">
     <path>paths\test_path</path>
+    <path>paths\boss_path</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\Pair.gml</script>
@@ -72,10 +74,10 @@
     <object>objects\obj_solid_parent</object>
     <object>objects\obj_audio</object>
     <object>objects\obj_blast</object>
-    <object>objects\obj_enemy_blast</object>
+    <object>objects\obj_boss_blast</object>
     <object>objects\obj_player_blast</object>
     <object>objects\obj_enemy_parent</object>
-    <object>objects\obj_boss1</object>
+    <object>objects\obj_boss</object>
     <object>objects\obj_door</object>
     <object>objects\obj_switch</object>
     <object>objects\obj_destruct</object>
@@ -90,8 +92,10 @@
     <object>objects\obj_anchor</object>
     <object>objects\obj_view_manager</object>
     <object>objects\obj_moving_plat</object>
+    <object>objects\obj_boss_spire</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_boss</room>
     <room>rooms\rm_swing_new</room>
     <room>rooms\lvl_3</room>
     <room>rooms\lvl_2</room>

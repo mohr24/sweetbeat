@@ -140,12 +140,12 @@ if (place_meeting(x,y,obj_player))
         if (d == quadrant.right)
         {
             obj_player.x = bbox_right + obj_player.sprite_width / 2 + epsilon;
-            obj_player.on_left_wall = true;
+            ds_list_add(obj_player.next_collisions_left, id);
         }
         else if (d == quadrant.left)
         {
             obj_player.x = bbox_left - obj_player.sprite_width / 2 - epsilon;
-            obj_player.on_right_wall = true;
+            ds_list_add(obj_player.next_collisions_right, id);
         }
     }
     else if (d == quadrant.bottom || d == quadrant.top)
@@ -155,11 +155,12 @@ if (place_meeting(x,y,obj_player))
         if (d == quadrant.bottom)
         {
             obj_player.y = bbox_bottom + obj_player.sprite_height / 2 + epsilon;
+            ds_list_add(obj_player.next_collisions_top, id);
         }
         else if (d == quadrant.top)
         {
             obj_player.y = bbox_top - obj_player.sprite_height / 2 - epsilon;
-            obj_player.on_ground = true;
+            ds_list_add(obj_player.next_collisions_bottom, id);
         }
     }
 }
