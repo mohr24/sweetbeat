@@ -35,6 +35,8 @@ audio_stop_all();
 
 bpm = 4;            // beats per measure
 fpb = 30;           // frames per beat
+
+
 music = electroswing120bpm;
 
 // constants!
