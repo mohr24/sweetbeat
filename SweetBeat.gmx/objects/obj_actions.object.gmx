@@ -36,8 +36,6 @@ block_width = 0.5;
 
 
 with(obj_manager){
-    other.sprites[ command.stall] = spr_stall_icon;
-    other.sprites[ command.blast] = spr_blast_icon;
     other.sprites[ command.jump] = spr_jump_icon;
     other.sprites[ command.none] = spr_none_icon;
     other.sprites[ command.dive] = spr_dive_icon;

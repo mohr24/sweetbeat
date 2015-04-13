@@ -59,6 +59,8 @@
     <script>scripts\CheckCommand.gml</script>
     <script>scripts\InstancePlaceList.gml</script>
     <script>scripts\Quadrant.gml</script>
+    <script>scripts\Triple.gml</script>
+    <script>scripts\GetCommandExtra.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>

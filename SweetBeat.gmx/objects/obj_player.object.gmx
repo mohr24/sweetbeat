@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -37,10 +37,6 @@ y_vel = 0;
 
 x_vel_ground = 0;
 
-on_ground = false;
-on_left_wall = false;
-on_right_wall = false;
-
 x_stick = 0;    // 8 point direction (center included)
 y_stick = 0;
 x_stick_square = 0; // 4 points not 8 (center included)
@@ -53,39 +49,21 @@ air_speed = 15;
 wall_slide_speed = 6.5;
 wall_deccel = 2;
 
-current_collision_list_h = ds_list_create();
-current_collision_list_v = ds_list_create();
+prev_collisions_left = ds_list_create();
+prev_collisions_right = ds_list_create();
+prev_collisions_top = ds_list_create();
+prev_collisions_bottom = ds_list_create();
+
+next_collisions_left = ds_list_create();
+next_collisions_right = ds_list_create();
+next_collisions_top = ds_list_create();
+next_collisions_bottom = ds_list_create();
 
 death_wait = obj_manager.fpb;
 death_count = -1;
 
 // view manager must come after us
 instance_create(x,y,obj_view_manager);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// stall variables
-
-in_stall = 0;
-
-stall_length = .5 * 30;  // half beat
 </string>
           </argument>
         </arguments>
@@ -129,37 +107,6 @@ jmp_vel = -20;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///blast variables
-
-in_blast = 0;
-
-blast_knockback = -10;
-blast_length = .125 * 30;
-
-my_blast = noone;
-
-x_blast_offset = 0;//-(sprite_get_width(spr_player)-sprite_get_width(spr_blast))/2;
-y_blast_offset = 0;//sprite_get_height(spr_player)/2;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>/// wall kick variables
 
 wall_kick_h_vel = 16;
@@ -172,7 +119,7 @@ wall_kick_count = 0;
 
 wall_kick_stretch = 1;
 
-wall_kick_tolerance = 10;
+wall_kick_tolerance = 6;
 
 wall_kick_left_wall = 0;
 wall_kick_right_wall = 0;
@@ -285,6 +232,8 @@ swipe_stick_timer = 0;
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -301,14 +250,54 @@ swipe_stick_timer = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// pause variables
+            <string>/// clean up?
 
-pause_length = .5*obj_manager.fpb;
+ds_list_destroy(prev_collisions_left);
+ds_list_destroy(prev_collisions_right);
+ds_list_destroy(prev_collisions_top);
+ds_list_destroy(prev_collisions_bottom);
 
-pause_counter = 0;
+ds_list_destroy(next_collisions_left);
+ds_list_destroy(next_collisions_right);
+ds_list_destroy(next_collisions_top);
+ds_list_destroy(next_collisions_bottom);
 
-pause_x_vel = 0;
-pause_y_vel = 0;
+ds_list_destroy(wall_kick_cols);
+
+show_debug_message("player destroy");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// update frame collision lists
+
+ds_list_copy(prev_collisions_left, next_collisions_left);
+ds_list_copy(prev_collisions_right, next_collisions_right);
+ds_list_copy(prev_collisions_top, next_collisions_top);
+ds_list_copy(prev_collisions_bottom, next_collisions_bottom);
+
+ds_list_clear(next_collisions_left);
+ds_list_clear(next_collisions_right);
+ds_list_clear(next_collisions_top);
+ds_list_clear(next_collisions_bottom);
 </string>
           </argument>
         </arguments>
@@ -379,7 +368,7 @@ if(h_axis_2 == 0 &amp;&amp; v_axis_2 == 0){
 var x_vel_target = horizontal_axis * move_speed;
 
     
-if(on_ground){
+if(ds_list_size(prev_collisions_bottom) &gt; 0){
     x_vel_target += x_vel_ground;
     if (x_vel &gt; x_vel_target + move_accel)
         x_vel -= move_accel;
@@ -496,169 +485,15 @@ if (CheckCommand(command.jump))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// stall action
-
-if (CheckCommand(command.stall)){
-    in_stall = stall_length;
-    show_debug_message('stall');
-}
-    
-if (in_stall &gt; 0)
-{
-    x_vel /= 2;
-    y_vel = 0;
-    in_stall -= 1;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///blast action
-
-if (CheckCommand(command.blast)){
-    audio_play_sound(snd_blast,10,false);
-    in_blast = blast_length;
-    if (my_blast != noone)
-        with (my_blast)
-            instance_destroy();
-    my_blast = instance_create(x+x_blast_offset,y+y_blast_offset,obj_player_blast);
-    blast_x_stick = x_stick_square;
-    blast_y_stick = y_stick_square;
-    if (blast_y_stick != 0)
-        my_blast.image_angle = 0;
-    else
-        my_blast.image_angle = 90;
-    if (blast_y_stick != 0)
-        y_vel = blast_y_stick*blast_knockback;
-    else
-        x_vel = blast_x_stick*blast_knockback;
-    show_debug_message('blast');
-}
-    
-    
-    
-if (in_blast &gt; 0)
-{
-    var blast_width = my_blast.sprite_width;
-    var sx1 = x + blast_y_stick*blast_width/2;
-    var sy1 = y + blast_x_stick*blast_width/2;
-    var sx2 = x - blast_y_stick*blast_width/2;
-    var sy2 = y - blast_x_stick*blast_width/2;
-    var dx = blast_x_stick*window_get_width();
-    var dy = blast_y_stick*window_get_height();
-    while(dx*blast_x_stick &gt; 0 || dy*blast_y_stick &gt; 0)
-    {
-        var c1 = collision_line(sx1,sy1,sx1+dx,sy1+dy,obj_solid_parent,false,true);
-        if (c1 == noone)
-            break;
-        var c2 = collision_line(sx2,sy2,sx2+dx,sy2+dy,obj_solid_parent,false,true);
-        if (c2 == noone)
-            break;
-        var c1x = blast_x_stick*(c1.x-blast_x_stick*(1+c1.sprite_width/2));
-        var c1y = blast_y_stick*(c1.y-blast_y_stick*(1+c1.sprite_height/2));
-        var c2x = blast_x_stick*(c2.x-blast_x_stick*(1+c2.sprite_width/2));
-        var c2y = blast_y_stick*(c2.y-blast_y_stick*(1+c2.sprite_height/2));
-        dx = blast_x_stick*(max(c1x,c2x) - blast_x_stick*x);
-        dy = blast_y_stick*(max(c1y,c2y) - blast_y_stick*y);
-    }
-    if (blast_y_stick != 0)
-        my_blast.image_yscale = dy + blast_y_stick*2;
-    else
-        my_blast.image_yscale = dx + blast_x_stick*2;
-    in_blast -= 1;
-    my_blast.x=x+x_blast_offset;
-    my_blast.y=y+y_blast_offset;
-}
-else if (my_blast != noone)
-{
-    with(my_blast){
-        instance_destroy();
-    }
-    my_blast = noone;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>/// wall slide
 
-if ((on_left_wall || on_right_wall) &amp;&amp; y_vel &gt; wall_slide_speed)
+var wall_collisions = ds_list_size(prev_collisions_left) + ds_list_size(prev_collisions_right);
+
+if (wall_collisions != 0 &amp;&amp; y_vel &gt; wall_slide_speed)
 {
     y_vel -= wall_deccel;
     if (y_vel &lt; wall_slide_speed)
         y_vel = wall_slide_speed;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// pause action
-
-if (CheckCommand(command.pause))
-{
-    pause_counter = pause_length;
-    pause_x_vel = 0;
-    pause_y_vel = 0;
-}
-    
-if (pause_counter &gt; 0)
-{
-    x_vel = 0;
-    y_vel = 0;
-    pause_counter -= 1;
-}
-else if (pause_x_vel != 0 || pause_y_vel != 0)
-{
-    x_vel = pause_x_vel;
-    y_vel = pause_y_vel;
 }
 </string>
           </argument>
@@ -808,8 +643,6 @@ on_left_wall = false;
 on_right_wall = false;
 
 x_vel_remain = x_vel;
-current_collision_list_h = ds_list_create();
-current_collision_list_v = ds_list_create();
 
 while (x_vel_remain != 0)
 {
@@ -822,13 +655,18 @@ while (x_vel_remain != 0)
             on_left_wall = true;
         while (!place_meeting(x + sign(x_vel_now), y, obj_solid_parent))
             x += sign(x_vel_now);
-        InstancePlaceList(current_collision_list_h, x + sign(x_vel_now), y, obj_solid_parent);
-        x_vel = 0;
-        for (var i = 0; i &lt; ds_list_size(current_collision_list_h); i += 1)
+        var lst;
+        if (sign(x_vel_now) &gt; 0)
+            lst = next_collisions_right;
+        else
+            lst = next_collisions_left;
+        InstancePlaceList(lst, x + sign(x_vel_now), y, obj_solid_parent);
+        for (var i = 0; i &lt; ds_list_size(lst); i += 1)
         {
-            with (ds_list_find_value(current_collision_list_h,i))
+            with (ds_list_find_value(lst,i))
                 event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
         }
+        x_vel += sign(x_vel_now);    // slight atraction to wall so we slide better
         break;
     }
     x += x_vel_now;
@@ -851,11 +689,16 @@ while (y_vel_remain != 0)
             on_ground = true;
         while (!place_meeting(x, y + sign(y_vel_now), obj_solid_parent))
             y += sign(y_vel_now);
-        InstancePlaceList(current_collision_list_v, x, y + sign(y_vel_now), obj_solid_parent);
+        var lst;
+        if (sign(y_vel_now) &gt; 0)
+            lst = next_collisions_bottom;
+        else
+            lst = next_collisions_top;
+        InstancePlaceList(lst, x, y + sign(y_vel_now), obj_solid_parent);
         y_vel = 0;
-        for (var i = 0; i &lt; ds_list_size(current_collision_list_v); i += 1)
+        for (var i = 0; i &lt; ds_list_size(lst); i += 1)
         {
-            with (ds_list_find_value(current_collision_list_v, i))
+            with (ds_list_find_value(lst, i))
                 event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
         }
         break;
@@ -1030,15 +873,15 @@ if (wall_kick_left_wall &gt; 0)
 if (wall_kick_right_wall &gt; 0)
     wall_kick_right_wall -= 1;
 
-if (on_left_wall)
+if (ds_list_size(prev_collisions_left) &gt; 0)
 {
     wall_kick_left_wall = wall_kick_tolerance;
-    wall_kick_cols = current_collision_list_h;
+    ds_list_copy(wall_kick_cols, prev_collisions_left);
 }
-if (on_right_wall)
+if (ds_list_size(prev_collisions_right) &gt; 0)
 {
     wall_kick_right_wall = wall_kick_tolerance;
-    wall_kick_cols = current_collision_list_h;
+    ds_list_copy(wall_kick_cols, prev_collisions_right);
 }
     
 if (CheckCommand(command.wall_kick))
@@ -1047,10 +890,10 @@ if (CheckCommand(command.wall_kick))
     if (on_ground || wall_kick_left_wall &gt; 0 || wall_kick_right_wall &gt; 0)
     {
         y_vel = -wall_kick_v_vel;
-        if (on_ground)
+        if (ds_list_size(prev_collisions_bottom) &gt; 0)
         {
-            for (var i = 0; i &lt; ds_list_size(current_collision_list_v); i += 1)
-                with (ds_list_find_value(current_collision_list_v, i))
+            for (var i = 0; i &lt; ds_list_size(prev_collisions_bottom); i += 1)
+                with (ds_list_find_value(prev_collisions_bottom, i))
                     trigger = true;
         }
         else

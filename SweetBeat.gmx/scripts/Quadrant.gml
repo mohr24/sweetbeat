@@ -4,7 +4,9 @@ enum quadrant
     top,
     left,
     bottom,
-    right
+    right,
+    
+    none
 };
 
 var objA = argument0;
