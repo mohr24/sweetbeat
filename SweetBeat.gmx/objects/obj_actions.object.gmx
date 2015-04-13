@@ -48,6 +48,9 @@ with(obj_manager){
 
 x = x_offset;
 y = y_offset;
+
+fpb = obj_manager.fpb;
+bpm = obj_manager.bpm;
 </string>
           </argument>
         </arguments>
@@ -99,14 +102,18 @@ y = y_offset;
           <argument>
             <kind>1</kind>
             <string>///draw
-var fpmN = obj_manager.bpm* obj_manager.fpb;
+var fpmN = bpm* fpb;
 
-var w = width * obj_manager.bpm;// array_length_1d(obj_manager.sequence);
+var w = width * bpm;// array_length_1d(obj_manager.sequence);
 var x1 = x,y1 = y,x2 = x + w,y2 = y + height;
 draw_set_color(c_black);
 draw_rectangle(x1-frame,y1-frame,x2+frame,y2+frame,false);
 draw_set_color(c_white);
 draw_rectangle(x1,y1,x2,y2,false);
+
+draw_set_color(c_red);
+draw_rectangle((x1+x2)/2 - frame,y1,(x1+x2)/2 +frame,y2,false);
+
 draw_set_color(c_green);
 
 for (var i = 0; i &lt; array_length_1d(obj_manager.sequence); i += 1)
@@ -114,13 +121,19 @@ for (var i = 0; i &lt; array_length_1d(obj_manager.sequence); i += 1)
     var pair = obj_manager.sequence[i];
     var time = pair[0];
     var action = pair[1];
+    
+    var pos = (time*fpb - obj_background.step_cnt) / fpmN + 1.5;
+    pos = pos * w % w;
+    if (pos &lt; (x2 - block_width * width)){
+        draw_sprite_stretched(sprites[action], -1, x1 + pos,y1, block_width * width, height);
+    }
     //var x1 = other.x1 + i * other.width;
     //var y1 = other.y1;
     //var x2 = x1 + other.width;
     //var y2 = other.y2;
     //draw_set_color(sprites[action]);
     //draw_rectangle(x1 + i * width,y1, x1 + (i+1) * width,y2,false);
-    with(obj_manager){
+    /*with(obj_manager){
         var fpm = bpm*fpb;
         if (((counter - 1)/fpb &lt;= time &amp;&amp; counter / fpb &gt; time)
     || ((counter + fpm - 1)/fpb &lt;= time &amp;&amp; (counter + fpm) &gt; time))
@@ -128,12 +141,12 @@ for (var i = 0; i &lt; array_length_1d(obj_manager.sequence); i += 1)
             //draw_set_color(c_white);
             other.current_index = (i) % array_length_1d(obj_manager.sequence);        
         }
-    }
+    }*/
     //draw_set_color(sprites[action]);
     //draw_rectangle(x1 + time * width,y1, x1 + (time + block_width) * width,y2,false);
-    draw_sprite_stretched(sprites[action], -1, x1 + time * width,y1, block_width * width, height);
+    //draw_sprite_stretched(sprites[action], -1, x1 + time * width,y1, block_width * width, height);
     
-    
+    /*
     var counterN = obj_manager.counter;
     
     draw_set_alpha(0.5);
@@ -143,7 +156,7 @@ for (var i = 0; i &lt; array_length_1d(obj_manager.sequence); i += 1)
     
     draw_set_alpha(1);
     
-    
+    */
     /*if (i == current_index){
         draw_set_color(c_white);
         draw_rectangle(x1 + i * width + 10,y1 + 10, x1 + (i+1) * width - 10,y2 - 10,false);

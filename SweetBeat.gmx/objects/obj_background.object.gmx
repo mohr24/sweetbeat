@@ -34,6 +34,8 @@ cur_bit = 0;
 cur_bit_start = 0;
 cur_bit_end = fpb - 1; // included
 
+isStart = false;
+
 //tile
 
 max_height = 20;
@@ -85,6 +87,11 @@ for (var i=0;i&lt;max_lvl;i++){
             <kind>1</kind>
             <string>///timing
 
+if (obj_manager.down_beat){
+    isStart = true;
+}
+
+if (isStart){
 step_cnt = (step_cnt + 1) % (bpm*fpb);
 
 if (step_cnt % fpb == 0){
@@ -108,6 +115,7 @@ for (var i=0;i&lt;max_lvl;i++){
         cloudx[i,j] -= cl_speed;
     }
 }
+} // if(isStart)
 </string>
           </argument>
         </arguments>
