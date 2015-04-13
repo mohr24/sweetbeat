@@ -29,6 +29,8 @@
 sequence[0] = Pair(0,command.none);
 bpm = 4;
 first_beat_sequence=false;
+
+image_speed = 0;
 </string>
           </argument>
         </arguments>
@@ -62,6 +64,7 @@ if (obj_manager.beat_id != id)
 }
 obj_manager.checkpoint_id = id;
 
+image_speed = 30 / obj_manager.fpb;
 </string>
           </argument>
         </arguments>
