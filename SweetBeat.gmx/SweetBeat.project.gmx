@@ -93,10 +93,10 @@
     <object>objects\obj_anchor</object>
     <object>objects\obj_view_manager</object>
     <object>objects\obj_moving_plat</object>
-    <object>objects\obj_boss_spire</object>    <object>objects\obj_background</object>
+    <object>objects\obj_boss_spire</object>
+    <object>objects\obj_background</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_boss</room>
     <room>rooms\rm_swing_new</room>
     <room>rooms\lvl_3</room>
     <room>rooms\lvl_2</room>
@@ -106,6 +106,7 @@
     <room>rooms\rm_learn</room>
     <room>rooms\rm_test</room>
     <room>rooms\room7</room>
+    <room>rooms\rm_boss</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
