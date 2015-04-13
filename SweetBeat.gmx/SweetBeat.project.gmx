@@ -45,6 +45,7 @@
     <sprite>sprites\spr_wall_kick_icon</sprite>
     <sprite>sprites\spr_swipe_icon</sprite>
     <sprite>sprites\spr_anchor</sprite>
+    <sprite>sprites\spr_cloud</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -97,6 +98,7 @@
     <object>objects\obj_background</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_bg_test</room>
     <room>rooms\rm_swing_new</room>
     <room>rooms\lvl_3</room>
     <room>rooms\lvl_2</room>
