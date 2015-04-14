@@ -48,6 +48,7 @@
     <sprite>sprites\spr_swipe_icon</sprite>
     <sprite>sprites\spr_anchor</sprite>
     <sprite>sprites\spr_trigger_box</sprite>
+    <sprite>sprites\spr_cloud</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -103,20 +104,23 @@
     <object>objects\obj_kill_destruct</object>
     <object>objects\obj_finish</object>
     <object>objects\obj_swing</object>
-    <object>objects\obj_actions</object>
-    <object>objects\obj_action_player</object>
     <object>objects\obj_swipe</object>
     <object>objects\obj_select_room</object>
     <object>objects\obj_anchor</object>
     <object>objects\obj_view_manager</object>
     <object>objects\obj_moving_plat</object>
     <object>objects\obj_boss_spire</object>
-    <object>objects\obj_background</object>
     <object>objects\obj_trigger_manager</object>
     <object>objects\obj_trigger_box</object>
+    <objects name="obj_visual">
+      <object>objects\obj_background</object>
+      <object>objects\obj_actions</object>
+      <object>objects\obj_action_player</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_moving_show</room>
+    <room>rooms\rm_bg_test</room>
     <room>rooms\rm_swing_new</room>
     <room>rooms\lvl_3</room>
     <room>rooms\lvl_2</room>

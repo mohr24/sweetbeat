@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1000</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -34,14 +34,35 @@ cur_bit = 0;
 cur_bit_start = 0;
 cur_bit_end = fpb - 1; // included
 
+isStart = false;
 
+//tile
 
-max_height = 10;
+max_height = 20;
 min_height = 5;
-show_width = 12;
+show_width = 24;
 tile_height[show_width] = 0;
 
 //draw_rectangle(100, 100, 300, 200, false);
+
+//cloud
+
+max_lvl = 3;
+rate = 0.002;
+
+top = 100;
+bottom = 500;
+cl_speed = 2;
+
+for (var i=0;i&lt;max_lvl;i++){
+    cloudx[i,0] = 0; 
+    cloudy[i,0] = 0;
+    cloudw[i,0] = 0;
+    clouds[i,0] = 0;
+    cloudc[i] = 0;
+}
+
+
 </string>
           </argument>
         </arguments>
@@ -66,6 +87,11 @@ tile_height[show_width] = 0;
             <kind>1</kind>
             <string>///timing
 
+if (obj_manager.down_beat){
+    isStart = true;
+}
+
+if (isStart){
 step_cnt = (step_cnt + 1) % (bpm*fpb);
 
 if (step_cnt % fpb == 0){
@@ -76,6 +102,20 @@ if (step_cnt % fpb == 0){
 
 
 
+///cloud
+
+for (var i=0;i&lt;max_lvl;i++){
+    if (random(1)&lt;rate){
+        cloudc[i]++;
+        cloudx[i,cloudc[i]-1] = view_xview[0]+view_wview[0];
+        cloudy[i,cloudc[i]-1] = view_yview[0] - random(bottom - top) + bottom  ;
+        clouds[i,cloudc[i]-1] = random(4) + 1;
+    }
+    for (var j=0;j&lt;cloudc[i];j++){
+        cloudx[i,j] -= cl_speed;
+    }
+}
+} // if(isStart)
 </string>
           </argument>
         </arguments>
@@ -101,8 +141,8 @@ if (step_cnt % fpb == 0){
             <string>///tiles
 
 var lpad = 100;
-var tpad = 100;
-var w = 32;
+var bpad = 100;
+var w = 64;
 var spad = 10;
 
 if (step_cnt == cur_bit_start){
@@ -115,15 +155,47 @@ for (var i=0;i&lt;show_width;i++){
     var left = floor(tile_height[i] * (cur_bit_end - step_cnt + 1)/(fpb));
     for (var j=1;j&lt;=left;j++){
         var x_cord = lpad + i * (w + spad) + view_xview[0];
-        var y_cord = tpad + max_height * (w + spad) - spad - (j-1) * (w+spad) + view_yview[0];
-
+        //var y_cord = tpad + max_height * (w + spad) - spad - (j-1) * (w+spad) + view_yview[0];
+        var y_cord = view_yview[0] + view_hview[0] - bpad -(j-1) * (w+spad);
         //tile_add(bg_2, 2, 2, w, w, lpad + i * (w + spad), tpad + max_height * (w + spad) - spad - (j-1) * (w+spad), -100);
-        draw_set_color(c_black);
-        draw_set_alpha(1);
+        draw_set_color(c_blue);
+        //draw_set_alpha(0.2);
+        draw_set_blend_mode( bm_max );
+        
         draw_rectangle(x_cord,y_cord - w,x_cord+w,y_cord,false);
+        draw_set_blend_mode( bm_normal );
+        draw_set_alpha(1);
     }
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///cloud
+var w = 64;
+
+for (var i=0;i&lt;max_lvl;i++){
+    for (var j=0;j&lt;cloudc[i];j++){
+        draw_sprite_stretched(spr_cloud, -1, cloudx[i,j], cloudy[i,j], w * clouds[i,j], w * clouds[i,j]);
+    }
+}
 </string>
           </argument>
         </arguments>
