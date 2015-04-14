@@ -87,15 +87,17 @@
     <object>objects\obj_kill_destruct</object>
     <object>objects\obj_finish</object>
     <object>objects\obj_swing</object>
-    <object>objects\obj_actions</object>
-    <object>objects\obj_action_player</object>
     <object>objects\obj_swipe</object>
     <object>objects\obj_select_room</object>
     <object>objects\obj_anchor</object>
     <object>objects\obj_view_manager</object>
     <object>objects\obj_moving_plat</object>
     <object>objects\obj_boss_spire</object>
-    <object>objects\obj_background</object>
+    <objects name="obj_visual">
+      <object>objects\obj_background</object>
+      <object>objects\obj_actions</object>
+      <object>objects\obj_action_player</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_bg_test</room>

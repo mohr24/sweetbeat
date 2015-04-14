@@ -158,9 +158,13 @@ for (var i=0;i&lt;show_width;i++){
         //var y_cord = tpad + max_height * (w + spad) - spad - (j-1) * (w+spad) + view_yview[0];
         var y_cord = view_yview[0] + view_hview[0] - bpad -(j-1) * (w+spad);
         //tile_add(bg_2, 2, 2, w, w, lpad + i * (w + spad), tpad + max_height * (w + spad) - spad - (j-1) * (w+spad), -100);
-        draw_set_color(c_yellow);
-        draw_set_alpha(1);
+        draw_set_color(c_blue);
+        //draw_set_alpha(0.2);
+        draw_set_blend_mode( bm_max );
+        
         draw_rectangle(x_cord,y_cord - w,x_cord+w,y_cord,false);
+        draw_set_blend_mode( bm_normal );
+        draw_set_alpha(1);
     }
 }
 
