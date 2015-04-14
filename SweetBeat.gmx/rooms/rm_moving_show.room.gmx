@@ -74,9 +74,9 @@
     <instance objName="obj_moving_plat" x="1536" y="896" name="inst_00DC4443" locked="0" code="path = pth_moving_show_6;&#xA;beats = 4;&#xA;reset_trigger = &quot;reset&quot;;&#xA;" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_moving_plat" x="864" y="704" name="inst_C2AE30BB" locked="0" code="path = pth_moving_show_9;&#xA;beats = 2;&#xA;reset_trigger = &quot;reset&quot;;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1120" y="512" name="inst_87F87482" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_moving_plat" x="1280" y="320" name="inst_A9FD0387" locked="0" code="path = pth_moving_show_11;&#xA;beats = .5;&#xA;reset_trigger = &quot;reset&quot;;&#xA;" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_moving_plat" x="1280" y="320" name="inst_A9FD0387" locked="0" code="path = pth_moving_show_11;&#xA;beats = 1;&#xA;reset_trigger = &quot;reset&quot;;&#xA;" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="1088" y="800" name="inst_6FB209EC" locked="0" code="path = pth_moving_show_8;&#xA;beats = 1;&#xA;reset_trigger = &quot;reset&quot;;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="736" y="320" name="inst_CA5C8386" locked="0" code="path = pth_moving_show_10;&#xA;beats = .5;&#xA;reset_trigger = &quot;reset&quot;;&#xA;" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="704" y="320" name="inst_CA5C8386" locked="0" code="path = pth_moving_show_10;&#xA;beats = 1;&#xA;reset_trigger = &quot;reset&quot;;&#xA;" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

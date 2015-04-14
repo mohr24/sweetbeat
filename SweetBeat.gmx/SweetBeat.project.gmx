@@ -59,17 +59,19 @@
   <paths name="paths">
     <path>paths\test_path</path>
     <path>paths\boss_path</path>
-    <path>paths\pth_moving_show_1</path>
-    <path>paths\pth_moving_show_2</path>
-    <path>paths\pth_moving_show_3</path>
-    <path>paths\pth_moving_show_4</path>
-    <path>paths\pth_moving_show_5</path>
-    <path>paths\pth_moving_show_6</path>
-    <path>paths\pth_moving_show_7</path>
-    <path>paths\pth_moving_show_8</path>
-    <path>paths\pth_moving_show_9</path>
-    <path>paths\pth_moving_show_10</path>
-    <path>paths\pth_moving_show_11</path>
+    <paths name="moving_show">
+      <path>paths\pth_moving_show_1</path>
+      <path>paths\pth_moving_show_2</path>
+      <path>paths\pth_moving_show_3</path>
+      <path>paths\pth_moving_show_4</path>
+      <path>paths\pth_moving_show_5</path>
+      <path>paths\pth_moving_show_6</path>
+      <path>paths\pth_moving_show_7</path>
+      <path>paths\pth_moving_show_8</path>
+      <path>paths\pth_moving_show_9</path>
+      <path>paths\pth_moving_show_10</path>
+      <path>paths\pth_moving_show_11</path>
+    </paths>
   </paths>
   <scripts name="scripts">
     <script>scripts\Pair.gml</script>
