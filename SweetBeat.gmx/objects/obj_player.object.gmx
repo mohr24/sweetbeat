@@ -660,6 +660,7 @@ while (x_vel_remain != 0)
             lst = next_collisions_right;
         else
             lst = next_collisions_left;
+        x_vel = 0;
         InstancePlaceList(lst, x + sign(x_vel_now), y, obj_solid_parent);
         for (var i = 0; i &lt; ds_list_size(lst); i += 1)
         {

@@ -80,6 +80,7 @@ counter = 1*fpb;
 
 // create other components
 instance_create(0,0,obj_audio);
+instance_create(0,0,obj_trigger_manager);
 </string>
           </argument>
         </arguments>

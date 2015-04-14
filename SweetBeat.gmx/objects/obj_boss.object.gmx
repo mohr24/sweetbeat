@@ -36,6 +36,7 @@ x_vel = 0;
 y_vel = 0;
 next_pos = 0;
 path_active = false;
+reset_trigger = undefined;
 
 x_prev = x;
 y_prev = y;
@@ -304,8 +305,6 @@ if (state != boss_state.wait)
         }
     }
 }
-
-show_debug_message(attack_counter);
 </string>
           </argument>
         </arguments>
