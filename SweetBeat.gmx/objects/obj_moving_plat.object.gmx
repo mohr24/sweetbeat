@@ -118,7 +118,7 @@ if (path != -1)
     
     if (path_index == -1 &amp;&amp; CheckCommand(command.plat_move))
     {
-        path_start(path, ppf, path_action_stop, true);
+        path_start(path, ppf, path_action_stop, false);
         path_active = true;
     }
 }

@@ -83,6 +83,8 @@
     <script>scripts\GetCommandExtra.gml</script>
     <script>scripts\CheckTrigger.gml</script>
     <script>scripts\SetTrigger.gml</script>
+    <script>scripts\DrawSpritePartitioned.gml</script>
+    <script>scripts\DrawSpriteTiled.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
