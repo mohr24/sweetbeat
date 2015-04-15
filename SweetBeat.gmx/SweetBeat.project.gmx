@@ -72,6 +72,13 @@
       <path>paths\pth_moving_show_9</path>
       <path>paths\pth_moving_show_10</path>
       <path>paths\pth_moving_show_11</path>
+      <path>paths\pth_moving_show_12</path>
+      <path>paths\pth_moving_show_13</path>
+      <path>paths\pth_moving_show_14</path>
+      <path>paths\pth_moving_show_15</path>
+      <path>paths\pth_moving_show_16</path>
+      <path>paths\pth_moving_show_17</path>
+      <path>paths\pth_moving_show_19</path>
     </paths>
   </paths>
   <scripts name="scripts">
@@ -94,6 +101,7 @@
     <script>scripts\color_set_lightness.gml</script>
     <script>scripts\rgb_to_hsl.gml</script>
     <script>scripts\hue_to_rgb.gml</script>
+    <script>scripts\Ternary.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>

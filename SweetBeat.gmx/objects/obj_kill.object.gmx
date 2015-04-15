@@ -40,6 +40,8 @@ x_start = x;
 y_start = y;
 
 initializing = true;
+
+event_inherited();
 </string>
           </argument>
         </arguments>

@@ -27,7 +27,9 @@
             <kind>1</kind>
             <string>/// variable initialization
 
-parallax_factor = 0.2;
+depth = 500;    // arbitrarily greater than zero
+
+parallax_factor = 0.15;
 
 tile_width = 90;
 tile_height = 90;

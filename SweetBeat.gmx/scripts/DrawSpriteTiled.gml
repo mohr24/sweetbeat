@@ -37,15 +37,15 @@ for (var ix = 0; ix < h_tile; ix += 1)
         draw_sprite(sprite,subimage,x_off+xoffset,y_off+yoffset);
         y_off += total_height;
     }
-    // last piece of row
-    draw_sprite_part(sprite,subimage,0,0,last_width,total_height,x_off,y_off);
+    // last piece of column
+    draw_sprite_part(sprite,subimage,0,0,total_width,last_height,x_off,y_off);
     y_off = _y;
     x_off += total_width;
 }
-// last row
+// last column
 for (var iy = 0; iy < v_tile; iy += 1)
 {
-    draw_sprite_part(sprite,subimage,0,0,total_width,last_height,x_off,y_off);
+    draw_sprite_part(sprite,subimage,0,0,last_width,total_height,x_off,y_off);
     y_off += total_height;
 }
 // last piece

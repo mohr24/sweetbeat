@@ -47,7 +47,7 @@ move_accel = 1;
 move_speed = 8;
 air_speed = 15;
 wall_slide_speed = 6.5;
-wall_deccel = 2;
+wall_deccel = 3;
 
 prev_collisions_left = ds_list_create();
 prev_collisions_right = ds_list_create();
@@ -366,10 +366,9 @@ if(h_axis_2 == 0 &amp;&amp; v_axis_2 == 0){
 
 // variable updates
 var x_vel_target = horizontal_axis * move_speed;
+x_vel_target += x_vel_ground;
 
-    
 if(ds_list_size(prev_collisions_bottom) &gt; 0){
-    x_vel_target += x_vel_ground;
     if (x_vel &gt; x_vel_target + move_accel)
         x_vel -= move_accel;
     else if (x_vel &lt; x_vel_target - move_accel)
@@ -609,7 +608,7 @@ if (death_count &gt; 0)
 if (death_count == 0)
 {
     death_count = 1;
-    if (obj_manager.tick_beat)
+    if (obj_manager.tick_beat || obj_manager.beat_id == 0)
         death_count = -1;
 }
 </string>
@@ -639,8 +638,30 @@ var speed_cap = min(sprite_width, sprite_height);
 x_vel = floor(x_vel);   // odd errors with non integer velocities?
 y_vel = floor(y_vel);
 
-on_left_wall = false;
-on_right_wall = false;
+/*
+if (place_meeting(x, y, obj_solid_parent))
+{
+    var inst = instance_place(x,y,obj_solid_parent);
+    var quad = Quadrant(inst,obj_player);
+    switch (quad)
+    {
+    case quadrant.top:
+        y = inst.bbox_top - sprite_yoffset;
+        break;
+    case quadrant.left:
+        x = inst.bbox_left - sprite_xoffset;
+        break;
+    case quadrant.bottom:
+        y = inst.bbox_bottom + sprite_yoffset;
+        break;
+    case quadrant.right:
+        x = inst.bbox_right + sprite_xoffset;
+        break;
+    }
+    if (place_meeting(x,y,obj_solid_parent))    // if still inside, reset
+        obj_manager.mark_kill_player = true;
+}
+*/
 
 x_vel_remain = x_vel;
 
@@ -649,10 +670,6 @@ while (x_vel_remain != 0)
     var x_vel_now = clamp(x_vel_remain, -speed_cap, speed_cap);
     if (place_meeting(x + x_vel_now, y, obj_solid_parent))
     {
-        if (x_vel_now &gt; 0)
-            on_right_wall = true;
-        else
-            on_left_wall = true;
         while (!place_meeting(x + sign(x_vel_now), y, obj_solid_parent))
             x += sign(x_vel_now);
         var lst;
@@ -667,7 +684,7 @@ while (x_vel_remain != 0)
             with (ds_list_find_value(lst,i))
                 event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
         }
-        x_vel += sign(x_vel_now);    // slight atraction to wall so we slide better
+        //x_vel += sign(x_vel_now);    // slight atraction to wall so we slide better
         break;
     }
     x += x_vel_now;
@@ -676,9 +693,6 @@ while (x_vel_remain != 0)
 
 x_vel_remain = 0;
 
-on_ground = false;
-x_vel_ground = 0;   // reset so if we hit no moving platforms we are fine
-
 y_vel_remain = y_vel;
 
 while (y_vel_remain != 0)
@@ -686,8 +700,6 @@ while (y_vel_remain != 0)
     var y_vel_now = clamp(y_vel_remain, -speed_cap, speed_cap);
     if (place_meeting(x, y + y_vel_now, obj_solid_parent))
     {
-        if (y_vel_now &gt; 0)
-            on_ground = true;
         while (!place_meeting(x, y + sign(y_vel_now), obj_solid_parent))
             y += sign(y_vel_now);
         var lst;
@@ -700,7 +712,11 @@ while (y_vel_remain != 0)
         for (var i = 0; i &lt; ds_list_size(lst); i += 1)
         {
             with (ds_list_find_value(lst, i))
+            {
                 event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
+                if (sign(y_vel_now) &gt; 0)
+                    obj_player.x_vel_ground = x_vel;
+            }
         }
         break;
     }
@@ -874,12 +890,12 @@ if (wall_kick_left_wall &gt; 0)
 if (wall_kick_right_wall &gt; 0)
     wall_kick_right_wall -= 1;
 
-if (ds_list_size(prev_collisions_left) &gt; 0)
+if (ds_list_size(prev_collisions_left))
 {
     wall_kick_left_wall = wall_kick_tolerance;
     ds_list_copy(wall_kick_cols, prev_collisions_left);
 }
-if (ds_list_size(prev_collisions_right) &gt; 0)
+if (ds_list_size(prev_collisions_right))
 {
     wall_kick_right_wall = wall_kick_tolerance;
     ds_list_copy(wall_kick_cols, prev_collisions_right);
@@ -888,7 +904,7 @@ if (ds_list_size(prev_collisions_right) &gt; 0)
 if (CheckCommand(command.wall_kick))
 {
     wall_kick_count = wall_kick_animation;
-    if (on_ground || wall_kick_left_wall &gt; 0 || wall_kick_right_wall &gt; 0)
+    if (ds_list_size(prev_collisions_bottom) || wall_kick_left_wall &gt; 0 || wall_kick_right_wall &gt; 0)
     {
         y_vel = -wall_kick_v_vel;
         if (ds_list_size(prev_collisions_bottom) &gt; 0)
@@ -1164,6 +1180,9 @@ if (step_left &gt; 0){
             <string>/// debug! set position to mouse coordinates
 x = mouse_x;
 y = mouse_y;
+
+x_vel = 0;
+y_vel = 0;
 </string>
           </argument>
         </arguments>
