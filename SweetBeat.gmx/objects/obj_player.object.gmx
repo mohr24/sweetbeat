@@ -371,15 +371,14 @@ if(h_axis_2 == 0 &amp;&amp; v_axis_2 == 0){
 var x_vel_target = horizontal_axis * move_speed;
 x_vel_target += x_vel_ground;
 
-
-//if(ds_list_size(prev_collisions_bottom) &gt; 0){
+if(ds_list_size(prev_collisions_bottom) &gt; 0){
     if (x_vel &gt; x_vel_target + move_accel)
         x_vel -= move_accel;
     else if (x_vel &lt; x_vel_target - move_accel)
         x_vel += move_accel;
     else
         x_vel = x_vel_target;
-/*}else{
+}else{
     if(horizontal_axis &gt; 0){
         if(x_vel &lt; x_vel_target - move_accel)
             x_vel += move_accel;
@@ -391,7 +390,7 @@ x_vel_target += x_vel_ground;
         else if(x_vel == x_vel_target + move_accel)
             x_vel = x_vel_target;
     }
-}*/
+}
 
 y_vel += grav_accel;
 x_stick = clamp(h_axis_2 / deadzone, -1, 1); // -1, 0, or 1

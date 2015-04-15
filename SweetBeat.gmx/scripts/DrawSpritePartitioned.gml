@@ -90,9 +90,6 @@ for (var iy = 0; iy < v_tile; iy += 1)
     y_off += tile_height;
 }
 // last piece
-<<<<<<< HEAD
-draw_sprite_part(sprite, subimage, lborder, tborder, last_width, last_height, x_off, y_off);
-=======
 draw_sprite_part(sprite, subimage, lborder, tborder, last_width, last_height, x_off, y_off);
 
->>>>>>> 77ce038270533d28ecf4613e05b275c8ea84af1f
+

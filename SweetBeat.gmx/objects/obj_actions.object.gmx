@@ -43,6 +43,8 @@ with(obj_manager){
     other.sprites[ command.swing] = spr_grapple_icon;
     other.sprites[ command.wall_kick] = spr_wall_kick_icon;
     other.sprites[ command.swipe] = spr_swipe_icon;
+    other.sprites[ command.plat_move] = spr_plat_move_icon;
+    other.sprites[ command.trigger] = spr_trigger_icon;
 }
 
 
@@ -106,10 +108,10 @@ var fpmN = bpm* fpb;
 
 var w = width * bpm;// array_length_1d(obj_manager.sequence);
 var x1 = x,y1 = y,x2 = x + w,y2 = y + height;
-draw_set_color(c_black);
-draw_rectangle(x1-frame,y1-frame,x2+frame,y2+frame,false);
-draw_set_color(c_white);
-draw_rectangle(x1,y1,x2,y2,false);
+//draw_set_color(c_black);
+//draw_rectangle(x1-frame,y1-frame,x2+frame,y2+frame,false);
+//draw_set_color(c_white);
+//draw_rectangle(x1,y1,x2,y2,false);
 
 draw_set_color(c_red);
 draw_rectangle((x1+x2)/2 - frame,y1,(x1+x2)/2 +frame,y2,false);

@@ -51,6 +51,8 @@
     <sprite>sprites\spr_anchor</sprite>
     <sprite>sprites\spr_trigger_box</sprite>
     <sprite>sprites\spr_cloud</sprite>
+    <sprite>sprites\spr_plat_move_icon</sprite>
+    <sprite>sprites\spr_trigger_icon</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
