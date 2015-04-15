@@ -146,15 +146,10 @@
       <object>objects\obj_action_player</object>
       <object>objects\obj_tilee_background</object>
     </objects>
-    <object>objects\object32</object>
   </objects>
   <rooms name="rooms">
-
-    <room>rooms\rm_learn</room>
-    <room>rooms\rm_1</room>
+    <room>rooms\rm_moving_show</room>
     <room>rooms\rm_michael</room>
-    <room>rooms\rm_moving_show</room>
-    <room>rooms\rm_moving_show</room>
     <room>rooms\rm_learn</room>
     <room>rooms\rm_bg_test</room>
     <room>rooms\rm_swing_new</room>
@@ -167,6 +162,7 @@
     <room>rooms\rm_test</room>
     <room>rooms\room7</room>
     <room>rooms\room12</room>
+    <room>rooms\rm_1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
