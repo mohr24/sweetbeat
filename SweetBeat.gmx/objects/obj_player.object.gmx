@@ -35,6 +35,8 @@ y_start = y;
 x_vel = 0;
 y_vel = 0;
 
+facing = 1;
+
 x_vel_ground = 0;
 
 x_stick = 0;    // 8 point direction (center included)
@@ -365,6 +367,10 @@ else // keyboard check
 if(h_axis_2 == 0 &amp;&amp; v_axis_2 == 0){
     h_axis_2 = horizontal_axis;
     v_axis_2 = vertical_axis;
+}
+
+if(horizontal_axis != 0){
+    facing = horizontal_axis;
 }
 
 // variable updates
@@ -1244,7 +1250,8 @@ if (death_count == -1)  // don't show until respawned completely
         draw_sprite(spr_player_wall_kick_border, 0, 0, 0);
         d3d_transform_set_identity();
     }
-    draw_sprite(sprite_index,image_index,x,y);
+    //draw_sprite(sprite_index,image_index,x,y);
+    draw_sprite_ext(sprite_index,image_index,x,y,facing,1,0,-1,1);
 }
 </string>
           </argument>
