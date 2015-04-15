@@ -1,0 +1,10 @@
+diff a/SweetBeat.gmx/objects/obj_player.object.gmx b/SweetBeat.gmx/objects/obj_player.object.gmx	(rejected hunks)
+@@ -391,7 +391,7 @@
+         else if(x_vel == x_vel_target + move_accel)
+             x_vel = x_vel_target;
+     }
+-}
++}*/
+ 
+ y_vel += grav_accel;
+ x_stick = clamp(h_axis_2 / deadzone, -1, 1); // -1, 0, or 1
