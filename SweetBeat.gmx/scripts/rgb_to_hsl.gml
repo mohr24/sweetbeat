@@ -48,4 +48,3 @@ if argument_count = 2 and argument[1] = true
     }
 
 return hsl
-

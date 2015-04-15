@@ -65,6 +65,8 @@ if (obj_manager.beat_id != id)
 obj_manager.checkpoint_id = id;
 
 image_speed = 30 / obj_manager.fpb;
+
+obj_player.image_speed = 30 / obj_manager.fpb;
 </string>
           </argument>
         </arguments>

@@ -11,4 +11,3 @@ if argument_count = 2 and argument[1] = true
 _hsl = rgb_to_hsl(argument[0], use_gm_range)
 
 return _hsl[2]
-

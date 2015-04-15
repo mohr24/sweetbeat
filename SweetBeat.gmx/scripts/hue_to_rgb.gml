@@ -11,4 +11,3 @@ if (t < 1/2) return q;
 if (t < 2/3) return (p + (q - p) * (2/3 - t) * 6);
 
 return p;
-

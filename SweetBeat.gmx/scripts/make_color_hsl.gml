@@ -37,4 +37,3 @@ if (s = 0)
 
   
 return make_color_rgb(round(r * 255),round(g * 255),round(b * 255))
-

@@ -19,4 +19,3 @@ _hsl[2] = clamp(_hsl[2] + argument[1],0,_max)
 _rgb = make_color_hsl(_hsl[0],_hsl[1],_hsl[2], use_gm_range)
 
 return _rgb
-
