@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -36,10 +36,10 @@ y = obj_player.y;
 
 // constants
 
-var f1x = .1*view_wview[0] / 2;
-var f1y = .2*view_hview[0] / 2;
-var f2x = .2*view_wview[0] / 2;
-var f2y = .3*view_hview[0] / 2;
+var f1x = .2*view_wview[0] / 2;
+var f1y = .3*view_hview[0] / 2;
+var f2x = .3*view_wview[0] / 2;
+var f2y = .7*view_hview[0] / 2;
 
 view_lock_top = -f1y;
 view_lock_bottom = f1y;

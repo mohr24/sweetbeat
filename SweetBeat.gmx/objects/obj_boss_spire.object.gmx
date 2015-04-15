@@ -36,6 +36,8 @@ harmless_color = make_color_rgb(66,66,66);
 harmfull_color = make_color_rgb(252,62,62);
 
 image_blend = harmfull_color;
+
+event_inherited();
 </string>
           </argument>
         </arguments>

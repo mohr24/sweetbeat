@@ -31,6 +31,8 @@ pos_x = x;
 pos_y = y;
 
 trigger = false;
+
+event_inherited();
 </string>
           </argument>
         </arguments>

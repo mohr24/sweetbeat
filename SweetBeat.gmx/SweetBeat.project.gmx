@@ -14,16 +14,17 @@
     <sound>sound\snd_swipe</sound>
     <sound>sound\snd_dive</sound>
     <sound>sound\snd_r_cymbal</sound>
+    <sound>sound\sng_jingle_jangle</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_moving_plat</sprite>
     <sprite>sprites\spr_door</sprite>
     <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_player_2</sprite>
     <sprite>sprites\spr_kill</sprite>
     <sprite>sprites\spr_kiill_destruct</sprite>
     <sprite>sprites\spr_beat</sprite>
-    <sprite>sprites\spr_beat_only</sprite>
     <sprite>sprites\spr_checkpoint</sprite>
     <sprite>sprites\spr_blast</sprite>
     <sprite>sprites\spr_boss1_blast</sprite>
@@ -46,6 +47,7 @@
     <sprite>sprites\spr_select_room</sprite>
     <sprite>sprites\spr_wall_kick_icon</sprite>
     <sprite>sprites\spr_swipe_icon</sprite>
+    <sprite>sprites\spr_beat_only</sprite>
     <sprite>sprites\spr_anchor</sprite>
     <sprite>sprites\spr_trigger_box</sprite>
     <sprite>sprites\spr_cloud</sprite>
@@ -55,6 +57,7 @@
     <background>background\bg_2</background>
     <background>background\bg_1</background>
     <background>background\bg_3</background>
+    <background>background\bg_4</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\test_path</path>
@@ -71,6 +74,16 @@
       <path>paths\pth_moving_show_9</path>
       <path>paths\pth_moving_show_10</path>
       <path>paths\pth_moving_show_11</path>
+      <path>paths\pth_moving_show_12</path>
+      <path>paths\pth_moving_show_13</path>
+      <path>paths\pth_moving_show_14</path>
+      <path>paths\pth_moving_show_15</path>
+      <path>paths\pth_moving_show_16</path>
+      <path>paths\pth_moving_show_17</path>
+      <path>paths\pth_moving_show_19</path>
+    </paths>
+    <paths name="swipe_level">
+      <path>paths\pth_swipe_1</path>
     </paths>
   </paths>
   <scripts name="scripts">
@@ -85,6 +98,15 @@
     <script>scripts\SetTrigger.gml</script>
     <script>scripts\DrawSpritePartitioned.gml</script>
     <script>scripts\DrawSpriteTiled.gml</script>
+    <script>scripts\make_color_hsl.gml</script>
+    <script>scripts\color_get_hsl_hue.gml</script>
+    <script>scripts\color_get_hsl_saturation.gml</script>
+    <script>scripts\color_get_hsl_lightness.gml</script>
+    <script>scripts\color_change_lightness.gml</script>
+    <script>scripts\color_set_lightness.gml</script>
+    <script>scripts\rgb_to_hsl.gml</script>
+    <script>scripts\hue_to_rgb.gml</script>
+    <script>scripts\Ternary.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -92,6 +114,7 @@
     <object>objects\obj_kill</object>
     <object>objects\obj_manager</object>
     <object>objects\obj_beat</object>
+    <object>objects\obj_view_manager</object>
     <object>objects\obj_beat_only</object>
     <object>objects\obj_beat_test</object>
     <object>objects\obj_solid_parent</object>
@@ -104,6 +127,7 @@
     <object>objects\obj_door</object>
     <object>objects\obj_switch</object>
     <object>objects\obj_destruct</object>
+    <object>objects\obj_trigger_manager</object>
     <object>objects\obj_checkpoint</object>
     <object>objects\obj_kill_destruct</object>
     <object>objects\obj_finish</object>
@@ -111,19 +135,20 @@
     <object>objects\obj_swipe</object>
     <object>objects\obj_select_room</object>
     <object>objects\obj_anchor</object>
-    <object>objects\obj_view_manager</object>
     <object>objects\obj_moving_plat</object>
     <object>objects\obj_boss_spire</object>
-    <object>objects\obj_trigger_manager</object>
     <object>objects\obj_trigger_box</object>
     <objects name="obj_visual">
       <object>objects\obj_background</object>
       <object>objects\obj_actions</object>
       <object>objects\obj_action_player</object>
+      <object>objects\obj_tilee_background</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_michael</room>
     <room>rooms\rm_moving_show</room>
+    <room>rooms\rm_learn</room>
     <room>rooms\rm_bg_test</room>
     <room>rooms\rm_swing_new</room>
     <room>rooms\lvl_3</room>
@@ -131,10 +156,10 @@
     <room>rooms\rm_grapple_3</room>
     <room>rooms\rm_grapple_2</room>
     <room>rooms\rm_grapple</room>
-    <room>rooms\rm_learn</room>
     <room>rooms\rm_boss</room>
     <room>rooms\rm_test</room>
     <room>rooms\room7</room>
+    <room>rooms\room12</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

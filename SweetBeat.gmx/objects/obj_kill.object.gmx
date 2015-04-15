@@ -41,6 +41,7 @@ y_start = y;
 
 initializing = true;
 
+<<<<<<< HEAD
 //for dynamic drawing
 
 bpm = obj_manager.bpm; // bit per measure
@@ -61,6 +62,9 @@ show_width = sprite_width / 16;
 tile_height[show_width] = 0;
 
 
+=======
+event_inherited();
+>>>>>>> origin/master
 </string>
           </argument>
         </arguments>

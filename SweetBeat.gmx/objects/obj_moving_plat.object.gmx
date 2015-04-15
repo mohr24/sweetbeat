@@ -31,6 +31,9 @@
 path = -1;
 beats = 1;
 reset_trigger = undefined;
+move_trigger = undefined;   // if move_trigger is set, it will not move on the beat
+one_way = false;    // the platform doesn't move twice unless it is reset
+one_way_spent = false;
 
 // others
 x_vel = 0;
@@ -45,6 +48,32 @@ x_prev = x;
 y_prev = y;
 
 initializing = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// the path must be corrected
+
+if (path_reversed)
+    path_reverse(path);
 </string>
           </argument>
         </arguments>
@@ -107,6 +136,7 @@ if (path != -1)
         path_reversed = false;
         x = x_start;
         y = y_start;
+        one_way_spent = false;
     }
     
     if (path_index == -1 &amp;&amp; path_active)
@@ -116,9 +146,10 @@ if (path != -1)
         path_reversed = !path_reversed;
     }
     
-    if (path_index == -1 &amp;&amp; CheckCommand(command.plat_move))
+    if ((!one_way || !one_way_spent) &amp;&amp; path_index == -1 &amp;&amp; Ternary(is_undefined(move_trigger), CheckCommand(command.plat_move), CheckTrigger(move_trigger)))
     {
         path_start(path, ppf, path_action_stop, false);
+        one_way_spent = true;
         path_active = true;
     }
 }
@@ -238,7 +269,8 @@ if (obj_player.x_vel_remain != 0)   // x direction collision
 else if (obj_player.y_vel_remain != 0)  // y direction collision
 {
     obj_player.y_vel = y_vel;
-    obj_player.x_vel_ground = x_vel;
+    if (obj_player.y_vel_remain &gt; 0)    // downwards collision
+        obj_player.x_vel_ground = x_vel;
 }
 </string>
           </argument>
