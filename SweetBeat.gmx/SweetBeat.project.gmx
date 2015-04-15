@@ -55,6 +55,7 @@
     <background>background\bg_2</background>
     <background>background\bg_1</background>
     <background>background\bg_3</background>
+    <background>background\bg_4</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\test_path</path>
@@ -85,6 +86,14 @@
     <script>scripts\SetTrigger.gml</script>
     <script>scripts\DrawSpritePartitioned.gml</script>
     <script>scripts\DrawSpriteTiled.gml</script>
+    <script>scripts\make_color_hsl.gml</script>
+    <script>scripts\color_get_hsl_hue.gml</script>
+    <script>scripts\color_get_hsl_saturation.gml</script>
+    <script>scripts\color_get_hsl_lightness.gml</script>
+    <script>scripts\color_change_lightness.gml</script>
+    <script>scripts\color_set_lightness.gml</script>
+    <script>scripts\rgb_to_hsl.gml</script>
+    <script>scripts\hue_to_rgb.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -120,6 +129,7 @@
       <object>objects\obj_background</object>
       <object>objects\obj_actions</object>
       <object>objects\obj_action_player</object>
+      <object>objects\obj_tilee_background</object>
     </objects>
   </objects>
   <rooms name="rooms">
