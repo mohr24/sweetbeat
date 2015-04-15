@@ -35,6 +35,8 @@ y_start = y;
 x_vel = 0;
 y_vel = 0;
 
+facing = 1;
+
 x_vel_ground = 0;
 
 x_stick = 0;    // 8 point direction (center included)
@@ -367,19 +369,23 @@ if(h_axis_2 == 0 &amp;&amp; v_axis_2 == 0){
     v_axis_2 = vertical_axis;
 }
 
+if(horizontal_axis != 0){
+    facing = horizontal_axis;
+}
+
 // variable updates
 var x_vel_target = horizontal_axis * move_speed;
 x_vel_target += x_vel_ground;
 
 
-//if(ds_list_size(prev_collisions_bottom) &gt; 0){
+if(ds_list_size(prev_collisions_bottom) &gt; 0){
     if (x_vel &gt; x_vel_target + move_accel)
         x_vel -= move_accel;
     else if (x_vel &lt; x_vel_target - move_accel)
         x_vel += move_accel;
     else
         x_vel = x_vel_target;
-/*}else{
+}else{
     if(horizontal_axis &gt; 0){
         if(x_vel &lt; x_vel_target - move_accel)
             x_vel += move_accel;
@@ -391,7 +397,7 @@ x_vel_target += x_vel_ground;
         else if(x_vel == x_vel_target + move_accel)
             x_vel = x_vel_target;
     }
-}*/
+}
 
 y_vel += grav_accel;
 x_stick = clamp(h_axis_2 / deadzone, -1, 1); // -1, 0, or 1
@@ -1245,7 +1251,8 @@ if (death_count == -1)  // don't show until respawned completely
         draw_sprite(spr_player_wall_kick_border, 0, 0, 0);
         d3d_transform_set_identity();
     }
-    draw_sprite(sprite_index,image_index,x,y);
+    //draw_sprite(sprite_index,image_index,x,y);
+    draw_sprite_ext(sprite_index,image_index,x,y,facing,1,0,-1,1);
 }
 </string>
           </argument>

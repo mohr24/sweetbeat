@@ -39,7 +39,7 @@ bpm = 4;            // beats per measure
 fpb = 30;           // frames per beat
 
 
-music = electroswing120bpm;
+music = sng_jingle_jangle;
 
 // constants!
 enum command
