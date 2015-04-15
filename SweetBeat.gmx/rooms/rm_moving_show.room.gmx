@@ -101,8 +101,8 @@
     <instance objName="obj_trigger_box" x="960" y="192" name="inst_801B2041" locked="0" code="trigger = &quot;at the top&quot;;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1936" y="640" name="inst_C5936917" locked="0" code="" scaleX="17.5" scaleY="20" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="1152" y="320" name="inst_42FB5298" locked="0" code="path = pth_moving_show_17;&#xA;beats = 2.5;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="1312" y="704" name="inst_020A7C11" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="960" y="1056" name="inst_FF33A65C" locked="0" code="path = pth_moving_show_19;&#xA;beats = 2.5;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="1312" y="736" name="inst_020A7C11" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="960" y="1120" name="inst_FF33A65C" locked="0" code="path = pth_moving_show_19;&#xA;beats = 2.5;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_checkpoint" x="1344" y="1472" name="inst_F5720635" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_background" x="160" y="320" name="inst_321DBD1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_actions" x="192" y="320" name="inst_8692BED2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
