@@ -41,6 +41,25 @@ y_start = y;
 
 initializing = true;
 
+//for dynamic drawing
+
+bpm = obj_manager.bpm; // bit per measure
+fpb = obj_manager.fpb; // frames per beat
+step_cnt = -1;
+
+cur_bit = 0;
+cur_bit_start = 0;
+cur_bit_end = fpb - 1; // included
+
+isStart = false;
+
+//tile
+
+max_height = 64 / 16;
+min_height = 0;
+show_width = sprite_width / 16;
+tile_height[show_width] = 0;
+
 event_inherited();
 </string>
           </argument>
@@ -151,6 +170,43 @@ if (path != 1 &amp;&amp; place_meeting(x,y,obj_player))
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///timing
+if (obj_manager.down_beat){
+    isStart = true;
+}
+
+if (isStart){
+step_cnt = (step_cnt + 1) % (bpm*fpb);
+
+if (step_cnt % fpb == 0){
+    cur_bit = step_cnt / fpb;
+    cur_bit_start = step_cnt;
+    cur_bit_end = cur_bit_start + fpb -1;
+}
+}//if (isStart)
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_player">
       <action>
         <libid>1</libid>
@@ -171,6 +227,78 @@ if (path != 1 &amp;&amp; place_meeting(x,y,obj_player))
             <string>/// mark player for death
 
 obj_manager.mark_kill_player = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///dynamic drawing
+
+//draw_self();
+
+///tiles
+
+var lpad = 1;
+var tpad = 1;
+var w = 14;
+var spad = 2;
+
+
+left_most = x - sprite_width / 2;
+top_most  = y - sprite_height / 2;
+w_cnt = sprite_width / 16;
+h_cnt = sprite_height / 16;
+
+draw_set_color(c_black);
+
+draw_rectangle(left_most,top_most,left_most + sprite_width, top_most + sprite_height,false);
+
+draw_set_color(c_red);
+
+for (var i=0;i&lt;w_cnt;i++){
+    for (var j=0;j&lt;h_cnt;j++){
+        var xcord = left_most + lpad + i * (w + spad);
+        var ycord = top_most + tpad + j * (w + spad);
+        draw_rectangle(xcord,ycord,xcord+w,ycord+w,false);
+    }
+}
+
+if (step_cnt == cur_bit_start){
+    for (var i=0;i&lt;show_width;i++){
+        tile_height[i] = random(max_height - min_height) + min_height;
+    }
+}
+
+for (var i=0;i&lt;show_width;i++){
+    var left = floor(tile_height[i] * (cur_bit_end - step_cnt + 1)/(fpb));
+    for (var j=1;j&lt;=left;j++){
+        var x_cord = left_most + lpad + i * (w + spad);
+        var y_cord = top_most - j * (w+spad) - tpad;
+        draw_set_color(c_red);
+        //draw_set_alpha(0.2);
+        //draw_set_blend_mode( bm_max );
+        draw_rectangle(x_cord,y_cord,x_cord+w,y_cord + w,false);
+        //draw_set_blend_mode( bm_normal );
+        //draw_set_alpha(1);
+    }
+}
 </string>
           </argument>
         </arguments>

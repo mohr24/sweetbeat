@@ -377,7 +377,6 @@ if(horizontal_axis != 0){
 var x_vel_target = horizontal_axis * move_speed;
 x_vel_target += x_vel_ground;
 
-
 if(ds_list_size(prev_collisions_bottom) &gt; 0){
     if (x_vel &gt; x_vel_target + move_accel)
         x_vel -= move_accel;

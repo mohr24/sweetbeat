@@ -104,6 +104,8 @@
     <instance objName="obj_kill" x="1312" y="704" name="inst_020A7C11" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="960" y="1056" name="inst_FF33A65C" locked="0" code="path = pth_moving_show_19;&#xA;beats = 2.5;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_checkpoint" x="1344" y="1472" name="inst_F5720635" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_background" x="160" y="320" name="inst_321DBD1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_actions" x="192" y="320" name="inst_8692BED2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
