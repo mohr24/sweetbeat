@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// variable initialization
 
+randomize();    // random variables enabled
+
 show_debug_message("manager Create");
 
 audio_stop_all();
