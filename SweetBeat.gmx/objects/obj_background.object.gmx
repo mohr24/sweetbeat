@@ -139,7 +139,7 @@ for (var i=0;i&lt;max_lvl;i++){
           <argument>
             <kind>1</kind>
             <string>///tiles
-
+/*
 var lpad = 100;
 var bpad = 100;
 var w = 64;
@@ -167,7 +167,7 @@ for (var i=0;i&lt;show_width;i++){
         draw_set_alpha(1);
     }
 }
-
+*/
 </string>
           </argument>
         </arguments>
@@ -189,13 +189,14 @@ for (var i=0;i&lt;show_width;i++){
           <argument>
             <kind>1</kind>
             <string>///cloud
+/*
 var w = 64;
 
 for (var i=0;i&lt;max_lvl;i++){
     for (var j=0;j&lt;cloudc[i];j++){
         draw_sprite_stretched(spr_cloud, -1, cloudx[i,j], cloudy[i,j], w * clouds[i,j], w * clouds[i,j]);
     }
-}
+}*/
 </string>
           </argument>
         </arguments>
@@ -217,10 +218,10 @@ for (var i=0;i&lt;max_lvl;i++){
           <argument>
             <kind>1</kind>
             <string>///farthest background
-
+/*
 if (!isStart){
     draw_background_tiled(bg_0, 0, 0);
-}
+}*/
 </string>
           </argument>
         </arguments>

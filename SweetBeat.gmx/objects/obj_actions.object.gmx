@@ -43,6 +43,8 @@ with(obj_manager){
     other.sprites[ command.swing] = spr_grapple_icon;
     other.sprites[ command.wall_kick] = spr_wall_kick_icon;
     other.sprites[ command.swipe] = spr_swipe_icon;
+    other.sprites[ command.plat_move] = spr_plat_move_icon;
+    other.sprites[ command.trigger] = spr_trigger_icon;
 }
 
 
