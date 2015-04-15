@@ -92,3 +92,4 @@ for (var iy = 0; iy < v_tile; iy += 1)
 // last piece
 draw_sprite_part(sprite, subimage, lborder, tborder, last_width, last_height, x_off, y_off);
 
+
