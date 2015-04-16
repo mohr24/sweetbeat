@@ -214,7 +214,7 @@ for (var i=0;i&lt;show_width;i++){
     var left = floor(tile_height[i] * (obj_manager.cur_bit_end - obj_manager.step_cnt + 1)/obj_manager.fpb);
     for (var j=1;j&lt;=left;j++){
         var x_cord = left_most + lpad + i * (w + spad);
-        var y_cord = top_most - j * (w+spad) - tpad;
+        var y_cord = top_most - j * (w+spad) + tpad;
         draw_set_color(c_red);
         //draw_set_alpha(0.2);
         //draw_set_blend_mode( bm_max );
