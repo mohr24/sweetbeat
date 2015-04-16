@@ -43,19 +43,12 @@ initializing = true;
 
 //for dynamic drawing
 
-bpm = obj_manager.bpm; // bit per measure
-fpb = obj_manager.fpb; // frames per beat
-step_cnt = -1;
 
-cur_bit = 0;
-cur_bit_start = 0;
-cur_bit_end = fpb - 1; // included
 
-isStart = false;
 
 //tile
 
-max_height = 64 / 16;
+max_height = 64 / 16 + 1;
 min_height = 0;
 show_width = sprite_width / 16;
 tile_height[show_width] = 0;
@@ -84,7 +77,7 @@ event_inherited();
           <argument>
             <kind>1</kind>
             <string>///timing
-if (obj_manager.down_beat){
+/*if (obj_manager.down_beat){
     isStart = true;
 }
 
@@ -96,7 +89,7 @@ if (step_cnt % fpb == 0){
     cur_bit_start = step_cnt;
     cur_bit_end = cur_bit_start + fpb -1;
 }
-}//if (isStart)
+}*///if (isStart)
 
 </string>
           </argument>
@@ -174,20 +167,32 @@ obj_manager.mark_kill_player = true;
 
 ///tiles
 
+left_most = x - sprite_width / 2;
+top_most  = y - sprite_height / 2;
+w_cnt = sprite_width / 16;
+h_cnt = sprite_height / 16;
+
+
+var right_most = left_most + sprite_width;
+var bottom_most = top_most + sprite_height;
+
+var left_vb = view_xview[0];
+var right_vb = left_vb + view_wview[0];
+var top_vb = view_yview[0];
+var bottom_vb = top_vb + view_hview[0];
+
+if (right_most&gt;left_vb &amp;&amp; left_most&lt;right_vb &amp;&amp; top_most&lt; bottom_vb &amp;&amp; bottom_most &gt; top_vb){
+
 var lpad = 1;
 var tpad = 1;
 var w = 14;
 var spad = 2;
 
 
-left_most = x - sprite_width / 2;
-top_most  = y - sprite_height / 2;
-w_cnt = sprite_width / 16;
-h_cnt = sprite_height / 16;
 
-draw_set_color(c_black);
+//draw_set_color(c_black);
 
-draw_rectangle(left_most,top_most,left_most + sprite_width, top_most + sprite_height,false);
+//draw_rectangle(left_most,top_most,left_most + sprite_width, top_most + sprite_height,false);
 
 draw_set_color(c_red);
 
@@ -199,14 +204,14 @@ for (var i=0;i&lt;w_cnt;i++){
     }
 }
 
-if (step_cnt == cur_bit_start){
+if (obj_manager.step_cnt == obj_manager.cur_bit_start){
     for (var i=0;i&lt;show_width;i++){
         tile_height[i] = random(max_height - min_height) + min_height;
     }
 }
 
 for (var i=0;i&lt;show_width;i++){
-    var left = floor(tile_height[i] * (cur_bit_end - step_cnt + 1)/(fpb));
+    var left = floor(tile_height[i] * (obj_manager.cur_bit_end - obj_manager.step_cnt + 1)/obj_manager.fpb);
     for (var j=1;j&lt;=left;j++){
         var x_cord = left_most + lpad + i * (w + spad);
         var y_cord = top_most - j * (w+spad) - tpad;
@@ -218,6 +223,8 @@ for (var i=0;i&lt;show_width;i++){
         //draw_set_alpha(1);
     }
 }
+
+} // if(in sight)
 </string>
           </argument>
         </arguments>
