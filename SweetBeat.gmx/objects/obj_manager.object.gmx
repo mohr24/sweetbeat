@@ -76,6 +76,15 @@ counter = 1*fpb;
 // create other components
 instance_create(0,0,obj_audio);
 instance_create(0,0,obj_trigger_manager);
+
+
+//timing for k=obj_kill
+
+isStart = false;
+step_cnt = -1;
+cur_bit = 0;
+cur_bit_start = 0;
+cur_bit_end = fpb - 1; // included
 </string>
           </argument>
         </arguments>
@@ -187,6 +196,41 @@ if (beat_id != 0)
 
 background_x[0] = - obj_player.x / 10;
 background_y[0] = - obj_player.y / 10;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///timing
+if (down_beat){
+    isStart = true;
+}
+
+if (isStart){
+step_cnt = (step_cnt + 1) % (bpm*fpb);
+
+if (step_cnt % fpb == 0){
+    cur_bit = step_cnt / fpb;
+    cur_bit_start = step_cnt;
+    cur_bit_end = cur_bit_start + fpb -1;
+}
+}//if (isStart)
+
 </string>
           </argument>
         </arguments>
