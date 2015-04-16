@@ -34,21 +34,14 @@ show_debug_message("manager Create");
 audio_stop_all();
 
 // alter in obj_manager creation code if necessary
-
 bpm = 4;            // beats per measure
 fpb = 30;           // frames per beat
-
-
 music = electroswing120bpm;
 
 // constants!
 enum command
 {
     jump = 0,
-    swing,
-    wall_kick,
-    dive,
-    speed_up,
     swipe,
     plat_move,
     
@@ -245,35 +238,6 @@ background_y[0] = - obj_player.y / 10;
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (is_fast){
-    room_speed /= 2;
-    is_fast = false;
-}else {
-    room_speed *= 2;
-    is_fast = true;
-}
-</string>
-          </argument>
-        </arguments>
       </action>
     </event>
   </events>

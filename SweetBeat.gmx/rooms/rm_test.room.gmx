@@ -154,7 +154,6 @@
     <instance objName="obj_wall" x="2080" y="288" name="inst_F52F8642" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2144" y="288" name="inst_84679A02" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2208" y="288" name="inst_FA08BC21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat_test" x="1952" y="224" name="inst_C12E5265" locked="0" code="text = &quot;Dive Test&quot;;&#xA;sequence[0] = Pair(2,command.jump);&#xA;sequence[1] = Pair(2.5,command.dive);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="1952" y="0" name="inst_D1844DDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="2016" y="0" name="inst_A513553F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="2080" y="0" name="inst_A7C6D353" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

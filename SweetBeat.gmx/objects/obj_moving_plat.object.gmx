@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_solid_parent</parentName>
+  <parentName>obj_moving_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,38 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// wait for creation code
+            <string>// variables and inherited
 
-// set these
-path = -1;
-beats = 1;
-reset_trigger = undefined;
-move_trigger = undefined;   // if move_trigger is set, it will not move on the beat
-one_way = false;    // the platform doesn't move twice unless it is reset
-plat_key = undefined;   // special extra key for moving on a specific beat
-
-
-one_way_spent = false;
-
-// others
-x_vel = 0;
-y_vel = 0;
-next_pos = 0;
-path_active = false;
-path_reversed = false;
-
-x_start = x;
-y_start = y;
 x_prev = x;
 y_prev = y;
 
-initializing = true;
+event_inherited();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -73,39 +53,10 @@ initializing = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// the path must be corrected
+            <string>/// update previous values
 
-if (path_reversed)
-    path_reverse(path);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// check creation code status
-
-if (initializing)
-{
-    initializing = false;   // only do once
-    ppf = path_get_length(path) / (obj_manager.fpb * beats);
-}
+x_prev = x;
+y_prev = y;
 </string>
           </argument>
         </arguments>
@@ -126,36 +77,9 @@ if (initializing)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// do path execution
+            <string>/// inherited
 
-if (path != -1)
-{
-    if (CheckTrigger(reset_trigger))
-    {
-        path_end();
-        path_active = false;
-        if (path_reversed)
-            path_reverse(path);
-        path_reversed = false;
-        x = x_start;
-        y = y_start;
-        one_way_spent = false;
-    }
-    
-    if (path_index == -1 &amp;&amp; path_active)
-    {
-        path_active = false;
-        path_reverse(path);
-        path_reversed = !path_reversed;
-    }
-    
-    if ((!one_way || !one_way_spent) &amp;&amp; path_index == -1 &amp;&amp; Ternary(is_undefined(move_trigger), CheckCommand(command.plat_move) &amp;&amp; GetCommandExtra(command.plat_move) == plat_key, CheckTrigger(move_trigger)))
-    {
-        path_start(path, ppf, path_action_stop, false);
-        one_way_spent = true;
-        path_active = true;
-    }
-}
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -221,30 +145,6 @@ if (place_meeting(x,y,obj_player))
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// update previous values
-
-x_prev = x;
-y_prev = y;
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="4" ename="obj_player">
       <action>
@@ -278,22 +178,6 @@ else if (obj_player.y_vel_remain != 0)  // y direction collision
 </string>
           </argument>
         </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="5">
-      <action>
-        <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="8" enumb="0">
