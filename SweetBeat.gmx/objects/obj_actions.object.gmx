@@ -38,10 +38,6 @@ block_width = 0.5;
 with(obj_manager){
     other.sprites[ command.jump] = spr_jump_icon;
     other.sprites[ command.none] = spr_none_icon;
-    other.sprites[ command.dive] = spr_dive_icon;
-    other.sprites[ command.speed_up] = spr_speed_up_icon;
-    other.sprites[ command.swing] = spr_grapple_icon;
-    other.sprites[ command.wall_kick] = spr_wall_kick_icon;
     other.sprites[ command.swipe] = spr_swipe_icon;
     other.sprites[ command.plat_move] = spr_plat_move_icon;
     other.sprites[ command.trigger] = spr_trigger_icon;
@@ -53,34 +49,6 @@ y = y_offset;
 
 fpb = obj_manager.fpb;
 bpm = obj_manager.bpm;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///move
-
-//x = view_xview[0] + x_offset;
-//y = view_yview[0] + y_offset;
-
-
 </string>
           </argument>
         </arguments>
@@ -113,7 +81,7 @@ var x1 = x,y1 = y,x2 = x + w,y2 = y + height;
 //draw_set_color(c_white);
 //draw_rectangle(x1,y1,x2,y2,false);
 
-draw_set_color(c_red);
+draw_set_color(c_white);
 draw_rectangle((x1+x2)/2 - frame,y1,(x1+x2)/2 +frame,y2,false);
 
 draw_set_color(c_green);

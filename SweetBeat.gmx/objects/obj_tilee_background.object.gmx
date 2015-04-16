@@ -40,10 +40,17 @@ transition_count = 0;
 // h : [0,360], s : [0,100], l : [0,100]
 tile_min_hue = 300;
 tile_max_hue = 300;
-tile_min_sat = 100;
-tile_max_sat = 100;
+tile_min_sat = 0;   // start black &amp; white
+tile_max_sat = 0;
 tile_min_lum = 10;
 tile_max_lum = 90;
+
+prev_min_hue = tile_min_hue;
+prev_max_hue = tile_max_hue;
+prev_min_sat = tile_min_sat;
+prev_max_sat = tile_max_sat;
+prev_min_lum = tile_min_lum;
+prev_max_lum = tile_max_lum;
 
 seed_get = 999999999;   // arbitrary high number
 
@@ -81,6 +88,18 @@ if (obj_manager.command_bitmask != 0)
     prev_seed = seed;
     seed = random(seed_get);
     transition_count = transition_frames;
+    //tile_min_hue = 300;
+    //tile_max_hue = 300;
+    tile_min_sat = 100;
+    tile_max_sat = 100;
+    //tile_min_lum = 10;
+    //tile_max_lum = 90;
+    //prev_min_hue = tile_min_hue;
+    //prev_max_hue = tile_max_hue;
+    prev_min_sat = tile_min_sat;
+    prev_max_sat = tile_max_sat;
+    //prev_min_lum = tile_min_lum;
+    //prev_max_lum = tile_max_lum;
 }
 
 if (transition_count &gt; 0)
@@ -145,9 +164,9 @@ for (var ix = ix_min; ix &lt; ix_max; ix += 1)
         var tile_sat = irandom_range(tile_min_sat,tile_max_sat);
         var tile_lum = irandom_range(tile_min_lum,tile_max_lum);
         random_set_seed(prev_seed + seed_off);
-        var tile_hue_prev = irandom_range(tile_min_hue,tile_max_hue);
-        var tile_sat_prev = irandom_range(tile_min_sat,tile_max_sat);
-        var tile_lum_prev = irandom_range(tile_min_lum,tile_max_lum);
+        var tile_hue_prev = irandom_range(prev_min_hue,prev_max_hue);
+        var tile_sat_prev = irandom_range(prev_min_sat,prev_max_sat);
+        var tile_lum_prev = irandom_range(prev_min_lum,prev_max_lum);
         
         tile_hue = lerp(tile_hue_prev,tile_hue,lerp_fac);
         tile_sat = lerp(tile_sat_prev,tile_sat,lerp_fac);

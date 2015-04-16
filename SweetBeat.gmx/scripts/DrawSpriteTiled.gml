@@ -22,31 +22,60 @@ var scaled_yoffset = yoffset * v_tile;
 _x -= scaled_xoffset;
 _y -= scaled_yoffset;
 
-var last_width = total_width * frac(h_tile);
-var last_height = total_height * frac(v_tile);
+var v_left = view_xview[view_current];
+var v_right = v_left + view_wview[view_current];
+var v_top = view_yview[view_current];
+var v_bottom = v_top + view_hview[view_current];
 
-h_tile = floor(h_tile);
-v_tile = floor(v_tile);
-
-var x_off = _x;
-var y_off = _y;
-for (var ix = 0; ix < h_tile; ix += 1)
+if (v_left < _x + width)
+if (v_top < _y + height)
+if (v_right > _x)
+if (v_bottom > _y)
 {
-    for (var iy = 0; iy < v_tile; iy += 1)
+    if (v_left > _x)
     {
-        draw_sprite(sprite,subimage,x_off+xoffset,y_off+yoffset);
+        var shift = floor((v_left - _x) / total_width) * total_width;
+        _x += shift;
+        width -= shift;
+    }
+    if (v_top > _y)
+    {
+        var shift = floor((v_top - _y) / total_height) * total_height;
+        _y += shift;
+        height -= shift;
+    }
+
+    width = min(width, v_right - _x);
+    height = min(height, v_bottom - _y);
+    h_tile = width / total_width;
+    v_tile = height / total_height;
+    
+    var last_width = total_width * frac(h_tile);
+    var last_height = total_height * frac(v_tile);
+    
+    h_tile = floor(h_tile);
+    v_tile = floor(v_tile);
+    
+    var x_off = _x;
+    var y_off = _y;
+    repeat(h_tile)
+    {
+        repeat(v_tile)
+        {
+            draw_sprite(sprite,subimage,x_off+xoffset,y_off+yoffset);
+            y_off += total_height;
+        }
+        // last piece of column
+        draw_sprite_part(sprite,subimage,0,0,total_width,last_height,x_off,y_off);
+        y_off = _y;
+        x_off += total_width;
+    }
+    // last column
+    repeat(v_tile)
+    {
+        draw_sprite_part(sprite,subimage,0,0,last_width,total_height,x_off,y_off);
         y_off += total_height;
     }
-    // last piece of column
-    draw_sprite_part(sprite,subimage,0,0,total_width,last_height,x_off,y_off);
-    y_off = _y;
-    x_off += total_width;
+    // last piece
+    draw_sprite_part(sprite,subimage,0,0,last_width,last_height,x_off,y_off);
 }
-// last column
-for (var iy = 0; iy < v_tile; iy += 1)
-{
-    draw_sprite_part(sprite,subimage,0,0,last_width,total_height,x_off,y_off);
-    y_off += total_height;
-}
-// last piece
-draw_sprite_part(sprite,subimage,0,0,last_width,last_height,x_off,y_off);

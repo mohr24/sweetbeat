@@ -5,8 +5,6 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\snd_down_beat</sound>
-    <sound>sound\snd_beat_tick</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_blast</sound>
     <sound>sound\electroswing120bpm</sound>
@@ -36,16 +34,9 @@
     <sprite>sprites\spr_destruct</sprite>
     <sprite>sprites\spr_finish</sprite>
     <sprite>sprites\spr_jump_icon</sprite>
-    <sprite>sprites\spr_blast_icon</sprite>
-    <sprite>sprites\spr_stall_icon</sprite>
     <sprite>sprites\spr_none_icon</sprite>
-    <sprite>sprites\spr_player_wall_kick_border</sprite>
-    <sprite>sprites\spr_dive_icon</sprite>
-    <sprite>sprites\spr_speed_up_icon</sprite>
-    <sprite>sprites\spr_grapple_icon</sprite>
     <sprite>sprites\spr_swipe</sprite>
     <sprite>sprites\spr_select_room</sprite>
-    <sprite>sprites\spr_wall_kick_icon</sprite>
     <sprite>sprites\spr_swipe_icon</sprite>
     <sprite>sprites\spr_beat_only</sprite>
     <sprite>sprites\spr_anchor</sprite>
@@ -82,6 +73,7 @@
       <path>paths\pth_moving_show_15</path>
       <path>paths\pth_moving_show_16</path>
       <path>paths\pth_moving_show_17</path>
+      <path>paths\pth_moving_show_18</path>
       <path>paths\pth_moving_show_19</path>
     </paths>
     <paths name="swipe_level">
@@ -138,6 +130,8 @@
     <object>objects\obj_select_room</object>
     <object>objects\obj_anchor</object>
     <object>objects\obj_moving_plat</object>
+    <object>objects\obj_moving_parent</object>
+    <object>objects\obj_path_tracer</object>
     <object>objects\obj_boss_spire</object>
     <object>objects\obj_trigger_box</object>
     <objects name="obj_visual">
@@ -148,21 +142,12 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_1</room>
     <room>rooms\rm_moving_show</room>
     <room>rooms\rm_michael</room>
     <room>rooms\rm_learn</room>
     <room>rooms\rm_bg_test</room>
-    <room>rooms\rm_swing_new</room>
-    <room>rooms\lvl_3</room>
-    <room>rooms\lvl_2</room>
-    <room>rooms\rm_grapple_3</room>
-    <room>rooms\rm_grapple_2</room>
-    <room>rooms\rm_grapple</room>
-    <room>rooms\rm_boss</room>
     <room>rooms\rm_test</room>
-    <room>rooms\room7</room>
-    <room>rooms\room12</room>
-    <room>rooms\rm_1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

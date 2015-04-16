@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>/// manual draw for tiling
 
-DrawSpriteTiled(sprite_index,image_index,x,y,sprite_width,sprite_height);
+//DrawSpriteTiled(sprite_index,image_index,x,y,sprite_width,sprite_height);
+draw_self();
 </string>
           </argument>
         </arguments>
