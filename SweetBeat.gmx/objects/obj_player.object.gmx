@@ -112,44 +112,6 @@ jmp_vel = -20;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// wall kick variables
-
-wall_kick_h_vel = 16;
-wall_kick_v_vel = 16;
-
-wall_kick_animation = 5;
-wall_kick_scale = 1.1;
-
-wall_kick_count = 0;
-
-wall_kick_stretch = 1;
-
-wall_kick_tolerance = 6;
-
-wall_kick_left_wall = 0;
-wall_kick_right_wall = 0;
-
-wall_kick_cols = ds_list_create();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///grapple variables
 
 my_swing = noone;
@@ -266,8 +228,6 @@ ds_list_destroy(next_collisions_left);
 ds_list_destroy(next_collisions_right);
 ds_list_destroy(next_collisions_top);
 ds_list_destroy(next_collisions_bottom);
-
-ds_list_destroy(wall_kick_cols);
 
 show_debug_message("player destroy");
 </string>
@@ -493,36 +453,6 @@ if (CheckCommand(command.jump))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// wall slide
-
-var wall_collisions = ds_list_size(prev_collisions_left) + ds_list_size(prev_collisions_right);
-
-if (wall_collisions != 0 &amp;&amp; y_vel &gt; wall_slide_speed)
-{
-    y_vel -= wall_deccel;
-    if (y_vel &lt; wall_slide_speed)
-        y_vel = wall_slide_speed;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>/// swipe
 
 if (x_stick_square != 0 || y_stick_square != 0)
@@ -693,7 +623,6 @@ while (x_vel_remain != 0)
             with (ds_list_find_value(lst,i))
                 event_perform(ev_collision, obj_player); // register a collision event (wouldn't happen normally since we stop before it)
         }
-        //x_vel += sign(x_vel_now);    // slight atraction to wall so we slide better
         break;
     }
     x += x_vel_now;
@@ -871,84 +800,6 @@ else if (my_swing != noone)
     }
     my_swing = noone;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// wall kick action
-
-if (wall_kick_left_wall &gt; 0)
-    wall_kick_left_wall -= 1;
-
-if (wall_kick_right_wall &gt; 0)
-    wall_kick_right_wall -= 1;
-
-if (ds_list_size(prev_collisions_left))
-{
-    wall_kick_left_wall = wall_kick_tolerance;
-    ds_list_copy(wall_kick_cols, prev_collisions_left);
-}
-if (ds_list_size(prev_collisions_right))
-{
-    wall_kick_right_wall = wall_kick_tolerance;
-    ds_list_copy(wall_kick_cols, prev_collisions_right);
-}
-    
-if (CheckCommand(command.wall_kick))
-{
-    wall_kick_count = wall_kick_animation;
-    if (ds_list_size(prev_collisions_bottom) || wall_kick_left_wall &gt; 0 || wall_kick_right_wall &gt; 0)
-    {
-        y_vel = -wall_kick_v_vel;
-        if (ds_list_size(prev_collisions_bottom) &gt; 0)
-        {
-            for (var i = 0; i &lt; ds_list_size(prev_collisions_bottom); i += 1)
-                with (ds_list_find_value(prev_collisions_bottom, i))
-                    trigger = true;
-        }
-        else
-        {
-            if (wall_kick_left_wall &gt; wall_kick_right_wall)
-                x_vel = wall_kick_h_vel;
-            else
-                x_vel = -wall_kick_h_vel;
-            for (var i = 0; i &lt; ds_list_size(wall_kick_cols); i += 1)
-            {
-                with (ds_list_find_value(wall_kick_cols, i))
-                {
-                    event_perform(ev_collision, obj_player);    // we kick the wall even if we left it already
-                    trigger = true;
-                }
-            }
-        }
-    }
-    audio_play_sound(snd_wall_kick,10,false);
-}
-
-if (wall_kick_count &gt; 0)
-{
-    var inter = wall_kick_count / wall_kick_animation;
-    wall_kick_stretch = wall_kick_scale * inter + 1*(1 - inter);
-    wall_kick_count -= 1;
-}
-else
-    wall_kick_stretch = 1;
 </string>
           </argument>
         </arguments>
@@ -1197,6 +1048,22 @@ y_vel = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>203</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_kill_object</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+    </event>
     <event eventtype="7" enumb="0">
       <action>
         <libid>1</libid>
@@ -1242,14 +1109,6 @@ obj_manager.mark_kill_player = true;
             <string>/// manual draw object
 if (death_count == -1)  // don't show until respawned completely
 {
-    if (wall_kick_count &gt; 0)
-    {
-        d3d_transform_set_identity();
-        d3d_transform_add_scaling(wall_kick_stretch, wall_kick_stretch, 1);
-        d3d_transform_add_translation(x, y, 0);
-        draw_sprite(spr_player_wall_kick_border, 0, 0, 0);
-        d3d_transform_set_identity();
-    }
     //draw_sprite(sprite_index,image_index,x,y);
     draw_sprite_ext(sprite_index,image_index,x,y,facing,1,0,-1,1);
 }

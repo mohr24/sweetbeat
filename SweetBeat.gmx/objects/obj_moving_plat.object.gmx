@@ -33,6 +33,9 @@ beats = 1;
 reset_trigger = undefined;
 move_trigger = undefined;   // if move_trigger is set, it will not move on the beat
 one_way = false;    // the platform doesn't move twice unless it is reset
+plat_key = undefined;   // special extra key for moving on a specific beat
+
+
 one_way_spent = false;
 
 // others
@@ -146,7 +149,7 @@ if (path != -1)
         path_reversed = !path_reversed;
     }
     
-    if ((!one_way || !one_way_spent) &amp;&amp; path_index == -1 &amp;&amp; Ternary(is_undefined(move_trigger), CheckCommand(command.plat_move), CheckTrigger(move_trigger)))
+    if ((!one_way || !one_way_spent) &amp;&amp; path_index == -1 &amp;&amp; Ternary(is_undefined(move_trigger), CheckCommand(command.plat_move) &amp;&amp; GetCommandExtra(command.plat_move) == plat_key, CheckTrigger(move_trigger)))
     {
         path_start(path, ppf, path_action_stop, false);
         one_way_spent = true;
@@ -275,6 +278,22 @@ else if (obj_player.y_vel_remain != 0)  // y direction collision
 </string>
           </argument>
         </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>203</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_kill_object</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="8" enumb="0">
