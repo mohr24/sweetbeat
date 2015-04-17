@@ -99,6 +99,9 @@
       <path>paths\pth_bb_s5_3</path>
       <path>paths\pth_bb_s5_4</path>
       <path>paths\pth_bb_s5_5</path>
+      <path>paths\pth_bb_s6_1</path>
+      <path>paths\pth_bb_s7_1</path>
+      <path>paths\pth_bb_s7_2</path>
     </paths>
   </paths>
   <scripts name="scripts">
