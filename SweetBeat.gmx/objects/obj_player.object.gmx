@@ -426,8 +426,8 @@ if(h_axis_2 == 0 &amp;&amp; v_axis_2 == 0){
     v_axis_2 = vertical_axis;
 }
 
-if(horizontal_axis != 0){
-    facing = horizontal_axis;
+if(x_stick != 0){
+    facing = x_stick;
 }
 
 // variable updates
@@ -502,7 +502,7 @@ if (obj_manager.kill_player)
         x = obj_manager.checkpoint_id.x;
         y = obj_manager.checkpoint_id.y;
     }
-    death_count = death_wait;
+    death_count = obj_manager.bpm*obj_manager.fpb - obj_manager.counter;
 }
 </string>
           </argument>
@@ -572,6 +572,7 @@ if (CheckCommand(command.swipe))
 {
     audio_play_sound(snd_swipe, 10, false);
     swipe_delay = swipe_tolerance;
+    
 }
 
 if (swipe_delay == 0)
@@ -601,8 +602,8 @@ if (swipe_delay == 0)
 if (swipe_count &gt; 0)
 {
     var inter = (swipe_length - swipe_count) / swipe_length;
-    x_vel = inter * sign(swipe_off_x)*swipe_vel;
-    y_vel = inter * sign(swipe_off_y)*swipe_vel;
+    x_vel = lerp(0,sign(swipe_off_x)*swipe_vel,inter);
+    y_vel = lerp(0,sign(swipe_off_y)*swipe_vel,inter);
     swipe_count -= 1;
 }
 
