@@ -786,6 +786,129 @@ if (death_count == -1)  // don't show until respawned completely
         </arguments>
       </action>
     </event>
+    <event eventtype="9" enumb="57">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// debug! advance checkpoint
+
+var cpid = -1;
+var cpcount = 0;
+
+var bid = 0;
+with (obj_beat)
+{
+    if (id == obj_manager.beat_id)
+        cpid = bid;
+    bid += 1;
+    cpcount += 1;
+}
+cpid += 1;
+
+if (cpid &lt; 0)
+    cpid += cpcount;
+else if (cpid &gt;= cpcount)
+    cpid -= cpcount;
+bid = 0;
+var nx = x_start;
+var ny = y_start;
+
+with (obj_beat)
+{
+    if (bid == cpid)
+    {
+        nx = x;
+        ny = y;
+        event_perform(ev_collision,obj_player);
+    }
+    bid += 1;
+}
+
+x = nx;
+y = ny;
+x_vel = 0;
+y_vel = 0;
+begin_x = x;
+begin_y = y;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="48">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// debug! retreat checkpoint
+
+var cpid = 0;
+var cpcount = 0;
+
+var bid = 0;
+with (obj_beat)
+{
+    if (id == obj_manager.beat_id)
+        cpid = bid;
+    bid += 1;
+    cpcount += 1;
+}
+cpid -= 1;
+if (cpid &lt; 0)
+    cpid += cpcount;
+else if (cpid &gt;= cpcount)
+    cpid -= cpcount;
+bid = 0;
+var nx = x_start;
+var ny = y_start;
+
+with (obj_beat)
+{
+    if (bid == cpid)
+    {
+        nx = x;
+        ny = y;
+        event_perform(ev_collision,obj_player);
+    }
+    bid += 1;
+}
+
+x = nx;
+y = ny;
+x_vel = 0;
+y_vel = 0;
+begin_x = x;
+begin_y = y;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>

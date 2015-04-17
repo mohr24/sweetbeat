@@ -80,6 +80,29 @@
     <paths name="swipe_level">
       <path>paths\pth_swipe_1</path>
     </paths>
+    <paths name="beat_bridges">
+      <path>paths\pth_bb_s3_1</path>
+      <path>paths\pth_bb_s3_2</path>
+      <path>paths\pth_bb_s3_3</path>
+      <path>paths\pth_bb_s4_1</path>
+      <path>paths\pth_bb_s4_2</path>
+      <path>paths\pth_bb_s4_3</path>
+      <path>paths\pth_bb_s4_4</path>
+      <path>paths\pth_bb_s4_5</path>
+      <path>paths\pth_bb_s4_6</path>
+      <path>paths\pth_bb_s4_7</path>
+      <path>paths\pth_bb_s4_8</path>
+      <path>paths\pth_bb_s4_9</path>
+      <path>paths\pth_bb_s4_10</path>
+      <path>paths\pth_bb_s5_1</path>
+      <path>paths\pth_bb_s5_2</path>
+      <path>paths\pth_bb_s5_3</path>
+      <path>paths\pth_bb_s5_4</path>
+      <path>paths\pth_bb_s5_5</path>
+      <path>paths\pth_bb_s6_1</path>
+      <path>paths\pth_bb_s7_1</path>
+      <path>paths\pth_bb_s7_2</path>
+    </paths>
   </paths>
   <scripts name="scripts">
     <script>scripts\Pair.gml</script>
@@ -145,6 +168,7 @@
   <rooms name="rooms">
     <room>rooms\rm_michael</room>
     <room>rooms\rm_moving_show</room>
+    <room>rooms\rm_beat_bridges</room>
     <room>rooms\rm_swipe_maze</room>
     <room>rooms\rm_1</room>
     <room>rooms\rm_learn</room>
