@@ -163,8 +163,8 @@ obj_manager.mark_kill_player = true;
             <kind>1</kind>
             <string>///dynamic drawing
 
-//draw_self();
-
+draw_self();
+/*
 ///tiles
 
 left_most = x - sprite_width / 2;
@@ -225,6 +225,8 @@ for (var i=0;i&lt;show_width;i++){
 }
 
 } // if(in sight)
+
+*/
 </string>
           </argument>
         </arguments>
