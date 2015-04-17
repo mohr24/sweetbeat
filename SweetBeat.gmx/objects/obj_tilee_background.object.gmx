@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// variable initialization
 
+background_color = c_black;
+
 parallax_factor = 0.15;
 
 tile_width = 90;

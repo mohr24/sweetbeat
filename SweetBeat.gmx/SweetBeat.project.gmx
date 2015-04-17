@@ -80,6 +80,11 @@
     <paths name="swipe_level">
       <path>paths\pth_swipe_1</path>
     </paths>
+    <paths name="wtf_I_cant_jump">
+      <path>paths\pth_wtficj_s3_1</path>
+      <path>paths\pth_wtficj_s3_2</path>
+      <path>paths\pth_wtficj_s3_3</path>
+    </paths>
   </paths>
   <scripts name="scripts">
     <script>scripts\Pair.gml</script>
@@ -143,6 +148,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_wtf_I_cant_jump</room>
     <room>rooms\rm_1</room>
     <room>rooms\rm_moving_show</room>
     <room>rooms\rm_michael</room>
