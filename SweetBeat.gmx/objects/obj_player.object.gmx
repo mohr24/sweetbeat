@@ -503,8 +503,8 @@ if(h_axis_2 == 0 &amp;&amp; v_axis_2 == 0){
     v_axis_2 = vertical_axis;
 }
 
-if(horizontal_axis != 0){
-    facing = horizontal_axis;
+if(x_stick != 0){
+    facing = x_stick;
 }
 
 // variable updates
@@ -604,6 +604,7 @@ if (CheckCommand(command.swipe))
     swipe_instance = noone;
     swipe_x = 0;
     swipe_y = 0;
+    
 }
 
 if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
