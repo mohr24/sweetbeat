@@ -50,7 +50,6 @@
     <background>background\bg_2</background>
     <background>background\bg_1</background>
     <background>background\bg_3</background>
-    <background>background\bg_4</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\test_path</path>
@@ -75,6 +74,8 @@
       <path>paths\pth_moving_show_17</path>
       <path>paths\pth_moving_show_18</path>
       <path>paths\pth_moving_show_19</path>
+      <path>paths\pth_moving_show_20</path>
+      <path>paths\pth_moving_show_21</path>
     </paths>
     <paths name="swipe_level">
       <path>paths\pth_swipe_1</path>

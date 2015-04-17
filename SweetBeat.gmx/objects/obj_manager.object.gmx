@@ -148,8 +148,8 @@ for (index = 0; index &lt; array_length_1d(sequence); index += 1)
     var time = pair[0];
     var action = pair[1];
     
-    if (((counter - 1)/fpb &lt;= time &amp;&amp; counter / fpb &gt; time)
-    || ((counter + fpm - 1)/fpb &lt;= time &amp;&amp; (counter + fpm) &gt; time))
+    if (((counter - 1)/fpb &lt;= time &amp;&amp; counter/fpb &gt; time)
+    || ((counter + fpm - 1)/fpb &lt;= time &amp;&amp; (counter + fpm)/fpb &gt; time))
     {   
         command_bitmask = command_bitmask | (1 &lt;&lt; action);
         if (array_length_1d(pair) == 3)

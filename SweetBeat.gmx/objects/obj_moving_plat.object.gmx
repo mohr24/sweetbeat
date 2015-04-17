@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// variables and inherited
+            <string>/// variables and inherited
 
 x_prev = x;
 y_prev = y;
@@ -113,7 +113,6 @@ if (place_meeting(x,y,obj_player))
     
     if (d == quadrant.left || d == quadrant.right)
     {
-        obj_player.x_vel = x_vel;
         if (d == quadrant.right)
         {
             obj_player.x = bbox_right + obj_player.sprite_width / 2 + epsilon;
@@ -128,7 +127,6 @@ if (place_meeting(x,y,obj_player))
     else if (d == quadrant.bottom || d == quadrant.top)
     {
         obj_player.x_vel_ground = x_vel;
-        obj_player.y_vel = y_vel;
         if (d == quadrant.bottom)
         {
             obj_player.y = bbox_bottom + obj_player.sprite_height / 2 + epsilon;
