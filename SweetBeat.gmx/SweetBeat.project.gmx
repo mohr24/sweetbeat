@@ -143,13 +143,14 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_moving_show</room>
     <room>rooms\rm_michael</room>
     <room>rooms\rm_swipe_maze</room>
-    <room>rooms\rm_moving_show</room>
     <room>rooms\rm_1</room>
     <room>rooms\rm_learn</room>
     <room>rooms\rm_bg_test</room>
     <room>rooms\rm_test</room>
+    <room>rooms\rm_nothing</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
