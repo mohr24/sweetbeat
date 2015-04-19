@@ -119,6 +119,7 @@ jmp_vel = -20;
 
 swipe_total_frames = .5 * (30); // 1/2 beat
 swipe_delay_frames = 5;
+swipe_pre_delay_frames = 5;
 swipe_post_animation_lag = 10;   // the sprite lives, but everything else is dead
 swipe_target_distance = 5 * 64; // 5 blocks traveled in our 1/2 beat
 swipe_non_physical_speed_demultiplier = 1/2.5;    // reduce our speed after the animation is over
@@ -136,6 +137,9 @@ swipe_y = 0;
 
 swipe_vel = 0;
 
+swipe_pre_x = 0;
+swipe_pre_y = 0;
+swipe_pre_delay_age = swipe_pre_delay_frames;
 swipe_total_counter = swipe_total_frames + swipe_post_animation_lag;   // an up counter for once
 </string>
           </argument>
@@ -380,6 +384,10 @@ if (obj_manager.kill_player)
         x = obj_manager.checkpoint_id.x;
         y = obj_manager.checkpoint_id.y;
     }
+    if (swipe_instance != noone)
+        with (swipe_instance)
+            instance_destroy();
+    swipe_instance = noone;
     death_count = death_wait;
 }
 </string>
@@ -566,6 +574,13 @@ else
           <argument>
             <kind>1</kind>
             <string>/// swipe
+swipe_pre_delay_age += 1;
+if (x_stick_square != 0 || y_stick_square != 0)
+{
+    swipe_pre_x = x_stick_square*swipe_offset;
+    swipe_pre_y = y_stick_square*swipe_offset;
+    swipe_pre_delay_age = 0;
+}
 
 if (CheckCommand(command.swipe))
 {
@@ -576,9 +591,16 @@ if (CheckCommand(command.swipe))
         with (swipe_instance)
             instance_destroy();
     swipe_instance = noone;
-    swipe_x = 0;
-    swipe_y = 0;
-    
+    if (swipe_pre_delay_age &lt; swipe_pre_delay_frames)
+    {
+        swipe_x = swipe_pre_x;
+        swipe_y = swipe_pre_y;
+    }
+    else
+    {
+        swipe_x = 0;
+        swipe_y = 0;
+    }
 }
 
 if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
@@ -615,8 +637,9 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
         swipe_total_counter += 1;
         if (swipe_total_counter == swipe_total_frames + swipe_post_animation_lag)
         {
-            with (swipe_instance)
-                instance_destroy();
+            if (swipe_instance != noone)
+                with (swipe_instance)
+                    instance_destroy();
             swipe_instance = noone;
         }
     }
