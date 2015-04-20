@@ -139,6 +139,8 @@ event_inherited();
             <string>/// mark player for death
 
 obj_manager.mark_kill_player = true;
+obj_player.x_vel = 0;
+obj_player.y_vel = 0;
 </string>
           </argument>
         </arguments>
@@ -163,10 +165,10 @@ obj_manager.mark_kill_player = true;
             <kind>1</kind>
             <string>///dynamic drawing
 
-//draw_self();
+draw_self();
 
 ///tiles
-
+/*
 left_most = x - sprite_width / 2;
 top_most  = y - sprite_height / 2;
 w_cnt = sprite_width / 16;
@@ -224,7 +226,7 @@ for (var i=0;i&lt;show_width;i++){
     }
 }
 
-} // if(in sight)
+} // if(in sight) 
 </string>
           </argument>
         </arguments>

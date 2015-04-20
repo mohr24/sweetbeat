@@ -70,7 +70,7 @@ kill_player = false;
 
 
 // counter
-counter = 1*fpb;
+counter = 0;
 
 
 // create other components

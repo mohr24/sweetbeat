@@ -379,8 +379,18 @@ if (obj_manager.kill_player)
     {
         x = obj_manager.checkpoint_id.x;
         y = obj_manager.checkpoint_id.y;
+     //   obj_manager.sequence = noone;
+      //  obj_manager.sequence[0] = Pair(0,command.none);
     }
-    death_count = death_wait;
+    var frames_left = (obj_manager.fpb * obj_manager.bpm - obj_manager.counter);
+    if(frames_left &lt; obj_manager.fpb){
+        death_count = frames_left + obj_manager.fpb * obj_manager.bpm;
+    }else{
+        death_count = frames_left;
+    }
+    
+    x_vel = 0;
+    y_vel = 0;
 }
 </string>
           </argument>
@@ -679,6 +689,7 @@ if (death_count &gt; 0)
 if (death_count == 0)
 {
     death_count = 1;
+   // obj_manager.sequence = obj_manager.checkpoint_id.sequence;
     if (obj_manager.tick_beat || obj_manager.beat_id == 0)
         death_count = -1;
 }
@@ -778,7 +789,7 @@ obj_manager.mark_kill_player = true;
             <string>/// manual draw object
 if (death_count == -1)  // don't show until respawned completely
 {
-    //draw_sprite(sprite_index,image_index,x,y);
+   // draw_sprite(sprite_index,image_index,x,y);
     draw_sprite_ext(sprite_index,image_index,x,y,facing,1,0,-1,1);
 }
 </string>

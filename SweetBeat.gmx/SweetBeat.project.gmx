@@ -24,6 +24,7 @@
     <sprite>sprites\spr_kiill_destruct</sprite>
     <sprite>sprites\spr_beat</sprite>
     <sprite>sprites\spr_checkpoint</sprite>
+    <sprite>sprites\spr_destruct</sprite>
     <sprite>sprites\spr_blast</sprite>
     <sprite>sprites\spr_boss1_blast</sprite>
     <sprite>sprites\spr_boss_spire</sprite>
@@ -31,7 +32,6 @@
     <sprite>sprites\spr_switch_off</sprite>
     <sprite>sprites\spr_switch_on</sprite>
     <sprite>sprites\spr_manager</sprite>
-    <sprite>sprites\spr_destruct</sprite>
     <sprite>sprites\spr_finish</sprite>
     <sprite>sprites\spr_jump_icon</sprite>
     <sprite>sprites\spr_none_icon</sprite>
@@ -44,6 +44,7 @@
     <sprite>sprites\spr_cloud</sprite>
     <sprite>sprites\spr_plat_move_icon</sprite>
     <sprite>sprites\spr_trigger_icon</sprite>
+    <sprite>sprites\spr_clear</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -78,7 +79,10 @@
       <path>paths\pth_moving_show_21</path>
     </paths>
     <paths name="swipe_level">
+      <path>paths\pth_swipe_2</path>
       <path>paths\pth_swipe_1</path>
+      <path>paths\pth_swipe_3</path>
+      <path>paths\pth_swipe_4</path>
     </paths>
     <paths name="beat_bridges">
       <path>paths\pth_bb_s3_1</path>
@@ -102,6 +106,10 @@
       <path>paths\pth_bb_s6_1</path>
       <path>paths\pth_bb_s7_1</path>
       <path>paths\pth_bb_s7_2</path>
+    </paths>
+    <paths name="michael_2">
+      <path>paths\pth_michael_2_1</path>
+      <path>paths\pth_michael_2_2</path>
     </paths>
   </paths>
   <scripts name="scripts">
@@ -164,11 +172,13 @@
       <object>objects\obj_action_player</object>
       <object>objects\obj_tilee_background</object>
     </objects>
+    <object>objects\obj_cllear</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_michael_2</room>
     <room>rooms\rm_michael</room>
-    <room>rooms\rm_moving_show</room>
     <room>rooms\rm_beat_bridges</room>
+    <room>rooms\rm_moving_show</room>
     <room>rooms\rm_swipe_maze</room>
     <room>rooms\rm_1</room>
     <room>rooms\rm_learn</room>
