@@ -119,7 +119,7 @@ jmp_vel = -20;
 
 swipe_total_frames = .5 * (30); // 1/2 beat
 swipe_delay_frames = 5;
-swipe_pre_delay_frames = 5;
+swipe_pre_delay_frames = 2;
 swipe_post_animation_lag = 10;   // the sprite lives, but everything else is dead
 swipe_target_distance = 5 * 64; // 5 blocks traveled in our 1/2 beat
 swipe_non_physical_speed_demultiplier = 1/2.5;    // reduce our speed after the animation is over
@@ -128,6 +128,8 @@ swipe_non_physical_speed_demultiplier = 1/2.5;    // reduce our speed after the 
 swipe_animation_frames = swipe_total_frames - swipe_delay_frames;
 var sumation = swipe_animation_frames * (swipe_animation_frames + 1) / 2;
 swipe_acceleration_per_frame = swipe_target_distance / sumation;
+
+//swipe_vel_per_frame = swipe_target_distance / swipe_animation_frames;
 
 swipe_instance = noone;
 swipe_offset = sprite_width / 2;
@@ -609,6 +611,8 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
     {
         if (swipe_total_counter &lt; swipe_delay_frames)
         {
+            if (swipe_total_counter == 0)
+                swipe_instance = instance_create(x + swipe_offset, y, obj_swipe);  // moved end of frame
             x_vel = 0;
             y_vel = 0;
             if (x_stick_square != 0 || y_stick_square != 0)
@@ -619,9 +623,8 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
         }
         else
         {
-            if (swipe_total_counter == swipe_delay_frames)
-                swipe_instance = instance_create(x + swipe_offset, y, obj_swipe);  // moved end of frame
             swipe_vel += swipe_acceleration_per_frame;
+            //swipe_vel = swipe_vel_per_frame;
             x_vel = sign(swipe_x)*swipe_vel;
             y_vel = sign(swipe_y)*swipe_vel;
         }
