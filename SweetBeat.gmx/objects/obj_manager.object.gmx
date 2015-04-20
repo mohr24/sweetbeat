@@ -224,11 +224,9 @@ if (down_beat){
 if (isStart){
 step_cnt = (step_cnt + 1) % (bpm*fpb);
 
-if (step_cnt % fpb == 0){
-    cur_bit = step_cnt / fpb;
-    cur_bit_start = step_cnt;
+    cur_bit = floor(step_cnt / fpb);
+    cur_bit_start = cur_bit * fpb;
     cur_bit_end = cur_bit_start + fpb -1;
-}
 }//if (isStart)
 
 </string>

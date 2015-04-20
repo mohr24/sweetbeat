@@ -106,6 +106,14 @@
       <path>paths\pth_bb_s6_1</path>
       <path>paths\pth_bb_s7_1</path>
       <path>paths\pth_bb_s7_2</path>
+      <path>paths\pth_bb_s8_1</path>
+      <path>paths\pth_bb_s8_2</path>
+      <path>paths\pth_bb_s8_3</path>
+      <path>paths\pth_bb_s9_1</path>
+      <path>paths\pth_bb_s9_2</path>
+      <path>paths\pth_bb_s9_3</path>
+      <path>paths\pth_bb_s9_4</path>
+      <path>paths\pth_bb_s9_5</path>
     </paths>
     <paths name="michael_2">
       <path>paths\pth_michael_2_1</path>

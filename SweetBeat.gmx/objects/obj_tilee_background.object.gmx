@@ -45,7 +45,7 @@ tile_max_hue = 300;
 tile_min_sat = 0;   // start black &amp; white
 tile_max_sat = 0;
 tile_min_lum = 10;
-tile_max_lum = 90;
+tile_max_lum = 10;
 
 prev_min_hue = tile_min_hue;
 prev_max_hue = tile_max_hue;
@@ -94,14 +94,14 @@ if (obj_manager.command_bitmask != 0)
     //tile_max_hue = 300;
     tile_min_sat = 100;
     tile_max_sat = 100;
-    //tile_min_lum = 10;
-    //tile_max_lum = 90;
+    tile_min_lum = 10;
+    tile_max_lum = 90;
     //prev_min_hue = tile_min_hue;
     //prev_max_hue = tile_max_hue;
     prev_min_sat = tile_min_sat;
     prev_max_sat = tile_max_sat;
-    //prev_min_lum = tile_min_lum;
-    //prev_max_lum = tile_max_lum;
+    prev_min_lum = tile_min_lum;
+    prev_max_lum = tile_max_lum;
 }
 
 if (transition_count &gt; 0)
