@@ -31,7 +31,7 @@
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="bg_0" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -137,8 +137,6 @@
     <instance objName="obj_wall" x="1568" y="928" name="inst_E3848C91" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1632" y="928" name="inst_C989F43D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1696" y="928" name="inst_057B0E53" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="192" y="256" name="inst_CCFE67F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat" x="288" y="288" name="inst_AF417435" locked="0" code="sequence[0] = Pair(0, command.jump);&#xA;sequence[1] = Pair(2, command.jump);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1536" y="320" name="inst_762B5D6B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1600" y="320" name="inst_E65432E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1664" y="320" name="inst_50A1F1FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -154,6 +152,9 @@
     <instance objName="obj_wall" x="1696" y="768" name="inst_FC25250D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_background" x="64" y="192" name="inst_6E35FE26" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_actions" x="96" y="192" name="inst_9B90F753" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat" x="608" y="416" name="inst_16FE9452" locked="0" code="sequence[0] = Pair(0, command.jump);&#xA;sequence[1] = Pair(2, command.jump);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="480" y="288" name="inst_4F07BD64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_tilee_background" x="256" y="288" name="inst_CAFAAC4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
