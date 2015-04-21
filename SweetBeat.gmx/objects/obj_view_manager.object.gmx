@@ -38,8 +38,8 @@ y = obj_player.y;
 
 var f1x = .3*view_wview[0] / 2;
 var f1y = .2*view_hview[0] / 2;
-var f2x = .4*view_wview[0] / 2;
-var f2y = .3*view_hview[0] / 2;
+var f2x = .35*view_wview[0] / 2;
+var f2y = .25*view_hview[0] / 2;
 
 view_lock_top = -f1y;
 view_lock_bottom = f1y;

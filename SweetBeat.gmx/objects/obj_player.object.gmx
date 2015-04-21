@@ -122,7 +122,7 @@ swipe_delay_frames = 6;
 swipe_pre_delay_frames = 8;
 swipe_post_animation_lag = 10;   // the sprite lives, but everything else is dead
 swipe_target_distance = 5 * 64; // 5 blocks traveled in our 1/2 beat
-swipe_non_physical_speed_demultiplier = 1/2.5;    // reduce our speed after the animation is over
+swipe_non_physical_speed_demultiplier = 1/2;    // reduce our speed after the animation is over
 
 
 swipe_animation_frames = swipe_total_frames;
