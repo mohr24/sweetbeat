@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// check background music status
 
-if (!audio_is_playing(obj_manager.music) &amp;&amp; obj_manager.tick_beat)
+if (!audio_is_playing(obj_manager.music) &amp;&amp; obj_manager.down_beat)
     audio_play_sound(obj_manager.music, 10, false);
 </string>
           </argument>
