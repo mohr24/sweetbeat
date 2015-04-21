@@ -118,8 +118,8 @@ jmp_vel = -20;
             <string>/// swipe variables
 
 swipe_total_frames = .5 * (30); // 1/2 beat
-swipe_delay_frames = 5;
-swipe_pre_delay_frames = 2;
+swipe_delay_frames = 6;
+swipe_pre_delay_frames = 8;
 swipe_post_animation_lag = 10;   // the sprite lives, but everything else is dead
 swipe_target_distance = 5 * 64; // 5 blocks traveled in our 1/2 beat
 swipe_non_physical_speed_demultiplier = 1/2.5;    // reduce our speed after the animation is over
@@ -377,6 +377,7 @@ if (swipe_instance != noone &amp;&amp; (swipe_x != 0 || swipe_y != 0))
 
 if (obj_manager.kill_player)
 {
+    audio_play_sound(snd_death, 10, false);
     if (obj_manager.checkpoint_id == 0)
     {
         x = x_start;
@@ -385,7 +386,7 @@ if (obj_manager.kill_player)
     else
     {
         x = obj_manager.checkpoint_id.x;
-        y = obj_manager.checkpoint_id.y;
+        y = obj_manager.checkpoint_id.bbox_bottom - sprite_height / 2;
      //   obj_manager.sequence = noone;
       //  obj_manager.sequence[0] = Pair(0,command.none);
     }
@@ -598,6 +599,7 @@ if (x_stick_square != 0 || y_stick_square != 0)
 
 if (CheckCommand(command.swipe))
 {
+    show_debug_message("swipe");
     audio_play_sound(snd_swipe, 10, false);
     swipe_total_counter = 0;
     swipe_vel = 0;

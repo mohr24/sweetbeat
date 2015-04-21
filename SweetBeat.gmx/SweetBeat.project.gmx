@@ -13,6 +13,7 @@
     <sound>sound\snd_dive</sound>
     <sound>sound\snd_r_cymbal</sound>
     <sound>sound\sng_jingle_jangle</sound>
+    <sound>sound\snd_death</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -87,9 +88,6 @@
       <path>paths\pth_swipe_4</path>
     </paths>
     <paths name="beat_bridges">
-      <path>paths\pth_bb_s3_1</path>
-      <path>paths\pth_bb_s3_2</path>
-      <path>paths\pth_bb_s3_3</path>
       <path>paths\pth_bb_s4_1</path>
       <path>paths\pth_bb_s4_2</path>
       <path>paths\pth_bb_s4_3</path>
@@ -105,7 +103,6 @@
       <path>paths\pth_bb_s5_3</path>
       <path>paths\pth_bb_s5_4</path>
       <path>paths\pth_bb_s5_5</path>
-      <path>paths\pth_bb_s6_1</path>
       <path>paths\pth_bb_s7_1</path>
       <path>paths\pth_bb_s7_2</path>
       <path>paths\pth_bb_s8_1</path>
