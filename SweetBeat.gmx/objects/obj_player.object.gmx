@@ -125,7 +125,7 @@ swipe_target_distance = 5 * 64; // 5 blocks traveled in our 1/2 beat
 swipe_non_physical_speed_demultiplier = 1/2.5;    // reduce our speed after the animation is over
 
 
-swipe_animation_frames = swipe_total_frames - swipe_delay_frames;
+swipe_animation_frames = swipe_total_frames;
 var sumation = swipe_animation_frames * (swipe_animation_frames + 1) / 2;
 swipe_acceleration_per_frame = swipe_target_distance / sumation;
 
@@ -139,6 +139,7 @@ swipe_y = 0;
 
 swipe_vel = 0;
 
+swipe_delay_cumulate = 0;
 swipe_pre_x = 0;
 swipe_pre_y = 0;
 swipe_pre_delay_age = swipe_pre_delay_frames;
@@ -604,6 +605,7 @@ if (CheckCommand(command.swipe))
         with (swipe_instance)
             instance_destroy();
     swipe_instance = noone;
+    swipe_delay_cumulative = 0;
     if (swipe_pre_delay_age &lt; swipe_pre_delay_frames)
     {
         swipe_x = swipe_pre_x;
@@ -620,22 +622,24 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
 {
     if (swipe_total_counter &lt; swipe_total_frames)
     {
-        if (swipe_total_counter &lt; swipe_delay_frames)
+        swipe_vel += swipe_acceleration_per_frame;
+        swipe_delay_cumulative += swipe_vel;
+        if (swipe_total_counter == 0)
+            swipe_instance = instance_create(x + swipe_offset, y, obj_swipe);  // moved end of frame
+        if (swipe_total_counter &lt; swipe_delay_frames &amp;&amp; swipe_x == 0 &amp;&amp; swipe_y == 0)
         {
-            if (swipe_total_counter == 0)
-                swipe_instance = instance_create(x + swipe_offset, y, obj_swipe);  // moved end of frame
             x_vel = 0;
             y_vel = 0;
             if (x_stick_square != 0 || y_stick_square != 0)
             {
                 swipe_x = x_stick_square*swipe_offset;
                 swipe_y = y_stick_square*swipe_offset;
+                x_vel = sign(swipe_x)*swipe_delay_cumulative;
+                y_vel = sign(swipe_y)*swipe_delay_cumulative;
             }
         }
         else
         {
-            swipe_vel += swipe_acceleration_per_frame;
-            //swipe_vel = swipe_vel_per_frame;
             x_vel = sign(swipe_x)*swipe_vel;
             y_vel = sign(swipe_y)*swipe_vel;
         }

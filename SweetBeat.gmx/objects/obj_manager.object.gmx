@@ -44,6 +44,7 @@ enum command
     jump = 0,
     swipe,
     plat_move,
+    plat_toggle,
     
     trigger,    // situation dependent
     
