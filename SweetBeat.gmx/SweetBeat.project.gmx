@@ -46,6 +46,7 @@
     <sprite>sprites\spr_trigger_icon</sprite>
     <sprite>sprites\spr_clear</sprite>
     <sprite>sprites\spr_note</sprite>
+    <sprite>sprites\spr_toggle</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -183,6 +184,7 @@
       <object>objects\obj_tilee_background</object>
     </objects>
     <object>objects\obj_cllear</object>
+    <object>objects\obj_toggle</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_michael_2</room>
