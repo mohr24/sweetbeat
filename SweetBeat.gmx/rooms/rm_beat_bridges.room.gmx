@@ -55,7 +55,7 @@
     <instance objName="obj_wall" x="192" y="256" name="inst_274AE499" locked="0" code="" scaleX="6" scaleY="8" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="384" y="960" name="inst_1E20B85A" locked="0" code="" scaleX="12" scaleY="14" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="512" y="480" name="inst_E0904EBF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="1568" y="960" name="inst_B6E7B7DA" locked="0" code="" scaleX="21" scaleY="14" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1536" y="960" name="inst_B6E7B7DA" locked="0" code="" scaleX="20" scaleY="14" colour="4294967295" rotation="0"/>
     <instance objName="obj_finish" x="1344" y="480" name="inst_72D4FA99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="384" y="2048" name="inst_E4EE8C06" locked="0" code="" scaleX="12" scaleY="8" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="32" y="1600" name="inst_FAAF37FC" locked="0" code="" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
@@ -68,17 +68,17 @@
     <instance objName="obj_destruct" x="832" y="1888" name="inst_FF029401" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="832" y="1952" name="inst_8DE7063C" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="832" y="2016" name="inst_3AD3DBF1" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat" x="192" y="1728" name="inst_C26FA84E" locked="0" code="sequence[0] = Pair(1,command.jump);&#xA;sequence[1] = Pair(3,command.jump);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat" x="192" y="1600" name="inst_C26FA84E" locked="0" code="sequence[0] = Pair(1,command.jump);&#xA;sequence[1] = Pair(3,command.jump);&#xA;" scaleX="2" scaleY="12" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1344" y="1952" name="inst_85C64C9F" locked="0" code="" scaleX="2" scaleY="7" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="1504" y="2016" name="inst_7D96CE7D" locked="0" code="" scaleX="3" scaleY="5" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1664" y="1984" name="inst_AAE22BC1" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="1824" y="2016" name="inst_722B983B" locked="0" code="" scaleX="3" scaleY="5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="2112" y="1952" name="inst_71CA7633" locked="0" code="" scaleX="6" scaleY="7" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="2560" y="1984" name="inst_2EBD2EA1" locked="0" code="" scaleX="8" scaleY="6" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2080" y="1952" name="inst_71CA7633" locked="0" code="" scaleX="5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="2528" y="1984" name="inst_2EBD2EA1" locked="0" code="" scaleX="9" scaleY="6" colour="4294967295" rotation="0"/>
     <instance objName="obj_moving_plat" x="2400" y="1568" name="inst_BF33E755" locked="0" code="beats = 1/8;&#xA;path = pth_bb_s3_1;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_moving_plat" x="2400" y="1376" name="inst_99D94821" locked="0" code="beats = 1/8;&#xA;path = pth_bb_s3_2;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_moving_plat" x="2400" y="1184" name="inst_8897EB3B" locked="0" code="beats = 1/8;&#xA;path = pth_bb_s3_3;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3232" y="672" name="inst_7A86CC11" locked="0" code="" scaleX="31" scaleY="5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="3200" y="672" name="inst_7A86CC11" locked="0" code="" scaleX="32" scaleY="5" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="3456" y="1728" name="inst_94330007" locked="0" code="" scaleX="20" scaleY="22" colour="4294967295" rotation="0"/>
     <instance objName="obj_beat" x="2112" y="1632" name="inst_D8BA8C7F" locked="0" code="sequence[0] = Pair(0,command.jump);&#xA;sequence[1] = Pair(2.5,command.jump);&#xA;&#xA;sequence[2] = Pair(0,command.plat_move);&#xA;sequence[3] = Pair(2.5,command.plat_move);&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="3232" y="864" name="inst_36795E8A" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
@@ -101,7 +101,7 @@
     <instance objName="obj_moving_plat" x="2464" y="3008" name="inst_0A13D646" locked="0" code="path = pth_bb_s4_7;&#xA;beats = 1;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_moving_plat" x="2240" y="3008" name="inst_8AC78915" locked="0" code="path = pth_bb_s4_8;&#xA;beats = 1;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_moving_plat" x="2016" y="2880" name="inst_BC86BF33" locked="0" code="path = pth_bb_s4_9;&#xA;beats = 1;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_moving_plat" x="1792" y="2880" name="inst_86B0A806" locked="0" code="path = pth_bb_s4_10;&#xA;beats = 1;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_moving_plat" x="1792" y="3008" name="inst_86B0A806" locked="0" code="path = pth_bb_s4_10;&#xA;beats = 1;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1856" y="2304" name="inst_35D4DAE5" locked="0" code="" scaleX="30" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1600" y="3328" name="inst_283CB0E7" locked="0" code="" scaleX="2" scaleY="18" colour="4294967295" rotation="0"/>
     <instance objName="obj_beat" x="1600" y="2656" name="inst_C583C906" locked="0" code="sequence[0] = Triple(0, command.plat_move, 5);&#xA;sequence[1] = Triple(1.5, command.plat_move, 5);&#xA;sequence[2] = Triple(3, command.plat_move, 5);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

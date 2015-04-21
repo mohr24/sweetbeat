@@ -45,6 +45,7 @@
     <sprite>sprites\spr_plat_move_icon</sprite>
     <sprite>sprites\spr_trigger_icon</sprite>
     <sprite>sprites\spr_clear</sprite>
+    <sprite>sprites\spr_note</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -141,6 +142,7 @@
     <script>scripts\rgb_to_hsl.gml</script>
     <script>scripts\hue_to_rgb.gml</script>
     <script>scripts\Ternary.gml</script>
+    <script>scripts\InCurrentView.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
