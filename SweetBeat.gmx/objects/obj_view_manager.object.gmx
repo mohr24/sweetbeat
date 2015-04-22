@@ -38,8 +38,8 @@ y = obj_player.y;
 
 var f1x = .3*view_wview[0] / 2;
 var f1y = .2*view_hview[0] / 2;
-var f2x = .4*view_wview[0] / 2;
-var f2y = .3*view_hview[0] / 2;
+var f2x = .35*view_wview[0] / 2;
+var f2y = .25*view_hview[0] / 2;
 
 view_lock_top = -f1y;
 view_lock_bottom = f1y;
@@ -68,6 +68,8 @@ h_lock_pos = 0;
 v_lock_pos = 0;
 h_lock_cam = 0;
 v_lock_cam = 0;
+
+camera_hints = ds_list_create();
 </string>
           </argument>
         </arguments>
@@ -155,6 +157,88 @@ y = lerp(y, next_pos_y, camera_speed);
 
 prev_player_x = obj_player.x;
 prev_player_y = obj_player.y;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// fix position based on hints
+
+var width = view_wview[view_current];
+var height = view_hview[view_current];
+
+var sw = sprite_width / image_xscale;
+var sh = sprite_height / image_yscale;
+
+image_xscale = width / sw;
+image_yscale = height / sh;
+
+width /= 2; // easier math with radiuses
+height /= 2;
+
+width += 1; // tolerance
+height += 1;
+
+ds_list_clear(camera_hints);
+InstancePlaceList(camera_hints, next_pos_x, next_pos_y, obj_camera_hint);
+for (var i = 0; i &lt; ds_list_size(camera_hints); i++)
+{
+    var hint = ds_list_find_value(camera_hints,i);
+    if (hint.bbox_top &lt; obj_player.y &amp;&amp; obj_player.y &lt; hint.bbox_bottom)
+    {
+        if (hint.keep_left &amp;&amp; obj_player.x &lt; hint.bbox_left)
+            x = min(x, hint.bbox_left - width);
+        if (hint.keep_right &amp;&amp; obj_player.x &gt; hint.bbox_right)
+            x = max(x, hint.bbox_right + width);
+    }
+    if (hint.bbox_left &lt; obj_player.x &amp;&amp; obj_player.x &lt; hint.bbox_right)
+    {
+        if (hint.keep_above &amp;&amp; obj_player.y &lt; hint.bbox_top)
+            y = min(y, hint.bbox_top - height);
+        if (hint.keep_below &amp;&amp; obj_player.y &gt; hint.bbox_bottom)
+            y = max(y, hint.bbox_bottom + height);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// clean up
+
+ds_list_destroy(camera_hints);
 </string>
           </argument>
         </arguments>

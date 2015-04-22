@@ -13,6 +13,7 @@
     <sound>sound\snd_dive</sound>
     <sound>sound\snd_r_cymbal</sound>
     <sound>sound\sng_jingle_jangle</sound>
+    <sound>sound\snd_death</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -47,6 +48,9 @@
     <sprite>sprites\spr_clear</sprite>
     <sprite>sprites\spr_note</sprite>
     <sprite>sprites\spr_toggle</sprite>
+    <sprite>sprites\spr_hook</sprite>
+    <sprite>sprites\spr_scoreboard</sprite>
+    <sprite>sprites\spr_camera_hint</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -87,9 +91,6 @@
       <path>paths\pth_swipe_4</path>
     </paths>
     <paths name="beat_bridges">
-      <path>paths\pth_bb_s3_1</path>
-      <path>paths\pth_bb_s3_2</path>
-      <path>paths\pth_bb_s3_3</path>
       <path>paths\pth_bb_s4_1</path>
       <path>paths\pth_bb_s4_2</path>
       <path>paths\pth_bb_s4_3</path>
@@ -105,7 +106,6 @@
       <path>paths\pth_bb_s5_3</path>
       <path>paths\pth_bb_s5_4</path>
       <path>paths\pth_bb_s5_5</path>
-      <path>paths\pth_bb_s6_1</path>
       <path>paths\pth_bb_s7_1</path>
       <path>paths\pth_bb_s7_2</path>
       <path>paths\pth_bb_s8_1</path>
@@ -145,6 +145,10 @@
     <script>scripts\Ternary.gml</script>
     <script>scripts\InCurrentView.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_1</font>
+    <font>fonts\fnt_0</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
@@ -182,11 +186,17 @@
       <object>objects\obj_actions</object>
       <object>objects\obj_action_player</object>
       <object>objects\obj_tilee_background</object>
+      <object>objects\obj_start_black</object>
+      <object>objects\obj_end_black</object>
     </objects>
     <object>objects\obj_cllear</object>
     <object>objects\obj_toggle</object>
+    <object>objects\obj_start</object>
+    <object>objects\obj_score</object>
+    <object>objects\obj_camera_hint</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_start</room>
     <room>rooms\rm_michael_2</room>
     <room>rooms\rm_michael</room>
     <room>rooms\rm_beat_bridges</room>

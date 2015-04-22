@@ -25,8 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_message("You win");
+            <string>//show_message("You win");
+with(obj_score){
+    visible = true;
+}
 
+//instance_create(0,0,obj_end_black);
+/*
 if (room != room_last)
 {
   room_goto_next();
@@ -35,7 +40,7 @@ else
 {
   room_goto(0);
 }
-
+*/
 </string>
           </argument>
         </arguments>
