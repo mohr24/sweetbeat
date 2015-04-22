@@ -27,8 +27,6 @@
             <kind>1</kind>
             <string>/// variable initialization
 
-show_debug_message("player Create");
-
 x_start = x;
 y_start = y;
 
@@ -177,8 +175,6 @@ ds_list_destroy(next_collisions_left);
 ds_list_destroy(next_collisions_right);
 ds_list_destroy(next_collisions_top);
 ds_list_destroy(next_collisions_bottom);
-
-show_debug_message("player destroy");
 </string>
           </argument>
         </arguments>
@@ -375,7 +371,7 @@ if (swipe_instance != noone &amp;&amp; (swipe_x != 0 || swipe_y != 0))
             <kind>1</kind>
             <string>/// reset player position on death
 
-if (obj_manager.kill_player)
+if (obj_manager.kill_player &amp;&amp; death_count &lt;= 0)
 {
     audio_play_sound(snd_death, 10, false);
     if (obj_manager.checkpoint_id == 0)
@@ -599,7 +595,6 @@ if (x_stick_square != 0 || y_stick_square != 0)
 
 if (CheckCommand(command.swipe))
 {
-    show_debug_message("swipe");
     audio_play_sound(snd_swipe, 10, false);
     swipe_total_counter = 0;
     swipe_vel = 0;

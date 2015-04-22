@@ -29,8 +29,6 @@
 
 randomize();    // random variables enabled
 
-show_debug_message("manager Create");
-
 audio_stop_all();
 
 // alter in obj_manager creation code if necessary
