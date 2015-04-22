@@ -84,8 +84,8 @@
     <paths name="swipe_level">
       <path>paths\pth_swipe_2</path>
       <path>paths\pth_swipe_6</path>
-      <path>paths\pth_swipe_1</path>
       <path>paths\pth_swipe_3</path>
+      <path>paths\pth_swipe_1</path>
       <path>paths\pth_swipe_5</path>
       <path>paths\pth_swipe_4</path>
     </paths>
@@ -196,6 +196,7 @@
     <room>rooms\rm_bg_test</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_nothing</room>
+    <room>rooms\rm_asdf</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
