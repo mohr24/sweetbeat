@@ -48,12 +48,9 @@
     <sprite>sprites\spr_clear</sprite>
     <sprite>sprites\spr_note</sprite>
     <sprite>sprites\spr_toggle</sprite>
-<<<<<<< HEAD
     <sprite>sprites\spr_hook</sprite>
     <sprite>sprites\spr_scoreboard</sprite>
-=======
     <sprite>sprites\spr_camera_hint</sprite>
->>>>>>> origin/master
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -194,12 +191,9 @@
     </objects>
     <object>objects\obj_cllear</object>
     <object>objects\obj_toggle</object>
-<<<<<<< HEAD
     <object>objects\obj_start</object>
     <object>objects\obj_score</object>
-=======
     <object>objects\obj_camera_hint</object>
->>>>>>> origin/master
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
