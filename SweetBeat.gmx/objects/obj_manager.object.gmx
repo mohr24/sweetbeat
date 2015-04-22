@@ -75,6 +75,8 @@ counter = 0;
 // create other components
 instance_create(0,0,obj_audio);
 instance_create(0,0,obj_trigger_manager);
+instance_create(0,0,obj_start_black);
+instance_create(0,0,obj_score);
 
 
 //timing for k=obj_kill
@@ -160,6 +162,10 @@ for (index = 0; index &lt; array_length_1d(sequence); index += 1)
 }
 
 kill_player = mark_kill_player;
+if (mark_kill_player)
+    with(obj_score){
+        death++;
+    }
 mark_kill_player = false;
 
 // increment the counter

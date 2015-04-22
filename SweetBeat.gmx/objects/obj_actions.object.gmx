@@ -92,7 +92,7 @@ for (var i = 0; i &lt; array_length_1d(obj_manager.sequence); i += 1)
     var time = pair[0];
     var action = pair[1];
     
-    var pos = (time*fpb - obj_background.step_cnt) / fpmN + 1.5;
+    var pos = (time*fpb - obj_manager.step_cnt) / fpmN + 1.5;
     pos = pos * w % w;
     if (pos &lt; (x2 - block_width * width)){
         draw_sprite_stretched(sprites[action], -1, x1 + pos,y1, block_width * width, height);
