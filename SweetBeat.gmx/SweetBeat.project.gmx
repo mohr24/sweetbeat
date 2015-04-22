@@ -47,6 +47,8 @@
     <sprite>sprites\spr_clear</sprite>
     <sprite>sprites\spr_note</sprite>
     <sprite>sprites\spr_toggle</sprite>
+    <sprite>sprites\spr_hook</sprite>
+    <sprite>sprites\spr_scoreboard</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -145,6 +147,10 @@
     <script>scripts\Ternary.gml</script>
     <script>scripts\InCurrentView.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_1</font>
+    <font>fonts\fnt_0</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
@@ -182,11 +188,16 @@
       <object>objects\obj_actions</object>
       <object>objects\obj_action_player</object>
       <object>objects\obj_tilee_background</object>
+      <object>objects\obj_start_black</object>
+      <object>objects\obj_end_black</object>
     </objects>
     <object>objects\obj_cllear</object>
     <object>objects\obj_toggle</object>
+    <object>objects\obj_start</object>
+    <object>objects\obj_score</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_start</room>
     <room>rooms\rm_michael_2</room>
     <room>rooms\rm_michael</room>
     <room>rooms\rm_beat_bridges</room>
