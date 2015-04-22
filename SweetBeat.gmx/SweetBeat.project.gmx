@@ -13,6 +13,7 @@
     <sound>sound\snd_dive</sound>
     <sound>sound\snd_r_cymbal</sound>
     <sound>sound\sng_jingle_jangle</sound>
+    <sound>sound\snd_death</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -47,8 +48,12 @@
     <sprite>sprites\spr_clear</sprite>
     <sprite>sprites\spr_note</sprite>
     <sprite>sprites\spr_toggle</sprite>
+<<<<<<< HEAD
     <sprite>sprites\spr_hook</sprite>
     <sprite>sprites\spr_scoreboard</sprite>
+=======
+    <sprite>sprites\spr_camera_hint</sprite>
+>>>>>>> origin/master
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -89,9 +94,6 @@
       <path>paths\pth_swipe_4</path>
     </paths>
     <paths name="beat_bridges">
-      <path>paths\pth_bb_s3_1</path>
-      <path>paths\pth_bb_s3_2</path>
-      <path>paths\pth_bb_s3_3</path>
       <path>paths\pth_bb_s4_1</path>
       <path>paths\pth_bb_s4_2</path>
       <path>paths\pth_bb_s4_3</path>
@@ -107,7 +109,6 @@
       <path>paths\pth_bb_s5_3</path>
       <path>paths\pth_bb_s5_4</path>
       <path>paths\pth_bb_s5_5</path>
-      <path>paths\pth_bb_s6_1</path>
       <path>paths\pth_bb_s7_1</path>
       <path>paths\pth_bb_s7_2</path>
       <path>paths\pth_bb_s8_1</path>
@@ -193,8 +194,12 @@
     </objects>
     <object>objects\obj_cllear</object>
     <object>objects\obj_toggle</object>
+<<<<<<< HEAD
     <object>objects\obj_start</object>
     <object>objects\obj_score</object>
+=======
+    <object>objects\obj_camera_hint</object>
+>>>>>>> origin/master
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
