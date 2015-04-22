@@ -139,8 +139,6 @@ event_inherited();
             <string>/// mark player for death
 
 obj_manager.mark_kill_player = true;
-obj_player.x_vel = 0;
-obj_player.y_vel = 0;
 </string>
           </argument>
         </arguments>

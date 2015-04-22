@@ -395,13 +395,13 @@ if (obj_manager.kill_player &amp;&amp; death_count &lt;= 0)
         with (swipe_instance)
             instance_destroy();
     swipe_instance = noone;
-
-    var frames_left = (obj_manager.fpb * obj_manager.bpm - obj_manager.counter);
-    if(frames_left &lt; obj_manager.fpb){
-        death_count = frames_left + obj_manager.fpb * obj_manager.bpm;
-    }else{
-        death_count = frames_left;
-    }
+    death_count = death_wait;
+  //  var frames_left = (obj_manager.fpb * obj_manager.bpm - obj_manager.counter);
+   // if(frames_left &lt; obj_manager.fpb){
+   //     death_count = frames_left + obj_manager.fpb * obj_manager.bpm;
+   // }else{
+    //    death_count = frames_left;
+  //  }
     
     x_vel = 0;
     y_vel = 0;

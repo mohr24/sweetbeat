@@ -119,6 +119,9 @@
     <instance objName="obj_beat_only" x="2304" y="704" name="inst_9E138FB7" locked="0" code="sequence[0] = Pair(0,command.jump);&#xA;sequence[1] = Pair(2,command.swipe);&#xA;sequence[2] = Pair(3,command.swipe);&#xA;sequence[3] = Pair(0,command.plat_move);&#xA;sequence[4] = Pair(2,command.plat_move);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="1472" y="2208" name="inst_02FA23B0" locked="0" code="" scaleX="6" scaleY="12" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="992" y="2400" name="inst_AA2D8347" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="512" y="2048" name="inst_33C989FE" locked="0" code="" scaleX="12" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="96" y="2240" name="inst_31341F86" locked="0" code="" scaleX="1" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="480" y="3168" name="inst_FFEE51A3" locked="0" code="" scaleX="9" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
