@@ -14,6 +14,8 @@
     <sound>sound\snd_r_cymbal</sound>
     <sound>sound\sng_jingle_jangle</sound>
     <sound>sound\snd_death</sound>
+    <sound>sound\sng_cephalopod</sound>
+    <sound>sound\sng_enter_the_party</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -86,9 +88,12 @@
     </paths>
     <paths name="swipe_level">
       <path>paths\pth_swipe_2</path>
-      <path>paths\pth_swipe_1</path>
+      <path>paths\pth_swipe_6</path>
       <path>paths\pth_swipe_3</path>
+      <path>paths\pth_swipe_1</path>
+      <path>paths\pth_swipe_5</path>
       <path>paths\pth_swipe_4</path>
+      <path>paths\pth_swipe_7</path>
     </paths>
     <paths name="beat_bridges">
       <path>paths\pth_bb_s4_1</path>
@@ -198,7 +203,6 @@
   <rooms name="rooms">
     <room>rooms\rm_start</room>
     <room>rooms\rm_michael_2</room>
-    <room>rooms\rm_michael</room>
     <room>rooms\rm_beat_bridges</room>
     <room>rooms\rm_moving_show</room>
     <room>rooms\rm_swipe_maze</room>
@@ -207,6 +211,7 @@
     <room>rooms\rm_bg_test</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_nothing</room>
+    <room>rooms\rm_asdf</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
