@@ -48,6 +48,7 @@
     <sprite>sprites\spr_clear</sprite>
     <sprite>sprites\spr_note</sprite>
     <sprite>sprites\spr_toggle</sprite>
+    <sprite>sprites\spr_camera_hint</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -184,6 +185,7 @@
     </objects>
     <object>objects\obj_cllear</object>
     <object>objects\obj_toggle</object>
+    <object>objects\obj_camera_hint</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_michael</room>

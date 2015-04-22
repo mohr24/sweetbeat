@@ -8,7 +8,36 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="3" enumb="0">
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// audio variables
+
+current_music = noone;
+
+music_progress = 0;
+second_tolerance_min = -.075;
+second_tolerance_max = .025;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -27,8 +56,24 @@
             <kind>1</kind>
             <string>/// check background music status
 
-if (!audio_is_playing(obj_manager.music) &amp;&amp; obj_manager.down_beat)
-    audio_play_sound(obj_manager.music, 10, false);
+if (audio_is_playing(obj_manager.music))    // check progress
+{
+    music_progress++;
+    var music_pos_predicted = music_progress / room_speed;
+    var music_pos_actual = audio_sound_get_track_position(current_music);
+    var music_pos_diff = music_pos_actual - music_pos_predicted;
+    if (music_pos_diff &lt; second_tolerance_min || music_pos_diff &gt; second_tolerance_max)
+    {
+        audio_sound_set_track_position(current_music, music_pos_predicted);
+        show_debug_message("ERROR LAGGING - music corrected:");
+        show_debug_message(music_pos_diff);
+    }
+}
+else if (obj_manager.down_beat)
+{
+    music_progress = 0;
+    current_music = audio_play_sound(obj_manager.music, 10, false); // restart on down beat
+}
 </string>
           </argument>
         </arguments>
