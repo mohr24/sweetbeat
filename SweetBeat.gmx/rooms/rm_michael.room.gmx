@@ -78,8 +78,8 @@
     <instance objName="obj_wall" x="5088" y="2944" name="inst_519D1FBD" locked="0" code="" scaleX="1" scaleY="14" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="4896" y="2784" name="inst_1BFC9EE3" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_moving_plat" x="3296" y="2848" name="inst_8A77D0A4" locked="0" code="path = pth_swipe_1;&#xA;beats = 10;&#xA;plat_key = &quot;move platform 1&quot;;&#xA;reset_trigger = &quot;reset platform 1&quot;;&#xA;one_way = true;&#xA;" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat" x="4416" y="2656" name="inst_DE52DAF9" locked="0" code="sequence[0] = Pair(3, command.swipe);&#xA;" scaleX="4" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_trigger_box" x="4416" y="2656" name="inst_0F59755D" locked="0" code="trigger = &quot;reset platform 1&quot;;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat" x="4416" y="2656" name="inst_DE52DAF9" locked="0" code="sequence[0] = Pair(0, command.none);&#xA;" scaleX="4" scaleY="6" colour="4294967295" rotation="0"/>
+    <instance objName="obj_trigger_box" x="4480" y="2656" name="inst_0F59755D" locked="0" code="trigger = &quot;reset platform 1&quot;;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="2816" y="2592" name="inst_5FD735D6" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="3040" y="2912" name="inst_F499F067" locked="0" code="" scaleX="13" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="2144" y="2528" name="inst_C1395070" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
