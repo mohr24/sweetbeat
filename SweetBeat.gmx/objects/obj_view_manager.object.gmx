@@ -28,18 +28,16 @@
             <string>/// initialize view variables
 
 view_object[0] = id;
-view_hborder[0] = view_wview[0] / 2;
-view_vborder[0] = view_hview[0] / 2;
 
 x = obj_player.x;
 y = obj_player.y;
 
 // constants
 
-var f1x = .3*view_wview[0] / 2;
-var f1y = .2*view_hview[0] / 2;
-var f2x = .35*view_wview[0] / 2;
-var f2y = .25*view_hview[0] / 2;
+f1x = .3 / 2;
+f1y = .2 / 2;
+f2x = .35 / 2;
+f2y = .25 / 2;
 
 view_lock_top = -f1y;
 view_lock_bottom = f1y;
@@ -76,6 +74,45 @@ camera_hints = ds_list_create();
       </action>
     </event>
     <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// check for window resize
+
+view_wview[0] = window_get_width();
+view_hview[0] = window_get_height();
+view_wport[0] = window_get_width();
+view_hport[0] = window_get_height();
+
+view_hborder[0] = view_wview[0] / 2;
+view_vborder[0] = view_hview[0] / 2;
+
+view_lock_top = -f1y * view_hview[0];
+view_lock_bottom = f1y * view_hview[0];
+view_lock_left = -f1x * view_wview[0];
+view_lock_right = f1x * view_wview[0];
+
+view_trigger_top = -f2y * view_hview[0];
+view_trigger_bottom = f2y * view_hview[0];
+view_trigger_left = -f2x * view_wview[0];
+view_trigger_right = f2x * view_wview[0];
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -151,9 +188,6 @@ if (obj_manager.kill_player)
     next_pos_x = obj_player.x;
     next_pos_y = obj_player.y;
 }
-    
-x = lerp(x, next_pos_x, camera_speed);
-y = lerp(y, next_pos_y, camera_speed);
 
 prev_player_x = obj_player.x;
 prev_player_y = obj_player.y;
@@ -202,18 +236,42 @@ for (var i = 0; i &lt; ds_list_size(camera_hints); i++)
     if (hint.bbox_top &lt; obj_player.y &amp;&amp; obj_player.y &lt; hint.bbox_bottom)
     {
         if (hint.keep_left &amp;&amp; obj_player.x &lt; hint.bbox_left)
-            x = min(x, hint.bbox_left - width);
+            next_pos_x = min(next_pos_x, hint.bbox_left - width);
         if (hint.keep_right &amp;&amp; obj_player.x &gt; hint.bbox_right)
-            x = max(x, hint.bbox_right + width);
+            next_pos_x = max(next_pos_x, hint.bbox_right + width);
     }
     if (hint.bbox_left &lt; obj_player.x &amp;&amp; obj_player.x &lt; hint.bbox_right)
     {
         if (hint.keep_above &amp;&amp; obj_player.y &lt; hint.bbox_top)
-            y = min(y, hint.bbox_top - height);
+            next_pos_y = min(next_pos_y, hint.bbox_top - height);
         if (hint.keep_below &amp;&amp; obj_player.y &gt; hint.bbox_bottom)
-            y = max(y, hint.bbox_bottom + height);
+            next_pos_y = max(next_pos_y, hint.bbox_bottom + height);
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// camera lerp
+
+x = lerp(x, next_pos_x, camera_speed);
+y = lerp(y, next_pos_y, camera_speed);
 </string>
           </argument>
         </arguments>
@@ -239,6 +297,36 @@ for (var i = 0; i &lt; ds_list_size(camera_hints); i++)
             <string>/// clean up
 
 ds_list_destroy(camera_hints);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="65">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// resize code
+
+view_wview[0] = window_get_width();
+view_hview[0] = window_get_height();
+view_wport[0] = window_get_width();
+view_hport[0] = window_get_height();
+
+show_debug_message("resize");
 </string>
           </argument>
         </arguments>
