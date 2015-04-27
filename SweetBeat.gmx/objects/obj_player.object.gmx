@@ -117,7 +117,7 @@ jmp_vel = -20;
 
 swipe_total_frames = .5 * (30); // 1/2 beat
 swipe_delay_frames = 6;
-swipe_pre_delay_frames = 4;
+swipe_pre_delay_frames = 8;
 swipe_post_animation_lag = 10;   // the sprite lives, but everything else is dead
 swipe_target_distance = 5 * 64; // 5 blocks traveled in our 1/2 beat
 swipe_non_physical_speed_demultiplier = 1/2;    // reduce our speed after the animation is over
@@ -137,7 +137,6 @@ swipe_y = 0;
 
 swipe_vel = 0;
 
-swipe_dir_confirmed = false;
 swipe_delay_cumulate = 0;
 swipe_stick_record = ds_queue_create();
 swipe_total_counter = swipe_total_frames + swipe_post_animation_lag;   // an up counter for once
@@ -596,7 +595,6 @@ ds_queue_enqueue(swipe_stick_record, Pair(x_stick_square,y_stick_square));
 
 if (CheckCommand(command.swipe))
 {
-    audio_play_sound(snd_swipe, 10, false);
     swipe_total_counter = 0;
     swipe_vel = 0;
     swipe_dir_confirmed = false;
@@ -618,7 +616,6 @@ if (CheckCommand(command.swipe))
             {
                 swipe_x = next[0];
                 swipe_y = next[1];
-                swipe_dir_confirmed = true;
                 break;
             }
         }
@@ -636,20 +633,18 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
     {
         swipe_vel += swipe_acceleration_per_frame;
         swipe_delay_cumulative += swipe_vel;
-        if (swipe_total_counter &lt;= swipe_delay_frames &amp;&amp; !swipe_dir_confirmed)
+        if (swipe_total_counter &lt;= swipe_delay_frames &amp;&amp; swipe_x == 0 &amp;&amp; swipe_y == 0)
         {
             x_vel = 0;
             y_vel = 0;
-            // if we run out of frames, or we change to a (non-zero) direction
+            // if we run out of frames, or we push the stick to a (non-zero) direction
             if (swipe_total_counter == swipe_delay_frames ||
-                ((x_stick_square != swipe_x || y_stick_square != swipe_y) &amp;&amp;
-                (x_stick_square != 0 || y_stick_square != 0)))            
+                (x_stick_square != 0 || y_stick_square != 0))            
             {
                 swipe_x = x_stick_square;
                 swipe_y = y_stick_square;
                 x_vel = swipe_x*swipe_delay_cumulative;
                 y_vel = swipe_y*swipe_delay_cumulative;
-                swipe_dir_confirmed = true;
                 //show_debug_message("swipe frame");
             }
         }
@@ -662,8 +657,8 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
         }
         swipe_total_counter += 1;
         
-        if (swipe_total_counter == swipe_total_frames - 1)
-            show_debug_message("swipe end");
+        //if (swipe_total_counter == swipe_total_frames - 1)
+        //    show_debug_message("swipe end");
     }
     else
     {
@@ -706,7 +701,6 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
 if (CheckCommand(command.jump))
 {
     y_vel = jmp_vel;
-    audio_play_sound(snd_jump,10,false);
 }
 </string>
           </argument>

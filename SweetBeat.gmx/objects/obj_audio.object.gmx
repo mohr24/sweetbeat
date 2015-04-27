@@ -32,6 +32,10 @@ current_music = noone;
 music_progress = 0;
 second_tolerance_min = -.075;
 second_tolerance_max = .025;
+
+audio_advance = obj_lag.audio_lag / room_speed
+
+audio_sound_set_track_position(obj_manager.music, audio_advance);
 </string>
           </argument>
         </arguments>
@@ -59,7 +63,7 @@ second_tolerance_max = .025;
 if (audio_is_playing(obj_manager.music))    // check progress
 {
     music_progress++;
-    var music_pos_predicted = music_progress / room_speed;
+    var music_pos_predicted = (music_progress / room_speed) + audio_advance;
     var music_pos_actual = audio_sound_get_track_position(current_music);
     var music_pos_diff = music_pos_actual - music_pos_predicted;
     if (music_pos_diff &lt; second_tolerance_min || music_pos_diff &gt; second_tolerance_max)
@@ -74,6 +78,32 @@ else if (obj_manager.down_beat)
     music_progress = 0;
     current_music = audio_play_sound(obj_manager.music, 10, false); // restart on down beat
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// advance audio
+
+if (CheckCommandLag(command.jump))
+    audio_play_sound(snd_jump,10,false);
+if (CheckCommandLag(command.swipe))
+    audio_play_sound(snd_swipe,10,false);
 </string>
           </argument>
         </arguments>
