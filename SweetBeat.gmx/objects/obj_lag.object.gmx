@@ -30,7 +30,7 @@
 audio_lag = 0;
 
 // temporary
-audio_lag = floor((90 / 1000)*room_speed + 3);
+audio_lag = 9;
 </string>
           </argument>
         </arguments>

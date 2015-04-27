@@ -44,6 +44,8 @@ x_stick = 0;    // 8 point direction (center included)
 y_stick = 0;
 x_stick_square = 0; // 4 points not 8 (center included)
 y_stick_square = 0;
+x_stick_square_prev = 0;
+y_stick_square_prev = 0;
 
 grav_accel = 1;
 move_accel = 1;
@@ -116,7 +118,7 @@ jmp_vel = -20;
             <string>/// swipe variables
 
 swipe_total_frames = .5 * (30); // 1/2 beat
-swipe_delay_frames = 6;
+swipe_delay_frames = 3;
 swipe_pre_delay_frames = 8;
 swipe_post_animation_lag = 10;   // the sprite lives, but everything else is dead
 swipe_target_distance = 5 * 64; // 5 blocks traveled in our 1/2 beat
@@ -134,11 +136,13 @@ swipe_offset = sprite_width / 2;
 
 swipe_x = 0;
 swipe_y = 0;
+swipe_dir_confirmed = false;
 
 swipe_vel = 0;
 
 swipe_delay_cumulate = 0;
 swipe_stick_record = ds_queue_create();
+temp_queue = ds_queue_create();
 swipe_total_counter = swipe_total_frames + swipe_post_animation_lag;   // an up counter for once
 </string>
           </argument>
@@ -175,6 +179,7 @@ ds_list_destroy(next_collisions_top);
 ds_list_destroy(next_collisions_bottom);
 
 ds_queue_destroy(swipe_stick_record);
+ds_queue_destroy(temp_queue);
 </string>
           </argument>
         </arguments>
@@ -492,6 +497,10 @@ var v_axis_2;
 
 var deadzone = .5;
 
+// set previouses
+x_stick_square_prev = x_stick_square;
+y_stick_square_prev = y_stick_square;
+
 // controller check
 if (gamepad_is_connected(0))
 {
@@ -605,47 +614,53 @@ if (CheckCommand(command.swipe))
     swipe_delay_cumulative = 0;
     if (!ds_queue_empty(swipe_stick_record))
     {
-        var prev = ds_queue_dequeue(swipe_stick_record);
+        ds_queue_copy(temp_queue, swipe_stick_record);
+        var prev = ds_queue_dequeue(temp_queue);
         swipe_x = prev[0];
         swipe_y = prev[1];
-        while (!ds_queue_empty(swipe_stick_record))
+        while (!ds_queue_empty(temp_queue))
         {
-            var next = ds_queue_dequeue(swipe_stick_record);
+            var next = ds_queue_dequeue(temp_queue);
+            swipe_x = next[0];
+            swipe_y = next[1];
             // if it changes, and the change is to a (non-zero) direction, we confirm
-            if ((next[0] != prev[0] || next[1] != prev[1]) &amp;&amp; (next[0] != 0 &amp;&amp; next[1] != 0))
+            if ((next[0] != prev[0] || next[1] != prev[1]) &amp;&amp; (next[0] != 0 || next[1] != 0))
             {
-                swipe_x = next[0];
-                swipe_y = next[1];
+                swipe_dir_confirmed = true;
                 break;
             }
+            prev[0] = next[0];
+            prev[1] = next[1];
         }
     }
     else
         show_debug_message("ERROR SWIPE QUEUE EMPTY");
-    //show_debug_message("swipe go");
+    show_debug_message("swipe start");
 }
 
 if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
 {
-    //if (x_stick_square != 0 || y_stick_square != 0)
-    //    show_debug_message("stick");
+    if (x_stick_square != 0 || y_stick_square != 0)
+        show_debug_message("stick");
     if (swipe_total_counter &lt; swipe_total_frames)
     {
         swipe_vel += swipe_acceleration_per_frame;
         swipe_delay_cumulative += swipe_vel;
-        if (swipe_total_counter &lt;= swipe_delay_frames &amp;&amp; swipe_x == 0 &amp;&amp; swipe_y == 0)
+        if (swipe_total_counter &lt;= swipe_delay_frames &amp;&amp; !swipe_dir_confirmed)
         {
             x_vel = 0;
             y_vel = 0;
+            swipe_x = x_stick_square;
+            swipe_y = y_stick_square;
             // if we run out of frames, or we push the stick to a (non-zero) direction
             if (swipe_total_counter == swipe_delay_frames ||
-                (x_stick_square != 0 || y_stick_square != 0))            
+                ((x_stick_square != x_stick_square_prev || y_stick_square != y_stick_square_prev) &amp;&amp;
+                (x_stick_square != 0 || y_stick_square != 0)))            
             {
-                swipe_x = x_stick_square;
-                swipe_y = y_stick_square;
                 x_vel = swipe_x*swipe_delay_cumulative;
                 y_vel = swipe_y*swipe_delay_cumulative;
-                //show_debug_message("swipe frame");
+                swipe_dir_confirmed = true;
+                show_debug_message("swipe frame");
             }
         }
         else
@@ -657,8 +672,8 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
         }
         swipe_total_counter += 1;
         
-        //if (swipe_total_counter == swipe_total_frames - 1)
-        //    show_debug_message("swipe end");
+        if (swipe_total_counter == swipe_total_frames - 1)
+            show_debug_message("swipe end");
     }
     else
     {
