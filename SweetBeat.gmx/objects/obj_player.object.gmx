@@ -635,13 +635,13 @@ if (CheckCommand(command.swipe))
     }
     else
         show_debug_message("ERROR SWIPE QUEUE EMPTY");
-    show_debug_message("swipe start");
+    //show_debug_message("swipe start");
 }
 
 if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
 {
-    if (x_stick_square != 0 || y_stick_square != 0)
-        show_debug_message("stick");
+    //if (x_stick_square != 0 || y_stick_square != 0)
+    //    show_debug_message("stick");
     if (swipe_total_counter &lt; swipe_total_frames)
     {
         swipe_vel += swipe_acceleration_per_frame;
@@ -660,7 +660,7 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
                 x_vel = swipe_x*swipe_delay_cumulative;
                 y_vel = swipe_y*swipe_delay_cumulative;
                 swipe_dir_confirmed = true;
-                show_debug_message("swipe frame");
+                //show_debug_message("swipe frame");
             }
         }
         else
@@ -672,8 +672,8 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
         }
         swipe_total_counter += 1;
         
-        if (swipe_total_counter == swipe_total_frames - 1)
-            show_debug_message("swipe end");
+        //if (swipe_total_counter == swipe_total_frames - 1)
+        //    show_debug_message("swipe end");
     }
     else
     {
