@@ -68,6 +68,7 @@ h_lock_cam = 0;
 v_lock_cam = 0;
 
 camera_hints = ds_list_create();
+first_frame = true;
 </string>
           </argument>
         </arguments>
@@ -136,57 +137,58 @@ var dy = obj_player.y - next_pos_y;
 var player_dx = obj_player.x - prev_player_x;
 var player_dy = obj_player.y - prev_player_y;
 
-if (!r_lock &amp;&amp; dx &lt; view_trigger_left)
+if (!obj_manager.kill_player)
 {
-    l_lock = false;
-    r_lock = true;
-    h_lock_cam = next_pos_x;
-    h_lock_pos = view_trigger_left + h_lock_cam;
-}
-else if (!l_lock &amp;&amp; dx &gt; view_trigger_right)
-{
-    l_lock = true;
-    r_lock = false;
-    h_lock_cam = next_pos_x;
-    h_lock_pos = view_trigger_right + h_lock_cam;
-}
-
-if (!b_lock &amp;&amp; dy &lt; view_trigger_top)
-{
-    t_lock = false;
-    b_lock = true;
-    v_lock_cam = next_pos_y;
-    v_lock_pos = view_trigger_top + v_lock_cam;
-}
-else if (!t_lock &amp;&amp; dy &gt; view_trigger_bottom)
-{
-    t_lock = true;
-    b_lock = false;
-    v_lock_cam = next_pos_y;
-    v_lock_pos = view_trigger_bottom + v_lock_cam;
-}
-
-var player_h_travel = obj_player.x - h_lock_pos;
-var player_v_travel = obj_player.y - v_lock_pos;
-
-if (l_lock &amp;&amp; dx &gt; view_lock_left)
-    next_pos_x = min(obj_player.x - view_lock_left, max(next_pos_x, h_lock_cam + move_factor*player_h_travel))
-else if (r_lock &amp;&amp; dx &lt; view_lock_right)
-    next_pos_x = max(obj_player.x - view_lock_right, min(next_pos_x, h_lock_cam + move_factor*player_h_travel));
+    if (!r_lock &amp;&amp; dx &lt; view_trigger_left)
+    {
+        l_lock = false;
+        r_lock = true;
+        h_lock_cam = next_pos_x;
+        h_lock_pos = view_trigger_left + h_lock_cam;
+    }
+    else if (!l_lock &amp;&amp; dx &gt; view_trigger_right)
+    {
+        l_lock = true;
+        r_lock = false;
+        h_lock_cam = next_pos_x;
+        h_lock_pos = view_trigger_right + h_lock_cam;
+    }
     
-if (t_lock &amp;&amp; dy &gt; view_lock_top)
-    next_pos_y = min(obj_player.y - view_lock_top, max(next_pos_y, v_lock_cam + move_factor*player_v_travel));
-else if (b_lock &amp;&amp; dy &lt; view_lock_bottom)
-    next_pos_y = max(obj_player.y - view_lock_bottom, min(next_pos_y, v_lock_cam + move_factor*player_v_travel));
+    if (!b_lock &amp;&amp; dy &lt; view_trigger_top)
+    {
+        t_lock = false;
+        b_lock = true;
+        v_lock_cam = next_pos_y;
+        v_lock_pos = view_trigger_top + v_lock_cam;
+    }
+    else if (!t_lock &amp;&amp; dy &gt; view_trigger_bottom)
+    {
+        t_lock = true;
+        b_lock = false;
+        v_lock_cam = next_pos_y;
+        v_lock_pos = view_trigger_bottom + v_lock_cam;
+    }
+    
+    var player_h_travel = obj_player.x - h_lock_pos;
+    var player_v_travel = obj_player.y - v_lock_pos;
+    
+    if (l_lock &amp;&amp; dx &gt; view_lock_left)
+        next_pos_x = min(obj_player.x - view_lock_left, max(next_pos_x, h_lock_cam + move_factor*player_h_travel))
+    else if (r_lock &amp;&amp; dx &lt; view_lock_right)
+        next_pos_x = max(obj_player.x - view_lock_right, min(next_pos_x, h_lock_cam + move_factor*player_h_travel));
+        
+    if (t_lock &amp;&amp; dy &gt; view_lock_top)
+        next_pos_y = min(obj_player.y - view_lock_top, max(next_pos_y, v_lock_cam + move_factor*player_v_travel));
+    else if (b_lock &amp;&amp; dy &lt; view_lock_bottom)
+        next_pos_y = max(obj_player.y - view_lock_bottom, min(next_pos_y, v_lock_cam + move_factor*player_v_travel));
 
-if (obj_manager.kill_player)
+}
+else
 {
-    l_lock = false;
-    r_lock = false;
-    b_lock = false;
-    t_lock = false;
-    next_pos_x = obj_player.x;
-    next_pos_y = obj_player.y;
+    var x_off = next_pos_x - prev_player_x;
+    var y_off = next_pos_y - prev_player_y;
+    next_pos_x = obj_player.x + x_off;
+    next_pos_y = obj_player.y + y_off;
 }
 
 prev_player_x = obj_player.x;
@@ -270,8 +272,17 @@ for (var i = 0; i &lt; ds_list_size(camera_hints); i++)
             <kind>1</kind>
             <string>/// camera lerp
 
-x = lerp(x, next_pos_x, camera_speed);
-y = lerp(y, next_pos_y, camera_speed);
+if (!first_frame)
+{
+    x = lerp(x, next_pos_x, camera_speed);
+    y = lerp(y, next_pos_y, camera_speed);
+}
+else
+{
+    x = next_pos_x;
+    y = next_pos_y;
+    first_frame = false;
+}
 </string>
           </argument>
         </arguments>
