@@ -16,6 +16,7 @@
     <sound>sound\snd_death</sound>
     <sound>sound\sng_cephalopod</sound>
     <sound>sound\sng_enter_the_party</sound>
+    <sound>sound\snd_down_beat</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -145,6 +146,7 @@
     <script>scripts\Pair.gml</script>
     <script>scripts\outside_view.gml</script>
     <script>scripts\CheckCommand.gml</script>
+    <script>scripts\CheckCommandLag.gml</script>
     <script>scripts\InstancePlaceList.gml</script>
     <script>scripts\Quadrant.gml</script>
     <script>scripts\Triple.gml</script>
@@ -163,6 +165,7 @@
     <script>scripts\hue_to_rgb.gml</script>
     <script>scripts\Ternary.gml</script>
     <script>scripts\InCurrentView.gml</script>
+    <script>scripts\CheckSequenceAt.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_1</font>
@@ -213,6 +216,8 @@
     <object>objects\obj_start</object>
     <object>objects\obj_score</object>
     <object>objects\obj_camera_hint</object>
+    <object>objects\obj_lag</object>
+    <object>objects\obj_lag_cal</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_michael_3</room>

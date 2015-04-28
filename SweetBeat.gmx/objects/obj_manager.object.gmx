@@ -64,6 +64,7 @@ down_beat = false;  // first beat of the measure
 
 command_bitmask = 0;
 command_tripple_map = ds_map_create();
+command_lag_bitmask = 0;
 
 kill_player = false;
 
@@ -139,27 +140,11 @@ var fpm = bpm*fpb;
 
 if (counter &gt;= fpm)
     counter = counter % fpm;
-    
-command_bitmask = 0;
+
 ds_map_clear(command_tripple_map);
 // check for all actions (before this beat that haven't been processed yet)
-for (index = 0; index &lt; array_length_1d(sequence); index += 1)
-{
-    var pair = sequence[index];
-    var time = pair[0];
-    var action = pair[1];
-    
-    if (((counter - 1)/fpb &lt;= time &amp;&amp; counter/fpb &gt; time)
-    || ((counter + fpm - 1)/fpb &lt;= time &amp;&amp; (counter + fpm)/fpb &gt; time))
-    {   
-        command_bitmask = command_bitmask | (1 &lt;&lt; action);
-        if (array_length_1d(pair) == 3)
-        {
-            var extra = pair[2];
-            ds_map_add(command_tripple_map,action,extra);
-        }
-    }
-}
+command_bitmask = CheckSequenceAt(sequence, counter, fpb, fpm, command_tripple_map);
+command_lag_bitmask = CheckSequenceAt(sequence, (counter + obj_lag.audio_lag) % fpm, fpb, fpm);
 
 kill_player = mark_kill_player;
 if (mark_kill_player)
