@@ -126,6 +126,20 @@
       <path>paths\pth_michael_2_1</path>
       <path>paths\pth_michael_2_2</path>
     </paths>
+    <paths name="michael_3">
+      <path>paths\pth_m3_s1_1</path>
+      <path>paths\pth_m3_s3_1</path>
+      <path>paths\pth_m3_s3_2</path>
+      <path>paths\pth_m3_s3_3</path>
+      <path>paths\pth_m3_s3_4</path>
+      <path>paths\pth_m3_s3_5</path>
+      <path>paths\pth_m3_s1_2</path>
+      <path>paths\pth_m3_s1_3</path>
+      <path>paths\pth_m3_s2_1</path>
+      <path>paths\pth_m3_s2_3</path>
+      <path>paths\pth_m3_s2_2</path>
+      <path>paths\pth_m3_s4_1</path>
+    </paths>
   </paths>
   <scripts name="scripts">
     <script>scripts\Pair.gml</script>
@@ -201,9 +215,10 @@
     <object>objects\obj_camera_hint</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_michael_3</room>
     <room>rooms\rm_start</room>
-    <room>rooms\rm_beat_bridges</room>
     <room>rooms\rm_michael</room>
+    <room>rooms\rm_beat_bridges</room>
     <room>rooms\rm_moving_show</room>
     <room>rooms\rm_michael_2</room>
     <room>rooms\rm_swipe_maze</room>
