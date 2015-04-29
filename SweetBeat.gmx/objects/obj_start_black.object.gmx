@@ -53,7 +53,7 @@
 
 draw_set_alpha(left / 60);
 draw_set_color(c_black);
-draw_rectangle(0,0,1024,1024,false);
+draw_rectangle(0,0,view_wport[0]*10,view_hport[0]*10,false);
 draw_set_alpha(1);
 
 left --;
