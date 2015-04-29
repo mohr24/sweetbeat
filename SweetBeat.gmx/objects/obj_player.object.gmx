@@ -52,7 +52,7 @@ move_accel = 1;
 move_speed = 8;
 air_speed = 15;
 move_deccel = 2;
-move_drag = .9;
+move_drag = .92;
 top_drag_speed = 8;
 
 prev_collisions_left = ds_list_create();
@@ -580,7 +580,7 @@ if(ds_list_size(prev_collisions_bottom) &gt; 0){
                 x_vel = x_vel_target;
         }
     }
-    else if (y_vel &gt; 0 &amp;&amp; y_vel &lt; top_drag_speed)
+    else if (y_vel &gt; 0)// &amp;&amp; y_vel &lt; top_drag_speed)
     {
         x_vel *= move_drag;   
     }
@@ -919,7 +919,7 @@ with (obj_beat)
 }
 
 x = nx;
-y = ny;
+y = ny - sprite_height/2;
 x_vel = 0;
 y_vel = 0;
 begin_x = x;
@@ -980,7 +980,7 @@ with (obj_beat)
 }
 
 x = nx;
-y = ny;
+y = ny - sprite_height/2;
 x_vel = 0;
 y_vel = 0;
 begin_x = x;

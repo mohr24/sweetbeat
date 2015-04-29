@@ -147,14 +147,6 @@
       <path>paths\pth_m3_s2_3</path>
       <path>paths\pth_m3_s2_2</path>
       <path>paths\pth_m3_s4_1</path>
-      <path>paths\pth_m3_s5_1</path>
-      <path>paths\pth_m3_s5_2</path>
-      <path>paths\pth_m3_s5_3</path>
-      <path>paths\pth_m3_s5_4</path>
-      <path>paths\pth_m3_s5_5</path>
-      <path>paths\pth_m3_s5_6</path>
-      <path>paths\pth_m3_s5_7</path>
-      <path>paths\pth_m3_s5_8</path>
     </paths>
   </paths>
   <scripts name="scripts">
@@ -237,10 +229,10 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
-    <room>rooms\rm_deadly_dance</room>
-    <room>rooms\rm_michael_3</room>
-    <room>rooms\rm_michael</room>
     <room>rooms\rm_beat_bridges</room>
+    <room>rooms\rm_michael_3</room>
+    <room>rooms\rm_deadly_dance</room>
+    <room>rooms\rm_michael</room>
     <room>rooms\rm_moving_show</room>
     <room>rooms\rm_michael_2</room>
     <room>rooms\rm_swipe_maze</room>
