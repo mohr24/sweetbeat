@@ -65,22 +65,24 @@ if(left==-100){
 draw_sprite_ext(spr,image_index,x,y,obj_player.facing * scale,scale,0,-1,1);
 left --;
 
-if (left &lt;= 0){
-    instance_destroy();
-}
-
 var move_up = ani_time * rate;
 var move_down = ani_time * (1-rate);
 
+with (obj_player){
+    x = other.x;
+    y = other.y;
+}
 
 if (left &lt;= move_down){
     spr = spr_player;
     x = target_x;
     y = target_y;
     scale = (move_down - left) / move_down;
+    if (scale &gt; 1) scale = 1;
     //var r = (ani_time - left) / move_up;
     //y = start_y * (1 - r) + middle_y * r;
 }
+
 
 </string>
           </argument>
