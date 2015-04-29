@@ -23,8 +23,10 @@
     <sprite>sprites\spr_moving_plat</sprite>
     <sprite>sprites\spr_door</sprite>
     <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_player_die</sprite>
     <sprite>sprites\spr_player_2</sprite>
     <sprite>sprites\spr_kill</sprite>
+    <sprite>sprites\spr_kill_toggle</sprite>
     <sprite>sprites\spr_kiill_destruct</sprite>
     <sprite>sprites\spr_beat</sprite>
     <sprite>sprites\spr_checkpoint</sprite>
@@ -54,6 +56,10 @@
     <sprite>sprites\spr_hook</sprite>
     <sprite>sprites\spr_scoreboard</sprite>
     <sprite>sprites\spr_camera_hint</sprite>
+    <sprite>sprites\spr_static_kill_64</sprite>
+    <sprite>sprites\spr_dynamic_0</sprite>
+    <sprite>sprites\spr_dynamic_1</sprite>
+    <sprite>sprites\spr_static_kill_128</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -146,14 +152,6 @@
       <path>paths\pth_m3_s2_3</path>
       <path>paths\pth_m3_s2_2</path>
       <path>paths\pth_m3_s4_1</path>
-      <path>paths\pth_m3_s5_1</path>
-      <path>paths\pth_m3_s5_2</path>
-      <path>paths\pth_m3_s5_3</path>
-      <path>paths\pth_m3_s5_4</path>
-      <path>paths\pth_m3_s5_5</path>
-      <path>paths\pth_m3_s5_6</path>
-      <path>paths\pth_m3_s5_7</path>
-      <path>paths\pth_m3_s5_8</path>
     </paths>
   </paths>
   <scripts name="scripts">
@@ -183,6 +181,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_1</font>
+    <font>fonts\fnt_2</font>
     <font>fonts\fnt_0</font>
   </fonts>
   <objects name="objects">
@@ -224,6 +223,8 @@
       <object>objects\obj_tilee_background</object>
       <object>objects\obj_start_black</object>
       <object>objects\obj_end_black</object>
+      <object>objects\obj_player_respawn</object>
+      <object>objects\obj_text</object>
     </objects>
     <object>objects\obj_cllear</object>
     <object>objects\obj_toggle</object>
@@ -232,12 +233,15 @@
     <object>objects\obj_camera_hint</object>
     <object>objects\obj_lag</object>
     <object>objects\obj_lag_cal</object>
+    <object>objects\obj_kill_toggle</object>
+    <object>objects\obj_flame</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
-    <room>rooms\rm_michael_3</room>
-    <room>rooms\rm_michael</room>
     <room>rooms\rm_beat_bridges</room>
+    <room>rooms\rm_michael_3</room>
+    <room>rooms\rm_deadly_dance</room>
+    <room>rooms\rm_michael</room>
     <room>rooms\rm_moving_show</room>
     <room>rooms\rm_michael_2</room>
     <room>rooms\rm_swipe_maze</room>

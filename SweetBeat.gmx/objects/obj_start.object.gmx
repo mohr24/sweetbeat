@@ -98,15 +98,15 @@ if (obj_manager.beat_id!=0){
             <kind>1</kind>
             <string>///draw
 
-draw_set_font(fnt_1);
+draw_set_font(fnt_2);
 draw_set_colour(txt_color);
 draw_set_valign(fa_center);
 draw_text_transformed(200,200,"Sweet Beat",txt_x_scale,txt_y_scale,0);
 
 
 
-draw_text_transformed(900,400,"Start -&gt;",0.25,0.25,0);
-draw_text_transformed(50,400,"&lt;- Quit",0.25,0.25,0);
+//draw_text_transformed(900,400,"Start -&gt;",0.25,0.25,0);
+//draw_text_transformed(50,400,"&lt;- Quit",0.25,0.25,0);
 
 if (left &gt; 0){
     instance_create(0,0,obj_end_black);
