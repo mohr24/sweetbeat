@@ -54,8 +54,12 @@ first_beat_sequence=false;
             <string>/// set beat
 if (obj_manager.beat_id != id)
 {
-    if(obj_manager.beat_id == 0)
+    if(obj_manager.beat_id == 0){
         obj_audio.current_music = audio_play_sound(obj_manager.music,10,false);
+        with (obj_flame){
+            image_speed = 1;
+        }
+    }
     obj_manager.beat_id = id;
     obj_manager.sequence = sequence;
     obj_manager.bpm = bpm;

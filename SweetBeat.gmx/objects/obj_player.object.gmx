@@ -384,6 +384,7 @@ if (swipe_instance != noone)
 if (obj_manager.kill_player &amp;&amp; death_count &lt;= 0)
 {
     audio_play_sound(snd_death, 10, false);
+    instance_create(x,y,obj_player_respawn);    
     if (obj_manager.checkpoint_id == 0)
     {
         x = x_start;
@@ -401,6 +402,12 @@ if (obj_manager.kill_player &amp;&amp; death_count &lt;= 0)
             instance_destroy();
     swipe_instance = noone;
     death_count = death_wait;
+    
+    with (obj_player_respawn){
+        ani_time = other.death_wait;
+        target_y = other.y;
+        target_x = other.x;
+    }
   //  var frames_left = (obj_manager.fpb * obj_manager.bpm - obj_manager.counter);
    // if(frames_left &lt; obj_manager.fpb){
    //     death_count = frames_left + obj_manager.fpb * obj_manager.bpm;
