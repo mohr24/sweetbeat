@@ -176,8 +176,11 @@ obj_manager.mark_kill_player = true;
             <kind>1</kind>
             <string>///dynamic drawing
 
-//draw_self();
 
+DrawSpriteTiled(sprite_i,-1,x,y,sprite_width,sprite_height);
+
+//draw_self();
+/*
 left_most = x - sprite_width / 2;
 top_most  = y - sprite_height / 2;
 right_most = left_most + sprite_width;
@@ -200,7 +203,7 @@ if (right_most&gt;left_vb &amp;&amp; left_most&lt;right_vb &amp;&amp; top_most&l
         xcord += sprite_size;
     }
 }
-
+*/
 ///tiles
 /*
 left_most = x - sprite_width / 2;
