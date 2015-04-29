@@ -17,6 +17,7 @@
     <sound>sound\sng_cephalopod</sound>
     <sound>sound\sng_enter_the_party</sound>
     <sound>sound\snd_down_beat</sound>
+    <sound>sound\snd_plat_move</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>

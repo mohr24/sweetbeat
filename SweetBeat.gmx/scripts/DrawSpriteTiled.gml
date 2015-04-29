@@ -22,6 +22,11 @@ var scaled_yoffset = yoffset * v_tile;
 _x -= scaled_xoffset;
 _y -= scaled_yoffset;
 
+var v_left = view_xview[view_current];
+var v_right = v_left + view_wview[view_current];
+var v_top = view_yview[view_current];
+var v_bottom = v_top + view_hview[view_current];
+
 if (InCurrentView(_x, _y, _x + width, _y + height))
 {
     if (v_left > _x)
