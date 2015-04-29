@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// make our trigger map
 trigger_map = ds_map_create();
+trigger_queue = ds_queue_create();
 </string>
           </argument>
         </arguments>
@@ -52,6 +53,39 @@ trigger_map = ds_map_create();
             <string>/// destroy our trigger map
 
 ds_map_destroy(trigger_map);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// trigger check on beats
+
+while (!ds_queue_empty(trigger_queue))
+    SetTrigger(ds_queue_dequeue(trigger_queue), false);
+
+if (CheckCommand(command.trigger))
+{
+    var third = GetCommandExtra(command.trigger);
+    ds_queue_enqueue(trigger_queue, third);
+    SetTrigger(third, true);
+}
 </string>
           </argument>
         </arguments>

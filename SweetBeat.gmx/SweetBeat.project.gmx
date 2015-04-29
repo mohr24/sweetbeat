@@ -25,6 +25,7 @@
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_player_2</sprite>
     <sprite>sprites\spr_kill</sprite>
+    <sprite>sprites\spr_kill_toggle</sprite>
     <sprite>sprites\spr_kiill_destruct</sprite>
     <sprite>sprites\spr_beat</sprite>
     <sprite>sprites\spr_checkpoint</sprite>
@@ -224,10 +225,12 @@
     <object>objects\obj_camera_hint</object>
     <object>objects\obj_lag</object>
     <object>objects\obj_lag_cal</object>
+    <object>objects\obj_kill_toggle</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_michael_3</room>
     <room>rooms\rm_start</room>
+    <room>rooms\rm_deadly_dance</room>
+    <room>rooms\rm_michael_3</room>
     <room>rooms\rm_michael</room>
     <room>rooms\rm_beat_bridges</room>
     <room>rooms\rm_moving_show</room>
