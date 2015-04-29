@@ -767,8 +767,10 @@ if (death_count == 0)
 {
     death_count = 1;
    // obj_manager.sequence = obj_manager.checkpoint_id.sequence;
-    if (obj_manager.tick_beat || obj_manager.beat_id == 0)
+    if (obj_manager.tick_beat || obj_manager.beat_id == 0){
         death_count = -1;
+        with (obj_player_respawn) { instance_destroy(); } 
+    }
 }
 </string>
           </argument>
