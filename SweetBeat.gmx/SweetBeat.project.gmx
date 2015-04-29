@@ -23,6 +23,7 @@
     <sprite>sprites\spr_moving_plat</sprite>
     <sprite>sprites\spr_door</sprite>
     <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_player_die</sprite>
     <sprite>sprites\spr_player_2</sprite>
     <sprite>sprites\spr_kill</sprite>
     <sprite>sprites\spr_kiill_destruct</sprite>
@@ -54,6 +55,10 @@
     <sprite>sprites\spr_hook</sprite>
     <sprite>sprites\spr_scoreboard</sprite>
     <sprite>sprites\spr_camera_hint</sprite>
+    <sprite>sprites\spr_static_kill_64</sprite>
+    <sprite>sprites\spr_dynamic_0</sprite>
+    <sprite>sprites\spr_dynamic_1</sprite>
+    <sprite>sprites\spr_static_kill_128</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -183,6 +188,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_1</font>
+    <font>fonts\fnt_2</font>
     <font>fonts\fnt_0</font>
   </fonts>
   <objects name="objects">
@@ -224,6 +230,8 @@
       <object>objects\obj_tilee_background</object>
       <object>objects\obj_start_black</object>
       <object>objects\obj_end_black</object>
+      <object>objects\obj_player_respawn</object>
+      <object>objects\obj_text</object>
     </objects>
     <object>objects\obj_cllear</object>
     <object>objects\obj_toggle</object>
@@ -232,6 +240,7 @@
     <object>objects\obj_camera_hint</object>
     <object>objects\obj_lag</object>
     <object>objects\obj_lag_cal</object>
+    <object>objects\obj_flame</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
