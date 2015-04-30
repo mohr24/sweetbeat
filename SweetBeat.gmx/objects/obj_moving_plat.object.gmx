@@ -197,7 +197,7 @@ else if (obj_player.y_vel_remain != 0)  // y direction collision
             <kind>1</kind>
             <string>/// manual draw
 
-DrawSpritePartitioned(sprite_index,image_index,16,16,16,16,x,y,sprite_width,sprite_height);
+DrawSpritePartitioned(sprite_index,image_index,4,4,4,4,x,y,sprite_width,sprite_height);
 </string>
           </argument>
         </arguments>

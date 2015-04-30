@@ -177,6 +177,7 @@
     <script>scripts\SetTrigger.gml</script>
     <script>scripts\DrawSpritePartitioned.gml</script>
     <script>scripts\DrawSpriteTiled.gml</script>
+    <script>scripts\DrawSpriteTiledPart.gml</script>
     <script>scripts\make_color_hsl.gml</script>
     <script>scripts\color_get_hsl_hue.gml</script>
     <script>scripts\color_get_hsl_saturation.gml</script>
