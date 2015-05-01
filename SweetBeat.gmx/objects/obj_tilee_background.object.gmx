@@ -39,21 +39,6 @@ total_height = 100;
 transition_frames = 5;
 transition_count = 0;
 
-// h : [0,360], s : [0,100], l : [0,100]
-tile_min_hue = 300;
-tile_max_hue = 300;
-tile_min_sat = 0;   // start black &amp; white
-tile_max_sat = 0;
-tile_min_lum = 10;
-tile_max_lum = 10;
-
-prev_min_hue = tile_min_hue;
-prev_max_hue = tile_max_hue;
-prev_min_sat = tile_min_sat;
-prev_max_sat = tile_max_sat;
-prev_min_lum = tile_min_lum;
-prev_max_lum = tile_max_lum;
-
 seed_get = 999999999;   // arbitrary high number
 
 seed = random(seed_get);
@@ -61,6 +46,16 @@ prev_seed = seed;
 
 tile_x = ceil((room_width*(parallax_factor+1)) / tile_width);
 tile_y = ceil((room_height*(parallax_factor+1)) / tile_height);
+
+color_picker[0] = make_color_rgb(255,87,255);
+color_picker[1] = make_color_rgb(255,0,255);
+color_picker[2] = make_color_rgb(160,0,160);
+color_picker[3] = make_color_rgb(114,0,114);
+color_picker[4] = make_color_rgb(68,0,68);
+
+initial = true;
+was_initial = true;
+initial_color = make_color_rgb(46,46,46);
 </string>
           </argument>
         </arguments>
@@ -90,19 +85,10 @@ if (obj_manager.command_bitmask != 0)
     prev_seed = seed;
     seed = random(seed_get);
     transition_count = transition_frames;
-    //tile_min_hue = 300;
-    //tile_max_hue = 300;
-    tile_min_sat = 100;
-    tile_max_sat = 100;
-    tile_min_lum = 10;
-    tile_max_lum = 90;
-    //prev_min_hue = tile_min_hue;
-    //prev_max_hue = tile_max_hue;
-    prev_min_sat = tile_min_sat;
-    prev_max_sat = tile_max_sat;
-    prev_min_lum = tile_min_lum;
-    prev_max_lum = tile_max_lum;
 }
+
+if (transition_count == 1)
+    initial = false;
 
 if (transition_count &gt; 0)
     transition_count -= 1;
@@ -149,6 +135,8 @@ var iy_min = floor(view_u / total_height);
 var iy_max = ceil(view_b / total_height);
 
 var lerp_fac = 1 - (transition_count / transition_frames);
+if (initial &amp;&amp; transition_count == 0)
+    lerp_fac = 0;
 
 for (var ix = ix_min; ix &lt; ix_max; ix += 1)
 {
@@ -162,26 +150,19 @@ for (var ix = ix_min; ix &lt; ix_max; ix += 1)
         var seed_off = ix + iy*tile_x;
         
         random_set_seed(seed + seed_off);
-        var tile_hue = irandom_range(tile_min_hue,tile_max_hue);
-        var tile_sat = irandom_range(tile_min_sat,tile_max_sat);
-        var tile_lum = irandom_range(tile_min_lum,tile_max_lum);
+        var color = color_picker[irandom_range(0,array_length_1d(color_picker)-1)];
         random_set_seed(prev_seed + seed_off);
-        var tile_hue_prev = irandom_range(prev_min_hue,prev_max_hue);
-        var tile_sat_prev = irandom_range(prev_min_sat,prev_max_sat);
-        var tile_lum_prev = irandom_range(prev_min_lum,prev_max_lum);
+        var color_prev = color_picker[irandom_range(0,array_length_1d(color_picker)-1)];
+        if (initial)
+            color_prev = initial_color;
         
-        tile_hue = lerp(tile_hue_prev,tile_hue,lerp_fac);
-        tile_sat = lerp(tile_sat_prev,tile_sat,lerp_fac);
-        tile_lum = lerp(tile_lum_prev,tile_lum,lerp_fac);
         /*
         // this was a mistake, but I thought the result looked kinda cool...
-        tile_hue = lerp(tile_hue,tile_hue_prev,lerp_fac);
-        tile_sat = lerp(tile_sat,tile_sat_prev,lerp_fac);
-        tile_lum = lerp(tile_lum,tile_lum_prev,lerp_fac);
+        draw_set_color(merge_color(color, color_prev, lerp_fac));
         */
         
-        draw_set_colour(make_color_hsl(tile_hue,tile_sat,tile_lum));
-        draw_rectangle(x_min,y_min,x_max,y_max,false);
+        draw_set_color(merge_color(color_prev, color, lerp_fac));
+        draw_rectangle(x_min, y_min, x_max, y_max, false);
     }
 }
 

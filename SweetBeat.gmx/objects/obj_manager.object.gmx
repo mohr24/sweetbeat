@@ -61,6 +61,8 @@ mark_kill_player = false;
 // per beat
 tick_beat = false;  // every beat
 down_beat = false;  // first beat of the measure
+total_beat_counter = 0;
+current_beat_progress = 1;
 
 command_bitmask = 0;
 command_tripple_map = ds_map_create();
@@ -158,6 +160,12 @@ if (beat_id != 0)
 {
     tick_beat = counter % fpb == 0;
     down_beat = counter == 0;
+    current_beat_progress += 1 / fpb;
+    if (tick_beat)
+    {
+        current_beat_progress = 0;
+        total_beat_counter++;
+    }
     counter += 1;
 }
 </string>
