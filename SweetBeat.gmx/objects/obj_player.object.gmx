@@ -236,34 +236,6 @@ if (y_vel == 0 || sign(push_y) == -sign(y_vel) || abs(push_y) &gt; abs(y_vel))
 
 var speed_cap = min(sprite_width, sprite_height);
 
-//x_vel = floor(x_vel);   // odd errors with non integer velocities?
-//y_vel = floor(y_vel);
-
-/*
-if (place_meeting(x, y, obj_solid_parent))
-{
-    var inst = instance_place(x,y,obj_solid_parent);
-    var quad = Quadrant(inst,obj_player);
-    switch (quad)
-    {
-    case quadrant.top:
-        y = inst.bbox_top - sprite_yoffset;
-        break;
-    case quadrant.left:
-        x = inst.bbox_left - sprite_xoffset;
-        break;
-    case quadrant.bottom:
-        y = inst.bbox_bottom + sprite_yoffset;
-        break;
-    case quadrant.right:
-        x = inst.bbox_right + sprite_xoffset;
-        break;
-    }
-    if (place_meeting(x,y,obj_solid_parent))    // if still inside, reset
-        obj_manager.mark_kill_player = true;
-}
-*/
-
 x_vel_remain = x_vel;
 
 while (x_vel_remain != 0)
@@ -298,6 +270,18 @@ y_vel_remain = y_vel;
 while (y_vel_remain != 0)
 {
     var y_vel_now = clamp(y_vel_remain, -speed_cap, speed_cap);
+    if (y_vel_now &gt; 0)
+    {
+        var thru = instance_place(x, y + y_vel_now, obj_thru);
+        if (thru != noone &amp;&amp; thru.y &gt;= bbox_bottom)
+        {
+            y = thru.y - (sprite_height / 2);
+            y_vel = 0;
+            x_vel_ground = 0;
+            ds_list_add(next_collisions_bottom, thru);
+            break;
+        }
+    }
     if (place_meeting(x, y + y_vel_now, obj_solid_parent))
     {
         while (!place_meeting(x, y + sign(y_vel_now), obj_solid_parent))

@@ -43,22 +43,30 @@ if (InCurrentView(_x, _y, _x + width, _y + height))
     var far_y = center_y + center_height;
     
     // draw the top left
-    draw_sprite_part(sprite, subimage, lborder_start, tborder_start, lborder, tborder, _x, _y);
+    if (lborder > 0 && tborder > 0)
+        draw_sprite_part(sprite, subimage, lborder_start, tborder_start, lborder, tborder, _x, _y);
     // draw the bottom left
-    draw_sprite_part(sprite, subimage, lborder_start, bborder_start, lborder, bborder, _x, far_y);
+    if (lborder > 0 && bborder > 0)
+        draw_sprite_part(sprite, subimage, lborder_start, bborder_start, lborder, bborder, _x, far_y);
     // draw the top right
-    draw_sprite_part(sprite, subimage, rborder_start, tborder_start, rborder, tborder, far_x, _y);
+    if (rborder > 0 && tborder > 0)
+        draw_sprite_part(sprite, subimage, rborder_start, tborder_start, rborder, tborder, far_x, _y);
     // draw the bottom right
-    draw_sprite_part(sprite, subimage, rborder_start, bborder_start, rborder, bborder, far_x, far_y);
+    if (rborder > 0 && bborder > 0)
+        draw_sprite_part(sprite, subimage, rborder_start, bborder_start, rborder, bborder, far_x, far_y);
     
     // draw the left column
-    DrawSpriteTiledPart(sprite, subimage, _x, center_y, lborder, center_height, lborder_start, tborder, lborder, center_border_height);
+    if (lborder > 0)
+        DrawSpriteTiledPart(sprite, subimage, _x, center_y, lborder, center_height, lborder_start, tborder, lborder, center_border_height);
     // draw the top row
-    DrawSpriteTiledPart(sprite, subimage, center_x, _y, center_width, tborder, lborder, tborder_start, center_border_width, tborder);
+    if (tborder > 0)
+        DrawSpriteTiledPart(sprite, subimage, center_x, _y, center_width, tborder, lborder, tborder_start, center_border_width, tborder);
     // draw the right column
-    DrawSpriteTiledPart(sprite, subimage, far_x, center_y, rborder, center_height, rborder_start, tborder, rborder, center_border_height);
+    if (rborder > 0)
+        DrawSpriteTiledPart(sprite, subimage, far_x, center_y, rborder, center_height, rborder_start, tborder, rborder, center_border_height);
     // draw the bottom row
-    DrawSpriteTiledPart(sprite, subimage, center_x, far_y, center_width, bborder, lborder, bborder_start, center_border_width, bborder);
+    if (bborder > 0)
+        DrawSpriteTiledPart(sprite, subimage, center_x, far_y, center_width, bborder, lborder, bborder_start, center_border_width, bborder);
     
     // draw all the middle stuff
     DrawSpriteTiledPart(sprite, subimage, center_x, center_y, center_width, center_height, lborder, tborder, center_border_width, center_border_height);

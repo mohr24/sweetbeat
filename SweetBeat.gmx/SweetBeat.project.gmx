@@ -27,8 +27,8 @@
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_player_die</sprite>
     <sprite>sprites\spr_player_2</sprite>
-    <sprite>sprites\spr_kill</sprite>
     <sprite>sprites\spr_kill_toggle</sprite>
+    <sprite>sprites\spr_kill</sprite>
     <sprite>sprites\spr_kiill_destruct</sprite>
     <sprite>sprites\spr_beat</sprite>
     <sprite>sprites\spr_checkpoint</sprite>
@@ -55,6 +55,8 @@
     <sprite>sprites\spr_clear</sprite>
     <sprite>sprites\spr_note</sprite>
     <sprite>sprites\spr_toggle</sprite>
+    <sprite>sprites\spr_toggle_thru</sprite>
+    <sprite>sprites\spr_thru</sprite>
     <sprite>sprites\spr_hook</sprite>
     <sprite>sprites\spr_scoreboard</sprite>
     <sprite>sprites\spr_camera_hint</sprite>
@@ -117,6 +119,8 @@
       <path>paths\pth_bb_s4_8</path>
       <path>paths\pth_bb_s4_9</path>
       <path>paths\pth_bb_s4_10</path>
+      <path>paths\pth_bb_s4_11</path>
+      <path>paths\pth_bb_s4_12</path>
       <path>paths\pth_bb_s5_1</path>
       <path>paths\pth_bb_s5_2</path>
       <path>paths\pth_bb_s5_3</path>
@@ -201,6 +205,7 @@
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_kill</object>
+    <object>objects\obj_kill_layer</object>
     <object>objects\obj_manager</object>
     <object>objects\obj_beat</object>
     <object>objects\obj_select_room</object>
@@ -249,6 +254,8 @@
     <object>objects\obj_kill_toggle</object>
     <object>objects\obj_flame</object>
     <object>objects\obj_flame_spire</object>
+    <object>objects\obj_thru</object>
+    <object>objects\obj_toggle_thru</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
