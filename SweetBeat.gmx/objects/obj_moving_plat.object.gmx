@@ -30,6 +30,9 @@
 x_prev = x;
 y_prev = y;
 
+image_index = 1;
+image_speed = 0;
+
 event_inherited();
 </string>
           </argument>
@@ -197,6 +200,10 @@ else if (obj_player.y_vel_remain != 0)  // y direction collision
             <kind>1</kind>
             <string>/// manual draw
 
+if (obj_manager.current_beat_progress &lt; .25)
+    image_index = 0;
+else
+    image_index = 1;
 DrawSpritePartitioned(sprite_index,image_index,4,4,4,4,x,y,sprite_width,sprite_height);
 </string>
           </argument>

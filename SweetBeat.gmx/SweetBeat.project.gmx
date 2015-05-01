@@ -62,6 +62,8 @@
     <sprite>sprites\spr_dynamic_0</sprite>
     <sprite>sprites\spr_dynamic_1</sprite>
     <sprite>sprites\spr_static_kill_128</sprite>
+    <sprite>sprites\spr_kill_layer</sprite>
+    <sprite>sprites\spr_kill_spire</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -246,6 +248,7 @@
     <object>objects\obj_lag_cal</object>
     <object>objects\obj_kill_toggle</object>
     <object>objects\obj_flame</object>
+    <object>objects\obj_flame_spire</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
