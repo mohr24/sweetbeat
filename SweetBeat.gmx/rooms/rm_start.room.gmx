@@ -68,9 +68,6 @@
     <instance objName="obj_lag_cal" x="416" y="224" name="inst_65C32535" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_text" x="32" y="384" name="inst_C224B3D2" locked="0" code="text = &quot;&lt;-Quit&quot;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_text" x="672" y="384" name="inst_4D85B539" locked="0" code="text = &quot;Start-&gt;&quot;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="352" y="320" name="inst_65867FDD" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="352" y="160" name="inst_D3240683" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="416" y="320" name="inst_94DB2A66" locked="0" code="" scaleX="1" scaleY="0.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
