@@ -25,6 +25,7 @@
     <sprite>sprites\spr_moving_plat</sprite>
     <sprite>sprites\spr_door</sprite>
     <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_player_respawn</sprite>
     <sprite>sprites\spr_player_die</sprite>
     <sprite>sprites\spr_player_2</sprite>
     <sprite>sprites\spr_kill</sprite>
@@ -147,6 +148,7 @@
       <path>paths\pth_m3_s3_2</path>
       <path>paths\pth_m3_s3_3</path>
       <path>paths\pth_m3_s3_4</path>
+      <path>paths\pth_m3_s3_6</path>
       <path>paths\pth_m3_s3_5</path>
       <path>paths\pth_m3_s1_2</path>
       <path>paths\pth_m3_s1_3</path>
@@ -162,6 +164,7 @@
       <path>paths\pth_m3_s5_1</path>
       <path>paths\pth_m3_s5_2</path>
       <path>paths\pth_m3_s5_3</path>
+      <path>paths\pth_m3_s6_1</path>
     </paths>
   </paths>
   <scripts name="scripts">
@@ -236,7 +239,7 @@
       <object>objects\obj_player_respawn</object>
       <object>objects\obj_text</object>
     </objects>
-    <object>objects\obj_cllear</object>
+    <object>objects\obj_clear</object>
     <object>objects\obj_toggle</object>
     <object>objects\obj_start</object>
     <object>objects\obj_score</object>
