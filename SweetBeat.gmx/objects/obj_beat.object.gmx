@@ -26,9 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>/// variable initialization
+
+// set these in creation code:
+
+sequence_delay = 4; // what beat (modulus) do we activate on
+// 4 is on down beat, 2 is down beat or mid beat, 1 is on next beat, 0 is immediately
+
 sequence[0] = Pair(0,command.none);
 bpm = 4;
-first_beat_sequence=false;
 </string>
           </argument>
         </arguments>
@@ -60,9 +65,18 @@ if (obj_manager.beat_id != id)
             image_speed = 1;
         }
     }
+    else
+        audio_play_sound(snd_beat_switch, 10, false);
     obj_manager.beat_id = id;
     obj_manager.sequence = sequence;
     obj_manager.bpm = bpm;
+    if (sequence_delay != 0)
+    {
+        var sdf = sequence_delay * obj_manager.fpb;
+        var rem = obj_manager.counter % sdf;
+        if (rem != 0)
+            obj_manager.sequence_delay = sdf - rem;
+    }
 }
 obj_manager.checkpoint_id = id;
 

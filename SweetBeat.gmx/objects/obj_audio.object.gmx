@@ -105,9 +105,9 @@ if (CheckCommandLag(command.jump))
 if (CheckCommandLag(command.swipe))
     audio_play_sound(snd_swipe,10,false);
 if (CheckCommandLag(command.plat_move))
-    audio_play_sound(snd_plat_move,10,false);
+    audio_play_sound(snd_move_plat,10,false);
 if (CheckCommandLag(command.plat_toggle))
-    audio_play_sound(snd_plat_toggle,10,false);
+    audio_play_sound(snd_toggle_plat,10,false);
 </string>
           </argument>
         </arguments>

@@ -6,19 +6,17 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\snd_jump</sound>
-    <sound>sound\snd_blast</sound>
     <sound>sound\electroswing120bpm</sound>
-    <sound>sound\snd_wall_kick</sound>
     <sound>sound\snd_swipe</sound>
-    <sound>sound\snd_dive</sound>
     <sound>sound\snd_r_cymbal</sound>
     <sound>sound\sng_jingle_jangle</sound>
     <sound>sound\snd_death</sound>
     <sound>sound\sng_cephalopod</sound>
     <sound>sound\sng_enter_the_party</sound>
     <sound>sound\snd_down_beat</sound>
-    <sound>sound\snd_plat_move</sound>
-    <sound>sound\snd_plat_toggle</sound>
+    <sound>sound\snd_beat_switch</sound>
+    <sound>sound\snd_toggle_plat</sound>
+    <sound>sound\snd_move_plat</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -143,6 +141,11 @@
       <path>paths\pth_bb_s9_9</path>
       <path>paths\pth_bb_s9_10</path>
       <path>paths\pth_bb_s9_11</path>
+      <path>paths\pth_bb_s9_12</path>
+      <path>paths\pth_bb_s9_13</path>
+      <path>paths\pth_bb_s9_14</path>
+      <path>paths\pth_bb_s9_15</path>
+      <path>paths\pth_bb_s9_16</path>
     </paths>
     <paths name="michael_2">
       <path>paths\pth_michael_2_1</path>
