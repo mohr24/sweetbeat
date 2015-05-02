@@ -70,6 +70,8 @@ command_lag_bitmask = 0;
 
 kill_player = false;
 
+sequence_delay = 0;
+
 
 // counter
 counter = 0;
@@ -144,9 +146,17 @@ if (counter &gt;= fpm)
     counter = counter % fpm;
 
 ds_map_clear(command_tripple_map);
+command_bitmask = 0;
+command_lag_bitmask = 0;
+
+var lag_counter = (counter + obj_lag.audio_lag) % fpm;
+if (sequence_delay &gt; 0)
+    sequence_delay--;
 // check for all actions (before this beat that haven't been processed yet)
-command_bitmask = CheckSequenceAt(sequence, counter, fpb, fpm, command_tripple_map);
-command_lag_bitmask = CheckSequenceAt(sequence, (counter + obj_lag.audio_lag) % fpm, fpb, fpm);
+if (sequence_delay &lt;= 0)
+    command_bitmask = CheckSequenceAt(sequence, counter, fpb, fpm, command_tripple_map);
+if (sequence_delay - obj_lag.audio_lag &lt;= 0)
+    command_lag_bitmask = CheckSequenceAt(sequence, lag_counter, fpb, fpm);
 
 kill_player = mark_kill_player;
 if (mark_kill_player)
