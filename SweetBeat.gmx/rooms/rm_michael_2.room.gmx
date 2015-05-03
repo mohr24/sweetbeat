@@ -112,11 +112,9 @@
     <instance objName="obj_kill" x="3104" y="2816" name="inst_DCA31FAD" locked="0" code="" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="2080" y="3008" name="inst_FB78F654" locked="0" code="" scaleX="9" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="2272" y="2400" name="inst_85222F58" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat_only" x="3520" y="832" name="inst_A0DB476C" locked="0" code="sequence[0] = Pair(0, command.jump);&#xA;sequence[1] = Pair(2, command.swipe);&#xA;sequence[2] = Pair(3, command.swipe);&#xA;&#xA;sequence[3] = Pair(0, command.plat_move);&#xA;sequence[4] = Pair(2, command.plat_move);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="2496" y="2144" name="inst_C0394A88" locked="0" code="path = pth_michael_2_1;&#xA;beats = 2;&#xA;reset_trigger = &quot;reset blocks&quot;;&#xA;" scaleX="6" scaleY="12" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="2688" y="1728" name="inst_57030F9B" locked="0" code="" scaleX="12" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_trigger_box" x="1888" y="2272" name="inst_85AC0F93" locked="0" code="trigger = &quot;reset blocks&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat_only" x="3328" y="640" name="inst_9E138FB7" locked="0" code="sequence[0] = Pair(0,command.jump);&#xA;sequence[1] = Pair(2,command.swipe);&#xA;sequence[2] = Pair(3,command.swipe);&#xA;sequence[3] = Pair(0,command.plat_move);&#xA;sequence[4] = Pair(2,command.plat_move);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="2496" y="2144" name="inst_02FA23B0" locked="0" code="" scaleX="6" scaleY="12" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2016" y="2336" name="inst_AA2D8347" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1536" y="1984" name="inst_33C989FE" locked="0" code="" scaleX="12" scaleY="1" colour="4294967295" rotation="0"/>

@@ -54,7 +54,6 @@
     <instance objName="obj_manager" x="1728" y="1440" name="inst_23682F4E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="1120" y="1536" name="inst_D82ECAEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_beat" x="2752" y="1536" name="inst_A925ACCA" locked="0" code="sequence[0] = Pair(0, command.jump);&#xA;sequence[1] = Pair(2, command.jump);&#xA;" scaleX="4" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat_only" x="4352" y="1856" name="inst_06FB3EDE" locked="0" code="sequence[0] = Pair(0, command.jump);&#xA;sequence[1] = Pair(2, command.jump);&#xA;sequence[2] = Pair(0, command.plat_move);&#xA;sequence[3] = Pair(2, command.plat_move);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="4736" y="960" name="inst_4FBA3753" locked="0" code="" scaleX="1" scaleY="30" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="3616" y="864" name="inst_0D5895F3" locked="0" code="" scaleX="12" scaleY="27" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="4352" y="32" name="inst_576B3B35" locked="0" code="" scaleX="11" scaleY="1" colour="4294967295" rotation="0"/>
@@ -108,7 +107,6 @@
     <instance objName="obj_actions" x="192" y="320" name="inst_8692BED2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1088" y="16" name="inst_7570F757" locked="0" code="" scaleX="31" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_moving_plat" x="1920" y="320" name="inst_3C96FA47" locked="0" code="path = pth_moving_show_18;&#xA;beats = 11;&#xA;one_way = true;&#xA;reset_trigger = &quot;at the top&quot;;&#xA;plat_key = 18;" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat_only" x="1920" y="224" name="inst_D35F0188" locked="0" code="sequence[0] = Pair(0,command.swipe);&#xA;sequence[1] = Pair(2,command.swipe);&#xA;sequence[2] = Pair(1,command.plat_move);&#xA;sequence[3] = Pair(3,command.plat_move);&#xA;sequence[4] = Triple(0,command.plat_move,18);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="1856" y="1184" name="inst_A207063B" locked="0" code="path = pth_moving_show_21;&#xA;beats = 2.5;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

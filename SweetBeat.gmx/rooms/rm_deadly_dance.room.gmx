@@ -51,39 +51,99 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_manager" x="96" y="448" name="inst_5DA55125" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="1600" y="832" name="inst_236C7F03" locked="0" code="" scaleX="50" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="-32" y="320" name="inst_123CD48B" locked="0" code="" scaleX="1" scaleY="10" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="192" y="512" name="inst_E69A2F1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="1088" y="512" name="inst_0CA74251" locked="0" code="" scaleX="4" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat" x="896" y="640" name="inst_B2D811E3" locked="0" code="sequence[0] = Pair(0, command.plat_toggle);&#xA;sequence[1] = Pair(2, command.plat_toggle);&#xA;" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat" x="2368" y="640" name="inst_27841C2F" locked="0" code="sequence[0] = Triple(0, command.trigger, &quot;s2_a_on&quot;);&#xA;sequence[1] = Triple(0.5, command.trigger, &quot;s2_b_on&quot;);&#xA;sequence[2] = Triple(1, command.trigger, &quot;s2_c_on&quot;);&#xA;sequence[3] = Triple(2, command.trigger, &quot;s2_a_off&quot;);&#xA;sequence[4] = Triple(2.5, command.trigger, &quot;s2_b_off&quot;);&#xA;sequence[5] = Triple(3, command.trigger, &quot;s2_c_off&quot;);&#xA;&#xA;" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="2592" y="512" name="inst_FEFF12DE" locked="0" code="toggle_trigger = &quot;s2_a_on&quot;;&#xA;reset_trigger = &quot;s2_a_off&quot;;&#xA;once = true;&#xA;start_opaque = false;&#xA;inverted = true;&#xA;" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="3936" y="832" name="inst_A4EBEEB9" locked="0" code="toggle_trigger = &quot;s2_b_on&quot;;&#xA;reset_trigger = &quot;s2_b_off&quot;;&#xA;once = true;&#xA;start_opaque = false;&#xA;inverted = true;&#xA;" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="2912" y="512" name="inst_7B7794C4" locked="0" code="toggle_trigger = &quot;s2_c_on&quot;;&#xA;reset_trigger = &quot;s2_c_off&quot;;&#xA;once = true;&#xA;start_opaque = false;&#xA;inverted = true;&#xA;" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="3104" y="544" name="inst_093B4C1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_trigger_box" x="672" y="3744" name="inst_3422313D" locked="0" code="" scaleX="3" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="3296" y="576" name="inst_8D7E4E42" locked="0" code="toggle_trigger = &quot;s2_a_on&quot;;&#xA;reset_trigger = &quot;s2_a_off&quot;;&#xA;once = true;&#xA;" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="3456" y="640" name="inst_BB29CD3B" locked="0" code="toggle_trigger = &quot;s2_b_on&quot;;&#xA;reset_trigger = &quot;s2_b_off&quot;;&#xA;once = true;&#xA;" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="3616" y="704" name="inst_C1CB89FF" locked="0" code="toggle_trigger = &quot;s2_c_on&quot;;&#xA;reset_trigger = &quot;s2_c_off&quot;;&#xA;once = true;&#xA;" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3456" y="960" name="inst_E4CE17D6" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3936" y="512" name="inst_5D3A3736" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3776" y="448" name="inst_9B83A0A5" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3936" y="1152" name="inst_821A3CC3" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="4096" y="1216" name="inst_71EBB0F1" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3456" y="320" name="inst_11595DAC" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3616" y="384" name="inst_81C7A771" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3776" y="1088" name="inst_16B1D633" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="4096" y="576" name="inst_7D6C52E3" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3296" y="256" name="inst_C138EF0A" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3616" y="1024" name="inst_ABDB77A5" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tilee_background" x="128" y="448" name="inst_AF3A53F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="1600" y="512" name="inst_D2F6353E" locked="0" code="start_opaque = false;&#xA;" scaleX="4" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="2112" y="512" name="inst_9B92CEE5" locked="0" code="" scaleX="4" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3296" y="896" name="inst_9B123E2D" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="3776" y="768" name="inst_ACC7B915" locked="0" code="toggle_trigger = &quot;s2_a_on&quot;;&#xA;reset_trigger = &quot;s2_a_off&quot;;&#xA;once = true;&#xA;start_opaque = false;&#xA;inverted = true;&#xA;" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="2752" y="512" name="inst_E4D3641B" locked="0" code="toggle_trigger = &quot;s2_b_on&quot;;&#xA;reset_trigger = &quot;s2_b_off&quot;;&#xA;once = true;&#xA;start_opaque = false;&#xA;inverted = true;&#xA;" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_toggle" x="4096" y="896" name="inst_6134BA8B" locked="0" code="toggle_trigger = &quot;s2_c_on&quot;;&#xA;reset_trigger = &quot;s2_c_off&quot;;&#xA;once = true;&#xA;start_opaque = false;&#xA;inverted = true;&#xA;" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
+    <instance objName="obj_manager" x="160" y="416" name="inst_1E253824" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_tilee_background" x="192" y="416" name="inst_9B7B4066" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="224" y="608" name="inst_F182221F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="672" y="896" name="inst_C3B739D5" locked="0" code="" scaleX="21" scaleY="8" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="-64" y="320" name="inst_5112ADCF" locked="0" code="" scaleX="2" scaleY="10" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat" x="416" y="640" name="inst_534723F4" locked="0" code="sequence[0] = Triple(0, command.plat_toggle, &quot;a&quot;);&#xA;sequence[1] = Triple(0.5, command.plat_toggle, &quot;b&quot;);&#xA;sequence[2] = Triple(1, command.plat_toggle, &quot;c&quot;);&#xA;sequence[3] = Triple(2, command.plat_toggle, &quot;a&quot;);&#xA;sequence[4] = Triple(2.5, command.plat_toggle, &quot;b&quot;);&#xA;sequence[5] = Triple(3, command.plat_toggle, &quot;c&quot;);&#xA;&#xA;" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="2176" y="768" name="inst_35F19FB6" locked="0" code="toggle_key = &quot;a&quot;;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1536" y="928" name="inst_48779A25" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="2304" y="800" name="inst_37918650" locked="0" code="toggle_key = &quot;b&quot;;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1536" y="288" name="inst_525D19F2" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="2432" y="832" name="inst_B20AEFF9" locked="0" code="toggle_key = &quot;c&quot;;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1664" y="320" name="inst_47F1D6AA" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="2560" y="864" name="inst_1C073490" locked="0" code="toggle_key = &quot;a&quot;;&#xA;start_opaque = false;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1792" y="352" name="inst_588C6515" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="2688" y="896" name="inst_8CAF4C8B" locked="0" code="toggle_key = &quot;b&quot;;&#xA;start_opaque = false;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1920" y="384" name="inst_172DEF9B" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="2816" y="928" name="inst_27D542A8" locked="0" code="toggle_key = &quot;c&quot;;&#xA;start_opaque = false;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2304" y="480" name="inst_3072CE6C" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="1408" y="576" name="inst_C76F4F25" locked="0" code="toggle_key = &quot;a&quot;;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="1536" y="608" name="inst_8A770BB4" locked="0" code="toggle_key = &quot;b&quot;;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="1664" y="640" name="inst_40F5BFE4" locked="0" code="toggle_key = &quot;c&quot;;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="1792" y="672" name="inst_388D9EB9" locked="0" code="toggle_key = &quot;a&quot;;&#xA;start_opaque = false;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="1920" y="704" name="inst_2470155A" locked="0" code="toggle_key = &quot;b&quot;;&#xA;start_opaque = false;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="2048" y="736" name="inst_BD4B50B2" locked="0" code="toggle_key = &quot;c&quot;;&#xA;start_opaque = false;&#xA;" scaleX="1.5" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2176" y="448" name="inst_120A8BF7" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2432" y="512" name="inst_4552843B" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2560" y="544" name="inst_B21062BC" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2688" y="576" name="inst_5A1C8319" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2816" y="608" name="inst_25A366B6" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2048" y="416" name="inst_C636B8FE" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1408" y="896" name="inst_6F115635" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1664" y="960" name="inst_C8405D23" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1408" y="256" name="inst_9B92F876" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1792" y="992" name="inst_00591FC5" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1920" y="1024" name="inst_34D0F595" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2048" y="1056" name="inst_477366E3" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2176" y="1088" name="inst_E55AAE62" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2304" y="1120" name="inst_6CB03A2F" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2432" y="1152" name="inst_8D9A32AB" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2560" y="1184" name="inst_8409892B" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2688" y="1216" name="inst_C752C09B" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2816" y="1248" name="inst_06D5997A" locked="0" code="" scaleX="1.5" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="3328" y="1376" name="inst_D48FB80C" locked="0" code="" scaleX="14" scaleY="10" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat" x="3776" y="1056" name="inst_54BAF827" locked="0" code="sequence[0] = Triple(0, command.trigger, &quot;reset&quot;);&#xA;sequence[1] = Triple(0, command.plat_toggle, &quot;s2_a&quot;);&#xA;sequence[2] = Triple(.5, command.plat_toggle, &quot;s2_a&quot;);&#xA;sequence[3] = Triple(2, command.plat_toggle, &quot;s2_b&quot;);&#xA;sequence[4] = Triple(2.5, command.plat_toggle, &quot;s2_b&quot;);&#xA;" scaleX="2" scaleY="2.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="3776" y="1056" name="inst_DA60C766" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="3968" y="1216" name="inst_48846C05" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="3776" y="1408" name="inst_56B6E3E4" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="3968" y="1600" name="inst_A2F16D87" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="3872" y="1216" name="inst_846AD550" locked="0" code="toggle_key = &quot;s2_a&quot;;&#xA;start_opaque = false;&#xA;" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="3872" y="1408" name="inst_B7EE422E" locked="0" code="toggle_key = &quot;s2_b&quot;;&#xA;start_opaque = false;&#xA;" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="3872" y="1600" name="inst_3A1E87C3" locked="0" code="toggle_key = &quot;s2_a&quot;;&#xA;start_opaque = false;&#xA;" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="3776" y="1792" name="inst_337EBB0E" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="3232" y="2272" name="inst_3A2D67DD" locked="0" code="" scaleX="11" scaleY="18" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="4416" y="1376" name="inst_7873AD4B" locked="0" code="" scaleX="14" scaleY="10" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="3872" y="1792" name="inst_8C1516F8" locked="0" code="toggle_key = &quot;s2_b&quot;;&#xA;start_opaque = false;&#xA;" scaleX="9" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="3584" y="1984" name="inst_2715942B" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="3968" y="1984" name="inst_39C3CC24" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="3872" y="1984" name="inst_2326319B" locked="0" code="toggle_key = &quot;s2_a&quot;;&#xA;start_opaque = false;&#xA;" scaleX="9" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="4512" y="2272" name="inst_C6F72AA3" locked="0" code="" scaleX="11" scaleY="18" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="3872" y="2176" name="inst_E3B62332" locked="0" code="toggle_key = &quot;s2_b&quot;;&#xA;start_opaque = false;&#xA;" scaleX="9" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="4160" y="1792" name="inst_208E0DB5" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="3776" y="2176" name="inst_12C0F429" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="3872" y="2944" name="inst_B1ED50EC" locked="0" code="toggle_key = &quot;s2_b&quot;;&#xA;start_opaque = false;&#xA;" scaleX="9" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="3584" y="2368" name="inst_B72D0AEC" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="3872" y="2560" name="inst_2AE49F2B" locked="0" code="toggle_key = &quot;s2_a&quot;;&#xA;start_opaque = false;&#xA;" scaleX="9" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="3872" y="2560" name="inst_DCE4D90B" locked="0" code="" scaleX="2.5" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="3872" y="2752" name="inst_2B987DB4" locked="0" code="toggle_key = &quot;s2_a&quot;;&#xA;start_opaque = false;&#xA;" scaleX="9" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="4032" y="2752" name="inst_5FAF7247" locked="0" code="" scaleX="2.5" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="3872" y="2368" name="inst_F004E936" locked="0" code="toggle_key = &quot;s2_b&quot;;&#xA;start_opaque = false;&#xA;" scaleX="9" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_layer" x="4352" y="3296" name="inst_8E9E9640" locked="0" code="" scaleX="28" scaleY="4" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="3168" y="3136" name="inst_00474932" locked="0" code="" scaleX="9" scaleY="9" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="3520" y="2944" name="inst_942711D4" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="4352" y="3072" name="inst_DB15F7BD" locked="0" code="" scaleX="28" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="5600" y="2240" name="inst_F943A821" locked="0" code="" scaleX="11" scaleY="37" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="5056" y="2848" name="inst_2BDC1BE6" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="5056" y="2464" name="inst_D41F7A8B" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="5056" y="2176" name="inst_CDA6FDC2" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="5056" y="1984" name="inst_E1B117C2" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="5056" y="1792" name="inst_FACDBDA4" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="5056" y="1600" name="inst_8B6B8858" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="5056" y="1408" name="inst_6AF75346" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="5056" y="1216" name="inst_2E839C61" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="5056" y="1056" name="inst_710B61F9" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="4960" y="2704" name="inst_A25229DF" locked="0" code="toggle_key = &quot;s3_a&quot;;&#xA;reset_trigger = &quot;s3_reset&quot;;&#xA;" scaleX="3" scaleY="1.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="5152" y="2704" name="inst_197BBAFB" locked="0" code="toggle_key = &quot;s3_a&quot;;&#xA;start_opaque = false;&#xA;reset_trigger = &quot;s3_reset&quot;;&#xA;" scaleX="3" scaleY="1.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="5056" y="2656" name="inst_A29FBC48" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="4960" y="2608" name="inst_5E56DE95" locked="0" code="toggle_key = &quot;s3_b&quot;;&#xA;reset_trigger = &quot;s3_reset&quot;;&#xA;" scaleX="3" scaleY="1.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill_toggle" x="5152" y="2608" name="inst_F024A462" locked="0" code="toggle_key = &quot;s3_b&quot;;&#xA;start_opaque = false;&#xA;reset_trigger = &quot;s3_reset&quot;;&#xA;" scaleX="3" scaleY="1.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_trigger_box" x="4576" y="2944" name="inst_3F19895F" locked="0" code="trigger = &quot;s3_reset&quot;;&#xA;" scaleX="2" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_moving_plat" x="4832" y="2752" name="inst_CE333392" locked="0" code="path = pth_dd_s3_1;&#xA;beats = .5;&#xA;one_way = true;&#xA;move_trigger = &quot;s3_close&quot;;&#xA;reset_trigger = &quot;s3_reset&quot;;&#xA;" scaleX="0.888888895511627" scaleY="2.66666674613953" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat_only" x="5056" y="3040" name="inst_EA1A6231" locked="0" code="sequence[0] = Pair(0, command.jump);&#xA;sequence[1] = Pair(2, command.jump);&#xA;&#xA;sequence[2] = Triple(0, command.plat_toggle, &quot;s3_a&quot;);&#xA;sequence[3] = Triple(.25, command.plat_toggle, &quot;s3_b&quot;);&#xA;&#xA;sequence[4] = Triple(2, command.plat_toggle, &quot;s3_a&quot;);&#xA;sequence[5] = Triple(2.25, command.plat_toggle, &quot;s3_b&quot;);&#xA;" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat" x="4576" y="3040" name="inst_1DE52E3C" locked="0" code="sequence_delay = 0;&#xA;" scaleX="2" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_trigger_box" x="5056" y="3008" name="inst_5B1EC478" locked="0" code="trigger = &quot;s3_close&quot;;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

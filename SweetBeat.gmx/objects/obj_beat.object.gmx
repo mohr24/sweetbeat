@@ -59,13 +59,14 @@ bpm = 4;
             <string>/// set beat
 if (obj_manager.beat_id != id)
 {
+    var action_zero = sequence[0];
     if(obj_manager.beat_id == 0){
         obj_audio.current_music = audio_play_sound(obj_manager.music,10,false);
         with (obj_flame){
             image_speed = 1;
         }
     }
-    else
+    else if (action_zero[1] != command.none)  // must have content
         audio_play_sound(snd_beat_switch, 10, false);
     obj_manager.beat_id = id;
     obj_manager.sequence = sequence;

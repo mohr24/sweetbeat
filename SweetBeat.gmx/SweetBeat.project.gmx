@@ -52,6 +52,7 @@
     <sprite>sprites\spr_trigger_icon</sprite>
     <sprite>sprites\spr_clear</sprite>
     <sprite>sprites\spr_note</sprite>
+    <sprite>sprites\spr_note_2</sprite>
     <sprite>sprites\spr_toggle</sprite>
     <sprite>sprites\spr_toggle_thru</sprite>
     <sprite>sprites\spr_thru</sprite>
@@ -173,6 +174,9 @@
       <path>paths\pth_m3_s5_3</path>
       <path>paths\pth_m3_s6_1</path>
     </paths>
+    <paths name="deadly_dance">
+      <path>paths\pth_dd_s3_1</path>
+    </paths>
   </paths>
   <scripts name="scripts">
     <script>scripts\Pair.gml</script>
@@ -212,9 +216,9 @@
     <object>objects\obj_kill_layer</object>
     <object>objects\obj_manager</object>
     <object>objects\obj_beat</object>
+    <object>objects\obj_beat_only</object>
     <object>objects\obj_select_room</object>
     <object>objects\obj_view_manager</object>
-    <object>objects\obj_beat_only</object>
     <object>objects\obj_beat_test</object>
     <object>objects\obj_solid_parent</object>
     <object>objects\obj_audio</object>
