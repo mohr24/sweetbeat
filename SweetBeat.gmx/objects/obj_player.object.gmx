@@ -432,7 +432,8 @@ stretch_factor = lerp(stretch_factor, (y_stretch/x_stretch), stretch_speed);
 if (obj_manager.kill_player &amp;&amp; death_count &lt;= 0)
 {
     audio_play_sound(snd_death, 10, false);
-    instance_create(x,y,obj_player_respawn);    
+    // begin_x and y for previous frame position
+    instance_create(begin_x,begin_y,obj_player_respawn);    
     if (obj_manager.checkpoint_id == 0)
     {
         x = x_start;
@@ -441,7 +442,7 @@ if (obj_manager.kill_player &amp;&amp; death_count &lt;= 0)
     else
     {
         x = obj_manager.checkpoint_id.x;
-        y = obj_manager.checkpoint_id.bbox_bottom - sprite_height / 2;
+        y = obj_manager.checkpoint_id.bbox_bottom - (sprite_height / 2);
      //   obj_manager.sequence = noone;
       //  obj_manager.sequence[0] = Pair(0,command.none);
     }
