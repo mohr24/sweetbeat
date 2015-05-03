@@ -684,6 +684,8 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
             y_vel *= swipe_non_physical_speed_demultiplier;
         }
         swipe_total_counter += 1;
+        if (CheckCommand(command.jump)) // jump cancels the swipes appearence
+            swipe_total_counter = swipe_total_frames + swipe_post_animation_lag;
         if (swipe_total_counter == swipe_total_frames + swipe_post_animation_lag)
         {
             if (swipe_instance != noone)
