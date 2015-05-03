@@ -149,6 +149,32 @@ swipe_total_counter = swipe_total_frames + swipe_post_animation_lag;   // an up 
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// animation variables
+
+stretch_factor = 1;
+stretch_speed = .5;
+
+stretch_offset = 10;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="1" enumb="0">
       <action>
@@ -341,6 +367,44 @@ if (swipe_instance != noone)
     swipe_instance.x = x + ox;
     swipe_instance.y = y + oy;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// animation update
+
+var x_stretch = stretch_offset;
+var y_stretch = stretch_offset;
+
+var collision_count =   ds_list_size(prev_collisions_left) +
+                        ds_list_size(prev_collisions_right) +
+                        ds_list_size(prev_collisions_top) +
+                        ds_list_size(prev_collisions_bottom);
+if (collision_count == 0)
+{
+    if (abs(x_vel) &gt; move_speed)
+        x_stretch += abs(x_vel);
+    if (abs(y_vel) &gt; move_speed)
+        y_stretch += abs(y_vel);
+}
+
+stretch_factor = lerp(stretch_factor, (y_stretch/x_stretch), stretch_speed);
 </string>
           </argument>
         </arguments>
@@ -855,7 +919,9 @@ obj_manager.mark_kill_player = true;
 if (death_count == -1)  // don't show until respawned completely
 {
    // draw_sprite(sprite_index,image_index,x,y);
-    draw_sprite_ext(sprite_index,image_index,x,y,facing,1,0,-1,1);
+   var y_s = sqrt(stretch_factor);
+   var x_s = 1/y_s;
+   draw_sprite_ext(sprite_index,image_index,x,y,facing*x_s,y_s,0,-1,1);
 }
 </string>
           </argument>

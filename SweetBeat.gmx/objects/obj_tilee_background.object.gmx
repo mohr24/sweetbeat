@@ -31,10 +31,10 @@ background_color = c_black;
 
 parallax_factor = 0.15;
 
-tile_width = 90;
-tile_height = 90;
-total_width = 100;
-total_height = 100;
+tile_width = 118;
+tile_height = 118;
+total_width = 128;
+total_height = 128;
 
 transition_frames = 5;
 transition_count = 0;
@@ -137,14 +137,16 @@ var iy_max = ceil(view_b / total_height);
 var lerp_fac = 1 - (transition_count / transition_frames);
 if (initial &amp;&amp; transition_count == 0)
     lerp_fac = 0;
+    
+var x_min = ix_min*total_width + px_offset;
+var y_min_start = iy_min*total_height + py_offset;
 
 for (var ix = ix_min; ix &lt; ix_max; ix += 1)
 {
+    var x_max = x_min + tile_width;
+    var y_min = y_min_start;
     for (var iy = iy_min; iy &lt; iy_max; iy += 1)
     {
-        var x_min = ix*total_width + px_offset;
-        var x_max = x_min+tile_width;
-        var y_min = iy*total_height + py_offset;
         var y_max = y_min+tile_height;
         
         var seed_off = ix + iy*tile_x;
@@ -163,7 +165,9 @@ for (var ix = ix_min; ix &lt; ix_max; ix += 1)
         
         draw_set_color(merge_color(color_prev, color, lerp_fac));
         draw_rectangle(x_min, y_min, x_max, y_max, false);
+        y_min += total_height;
     }
+    x_min += total_width;
 }
 
 randomize();   // I can't tell if this is a bug, but the seed never advances

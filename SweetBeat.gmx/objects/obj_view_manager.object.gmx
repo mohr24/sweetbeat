@@ -69,6 +69,9 @@ v_lock_cam = 0;
 
 camera_hints = ds_list_create();
 first_frame = true;
+
+x_res_max = 1600;
+y_res_max = 900;
 </string>
           </argument>
         </arguments>
@@ -93,10 +96,22 @@ first_frame = true;
             <kind>1</kind>
             <string>/// check for window resize
 
-view_wview[0] = window_get_width();
-view_hview[0] = window_get_height();
-view_wport[0] = window_get_width();
-view_hport[0] = window_get_height();
+var window_width = window_get_width();
+var window_height = window_get_height();
+var ratio = window_width / window_height;
+
+var view_width = x_res_max;
+var view_height = y_res_max;
+
+if (view_width / view_height &lt; ratio)
+    view_height = view_width / ratio;
+else if (view_width / view_height &gt; ratio)
+    view_width = view_height * ratio;
+
+view_wview[0] = view_width;
+view_hview[0] = view_height;
+view_wport[0] = window_width;
+view_hport[0] = window_height;
 
 view_hborder[0] = view_wview[0] / 2;
 view_vborder[0] = view_hview[0] / 2;
