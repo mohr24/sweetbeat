@@ -65,6 +65,8 @@
     <sprite>sprites\spr_static_kill_128</sprite>
     <sprite>sprites\spr_kill_layer</sprite>
     <sprite>sprites\spr_kill_spire</sprite>
+    <sprite>sprites\spr_max_view</sprite>
+    <sprite>sprites\spr_arrow</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -243,6 +245,7 @@
       <object>objects\obj_end_black</object>
       <object>objects\obj_player_respawn</object>
       <object>objects\obj_text</object>
+      <object>objects\obj_mlg_directional_indicator</object>
     </objects>
     <object>objects\obj_start</object>
     <object>objects\obj_score</object>
@@ -259,6 +262,7 @@
       <object>objects\obj_moving_parent</object>
       <object>objects\obj_trigger_manager</object>
       <object>objects\obj_view_manager</object>
+      <object>objects\obj_max_view_helper</object>
     </objects>
     <objects name="uncommon">
       <object>objects\obj_beat_test</object>
