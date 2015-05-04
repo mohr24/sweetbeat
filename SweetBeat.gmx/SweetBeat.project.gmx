@@ -46,7 +46,6 @@
     <sprite>sprites\spr_select_room</sprite>
     <sprite>sprites\spr_swipe_icon</sprite>
     <sprite>sprites\spr_beat_only</sprite>
-    <sprite>sprites\spr_anchor</sprite>
     <sprite>sprites\spr_trigger_box</sprite>
     <sprite>sprites\spr_cloud</sprite>
     <sprite>sprites\spr_plat_move_icon</sprite>
@@ -124,7 +123,6 @@
       <path>paths\pth_bb_s5_2</path>
       <path>paths\pth_bb_s5_3</path>
       <path>paths\pth_bb_s5_4</path>
-      <path>paths\pth_bb_s5_5</path>
       <path>paths\pth_bb_s7_1</path>
       <path>paths\pth_bb_s7_2</path>
       <path>paths\pth_bb_s8_1</path>
@@ -237,7 +235,6 @@
     <object>objects\obj_finish</object>
     <object>objects\obj_swing</object>
     <object>objects\obj_swipe</object>
-    <object>objects\obj_anchor</object>
     <object>objects\obj_moving_plat</object>
     <object>objects\obj_moving_parent</object>
     <object>objects\obj_path_tracer</object>

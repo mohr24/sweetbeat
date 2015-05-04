@@ -78,7 +78,11 @@ initializing = true;
 if (initializing)
 {
     initializing = false;   // only do once
-    ppf = path_get_length(path) / (obj_manager.fpb * beats - 1);    // off by one errors
+    if (path != -1)
+    {
+        path = path_duplicate(path);
+        ppf = path_get_length(path) / (obj_manager.fpb * beats - 1);    // off by one errors
+    }
 }
 </string>
           </argument>
@@ -163,9 +167,8 @@ if (path != -1)
           <argument>
             <kind>1</kind>
             <string>/// revert path
-
-if (path_reversed)
-    path_reverse(path);
+if (path != -1)
+    path_delete(path);
 </string>
           </argument>
         </arguments>

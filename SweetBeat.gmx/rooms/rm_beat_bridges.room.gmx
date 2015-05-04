@@ -103,12 +103,9 @@
     <instance objName="obj_wall" x="1184" y="3664" name="inst_2D5153CD" locked="0" code="" scaleX="5" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="1440" y="3664" name="inst_C0CE6EC4" locked="0" code="path = pth_bb_s5_2;&#xA;beats = 1;&#xA;plat_key = 5;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="960" y="3936" name="inst_95D10E2A" locked="0" code="" scaleX="2" scaleY="27" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="1376" y="3888" name="inst_BFA90FFD" locked="0" code="" scaleX="5" scaleY="1.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="1184" y="4112" name="inst_5EE4E94A" locked="0" code="" scaleX="5" scaleY="1.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="1344" y="3888" name="inst_F6698D74" locked="0" code="path = pth_bb_s5_3;&#xA;beats = 1;&#xA;plat_key = 5;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="1216" y="4112" name="inst_7AF3C74A" locked="0" code="path = pth_bb_s5_4;&#xA;beats = 1;&#xA;plat_key = 5;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="1376" y="4336" name="inst_B6F191E4" locked="0" code="" scaleX="5" scaleY="1.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="1120" y="4336" name="inst_4238B0E8" locked="0" code="path = pth_bb_s5_5;&#xA;beats = 1;&#xA;plat_key = 5;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1344" y="3904" name="inst_BFA90FFD" locked="0" code="" scaleX="6" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1216" y="4192" name="inst_5EE4E94A" locked="0" code="" scaleX="6" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1344" y="4480" name="inst_B6F191E4" locked="0" code="" scaleX="6" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1824" y="5056" name="inst_66447BAD" locked="0" code="" scaleX="29" scaleY="8" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="1632" y="4672" name="inst_A5E5AD13" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="1696" y="4672" name="inst_37870B42" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
@@ -122,8 +119,8 @@
     <instance objName="obj_destruct" x="2208" y="4672" name="inst_E3A92EFA" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="2272" y="4672" name="inst_FEED1B90" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2208" y="4224" name="inst_11BC78A0" locked="0" code="" scaleX="17" scaleY="10" colour="4294967295" rotation="0"/>
-    <instance objName="obj_beat" x="1344" y="4800" name="inst_11A6D2E4" locked="0" code="sequence[0] = Pair(0, command.swipe);&#xA;sequence[1] = Pair(2, command.swipe);&#xA;&#xA;sequence[2] = Pair(0, command.plat_toggle);&#xA;sequence[3] = Pair(2, command.plat_toggle);&#xA;" scaleX="2" scaleY="6.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="2720" y="4704" name="inst_8B98F0FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat" x="1344" y="4800" name="inst_11A6D2E4" locked="0" code="sequence[0] = Pair(0, command.swipe);&#xA;sequence[1] = Pair(2, command.swipe);&#xA;&#xA;sequence[2] = Pair(0, command.plat_toggle);&#xA;sequence[3] = Pair(2, command.plat_toggle);&#xA;" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="2720" y="4672" name="inst_8B98F0FB" locked="0" code="" scaleX="1" scaleY="8" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="3488" y="5120" name="inst_875C9F64" locked="0" code="" scaleX="5" scaleY="6" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="5184" y="5184" name="inst_C8F1FAB6" locked="0" code="" scaleX="30" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="3552" y="4224" name="inst_A5B488B8" locked="0" code="" scaleX="25" scaleY="10" colour="4294967295" rotation="0"/>
@@ -132,16 +129,16 @@
     <instance objName="obj_beat" x="4416" y="5056" name="inst_5C3AE124" locked="0" code="sequence[0] = Pair(0, command.swipe);&#xA;&#xA;sequence[1] = Pair(1, command.plat_move);&#xA;" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="4736" y="4928" name="inst_D9FCEBC7" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="4592" y="4896" name="inst_DA1F6F35" locked="0" code="" scaleX="3.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="4736" y="4768" name="inst_1FF440B9" locked="0" code="" scaleX="1.5" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="4736" y="4768" name="inst_1FF440B9" locked="0" code="" scaleX="0.980000019073486" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="5056" y="4928" name="inst_2AA06C18" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="5056" y="4768" name="inst_C783A709" locked="0" code="" scaleX="1.5" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="5056" y="4768" name="inst_C783A709" locked="0" code="" scaleX="0.980000019073486" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="5376" y="4928" name="inst_21BD6ED0" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="5376" y="4768" name="inst_E50146EA" locked="0" code="" scaleX="1.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="5216" y="4768" name="inst_8886137E" locked="0" code="path = pth_bb_s7_1;&#xA;beats = .5;&#xA;" scaleX="3.5" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="5376" y="4768" name="inst_E50146EA" locked="0" code="" scaleX="0.980000019073486" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="5216" y="4768" name="inst_8886137E" locked="0" code="path = pth_bb_s7_1;&#xA;beats = .5;&#xA;" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="5696" y="4928" name="inst_5BDF8C82" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="5696" y="4768" name="inst_B388CF26" locked="0" code="" scaleX="1.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="5856" y="4768" name="inst_D152BE08" locked="0" code="path = pth_bb_s7_2;&#xA;beats = .5;&#xA;" scaleX="3.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="6056" y="4656" name="inst_DA82A0BA" locked="0" code="" scaleX="2.75" scaleY="7.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="5696" y="4768" name="inst_B388CF26" locked="0" code="" scaleX="0.980000019073486" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="5856" y="4768" name="inst_D152BE08" locked="0" code="path = pth_bb_s7_2;&#xA;beats = .5;&#xA;" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="6080" y="4656" name="inst_DA82A0BA" locked="0" code="" scaleX="2" scaleY="7.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="6240" y="5088" name="inst_B0A81836" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="6240" y="5152" name="inst_3872E590" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="6240" y="5216" name="inst_03761C09" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
@@ -149,36 +146,33 @@
     <instance objName="obj_wall" x="6304" y="4656" name="inst_BE0DDEA3" locked="0" code="" scaleX="5" scaleY="7.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="6400" y="4976" name="inst_9E16B785" locked="0" code="" scaleX="2" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="6400" y="5504" name="inst_1CFD1D50" locked="0" code="" scaleX="2" scaleY="14" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="5952" y="5536" name="inst_2B1A99BA" locked="0" code="" scaleX="6" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="5920" y="5536" name="inst_2B1A99BA" locked="0" code="" scaleX="7" scaleY="7" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="6080" y="6080" name="inst_841C7FBE" locked="0" code="" scaleX="12" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_beat" x="5856" y="5952" name="inst_4323A371" locked="0" code="sequence[0] = Pair(.5, command.swipe);&#xA;sequence[1] = Pair(1, command.swipe);&#xA;sequence[2] = Pair(1.5, command.swipe);&#xA;sequence[3] = Pair(2, command.jump);&#xA;&#xA;sequence[4] = Pair(.5, command.plat_move);&#xA;sequence[5] = Pair(1, command.plat_move);&#xA;sequence[6] = Pair(1.5, command.plat_move);&#xA;" scaleX="2" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="4704" y="5888" name="inst_624ED6ED" locked="0" code="depth = -2;&#xA;" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="4544" y="5984" name="inst_C5A79ADE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="5504" y="5568" name="inst_8C5EE984" locked="0" code="" scaleX="8" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3904" y="6016" name="inst_699B3FFB" locked="0" code="" scaleX="3" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="4544" y="6016" name="inst_C5A79ADE" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="3456" y="5984" name="inst_08CA7F5C" locked="0" code="depth = -2;&#xA;" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="4224" y="5632" name="inst_0E4FE292" locked="0" code="" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="4224" y="6048" name="inst_9E3C9762" locked="0" code="depth = -2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="4704" y="5472" name="inst_87D7FDD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="3776" y="5472" name="inst_68D052AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3328" y="5984" name="inst_1FB4DCCB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="3328" y="6016" name="inst_1FB4DCCB" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="3456" y="5536" name="inst_FBB6907A" locked="0" code="" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="2848" y="5888" name="inst_72F6C3AB" locked="0" code="depth = -2;&#xA;" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="4544" y="5888" name="inst_49B60CAC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="3328" y="5888" name="inst_7F354927" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="4544" y="5888" name="inst_49B60CAC" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="3328" y="5888" name="inst_7F354927" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2736" y="5472" name="inst_70FD5B8D" locked="0" code="" scaleX="2.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="2688" y="5952" name="inst_23C9FFAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="2688" y="5856" name="inst_38A6F78B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="1440" y="5984" name="inst_E0155638" locked="0" code="depth = -2;&#xA;" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="2688" y="6016" name="inst_23C9FFAE" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="2688" y="5888" name="inst_38A6F78B" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="2848" y="5472" name="inst_5B028733" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="1440" y="5520" name="inst_F14A1F87" locked="0" code="" scaleX="1" scaleY="2.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="3584" y="5376" name="inst_FCF8C53F" locked="0" code="" scaleX="68" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="1792" y="5920" name="inst_66B9266B" locked="0" code="path = pth_bb_s8_3;&#xA;beats = .5;&#xA;depth = -2;&#xA;" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="2112" y="5600" name="inst_4A96760D" locked="0" code="path = pth_bb_s8_2;&#xA;beats = .5;&#xA;depth = -2;&#xA;" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill" x="2432" y="5920" name="inst_4D9BD56A" locked="0" code="path = pth_bb_s8_1;&#xA;beats = .5;&#xA;depth = -2;&#xA;" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="3552" y="5376" name="inst_FCF8C53F" locked="0" code="" scaleX="67" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="1760" y="5920" name="inst_66B9266B" locked="0" code="path = pth_bb_s8_3;&#xA;beats = .5;&#xA;depth = -2;&#xA;" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="2080" y="5600" name="inst_4A96760D" locked="0" code="path = pth_bb_s8_2;&#xA;beats = .5;&#xA;depth = -2;&#xA;" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="2400" y="5920" name="inst_4D9BD56A" locked="0" code="path = pth_bb_s8_1;&#xA;beats = .5;&#xA;depth = -2;&#xA;" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1056" y="6032" name="inst_001925C4" locked="0" code="" scaleX="11" scaleY="5.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_beat" x="768" y="5856" name="inst_1FB5573A" locked="0" code="sequence[0] = Pair(0, command.swipe);&#xA;sequence[1] = Pair(0.5, command.swipe);&#xA;sequence[2] = Pair(1, command.jump);&#xA;&#xA;sequence[3] = Pair(2, command.swipe);&#xA;sequence[4] = Pair(2.5, command.swipe);&#xA;sequence[5] = Pair(3, command.jump);&#xA;&#xA;sequence[6] = Pair(0, command.plat_move);&#xA;sequence[7] = Pair(2, command.plat_move);&#xA;sequence[8] = Pair(0, command.plat_toggle);&#xA;sequence[9] = Pair(2, command.plat_toggle);&#xA;" scaleX="2" scaleY="2.75" colour="4294967295" rotation="0"/>
-    <instance objName="obj_destruct" x="5728" y="5824" name="inst_914F783C" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
+    <instance objName="obj_destruct" x="5728" y="5856" name="inst_914F783C" locked="0" code="" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2624" y="5552" name="inst_DF5ADDDA" locked="0" code="" scaleX="1" scaleY="3.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_trigger_box" x="832" y="2528" name="inst_86629CB6" locked="0" code="trigger = &quot;near the top&quot;;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="832" y="2848" name="inst_E2179098" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
@@ -189,13 +183,13 @@
     <instance objName="obj_trigger_box" x="832" y="1152" name="inst_643B7981" locked="0" code="trigger = &quot;finish&quot;;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_moving_plat" x="704" y="1312" name="inst_B06B32F5" locked="0" code="path = pth_bb_s9_4;&#xA;beats = .5;&#xA;move_trigger = &quot;finish&quot;;&#xA;reset_trigger = &quot;reset&quot;;&#xA;one_way = true;&#xA;" scaleX="1.77777779102325" scaleY="0.888888895511627" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1152" y="5472" name="inst_54D7ACD4" locked="0" code="" scaleX="8" scaleY="5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="5024" y="5888" name="inst_DFA3B37B" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="5120" y="6016" name="inst_D3C4627A" locked="0" code="" scaleX="4" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="5024" y="5952" name="inst_DFA3B37B" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="5184" y="6016" name="inst_D3C4627A" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="3776" y="5888" name="inst_4C198748" locked="0" code="depth = -2;&#xA;" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera_hint" x="2752" y="1376" name="inst_3B1534B1" locked="0" code="keep_below = true;&#xA;keep_above = true;&#xA;" scaleX="29" scaleY="0.25" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera_hint" x="3360" y="5312" name="inst_9992D815" locked="0" code="keep_above = true;&#xA;keep_below = true;&#xA;" scaleX="37" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera_hint" x="864" y="3936" name="inst_26EF7DFA" locked="0" code="keep_right = true;&#xA;" scaleX="0.5" scaleY="13.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera_hint" x="1056" y="4032" name="inst_41C0CE4A" locked="0" code="keep_left = true;&#xA;" scaleX="0.5" scaleY="12.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera_hint" x="2816" y="1376" name="inst_3B1534B1" locked="0" code="keep_below = true;&#xA;keep_above = true;&#xA;" scaleX="30" scaleY="0.100000001490116" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera_hint" x="3616" y="5312" name="inst_9992D815" locked="0" code="keep_above = true;&#xA;keep_below = true;&#xA;" scaleX="42.5" scaleY="0.25" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera_hint" x="896" y="3936" name="inst_26EF7DFA" locked="0" code="keep_right = true;&#xA;" scaleX="0.5" scaleY="13.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera_hint" x="1056" y="4048" name="inst_41C0CE4A" locked="0" code="keep_left = true;&#xA;" scaleX="0.5" scaleY="12.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_camera_hint" x="5216" y="4160" name="inst_ECA0AA7B" locked="0" code="keep_below = true;&#xA;" scaleX="11.75" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_camera_hint" x="640" y="2976" name="inst_A52D9CBF" locked="0" code="keep_above = true;&#xA;deactivate_trigger = &quot;last part&quot;;&#xA;" scaleX="9" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="672" y="5760" name="inst_D51B610E" locked="0" code="" scaleX="1" scaleY="14" colour="4294967295" rotation="0"/>
@@ -243,7 +237,6 @@
     <instance objName="obj_destruct" x="832" y="3136" name="inst_68134AD4" locked="0" code="" scaleX="2" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="832" y="2992" name="inst_6B458396" locked="0" code="" scaleX="2" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill_toggle" x="3872" y="4896" name="inst_DC3D83D0" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera_hint" x="768" y="6016" name="inst_7E13EDDC" locked="0" code="keep_above = true;&#xA;" scaleX="10" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="1344" y="544" name="inst_D25AF6F7" locked="0" code="" scaleX="4" scaleY="17" colour="4294967295" rotation="0"/>
     <instance objName="obj_camera_hint" x="2336" y="1216" name="inst_59846325" locked="0" code="keep_above = true;&#xA;&#xA;deactivate_trigger = &quot;lesson zero&quot;;&#xA;" scaleX="14" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_moving_plat" x="3712" y="3648" name="inst_B6363983" locked="0" code="path = pth_bb_s4_11;&#xA;beats = 1;&#xA;" scaleX="1.77777779102325" scaleY="0.888888895511627" colour="4294967295" rotation="0"/>
@@ -273,8 +266,8 @@
     <instance objName="obj_kill_layer" x="272" y="5024" name="inst_4A7E9B6B" locked="0" code="" scaleX="1.5" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill_layer" x="176" y="4640" name="inst_262CC94B" locked="0" code="" scaleX="1.5" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill_layer" x="384" y="4608" name="inst_C5962C5F" locked="0" code="" scaleX="1.98000001907349" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="3840" y="5952" name="inst_4BF010BA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="4864" y="5984" name="inst_E4454398" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="3840" y="6000" name="inst_4BF010BA" locked="0" code="" scaleX="1" scaleY="2.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="4864" y="6016" name="inst_E4454398" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="5024" y="5536" name="inst_9480E056" locked="0" code="" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_toggle_thru" x="2400" y="2240" name="inst_6B1BAB1C" locked="0" code="start_opaque = false;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_toggle_thru" x="2656" y="2080" name="inst_C6B6F9CC" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
@@ -282,10 +275,10 @@
     <instance objName="obj_toggle_thru" x="2656" y="1760" name="inst_0AD26221" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill_toggle" x="800" y="5504" name="inst_B6EAEE0B" locked="0" code="reset_trigger = &quot;reset cycle&quot;;&#xA;" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_thru" x="192" y="5376" name="inst_A8E43930" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="160" y="5312" name="inst_B4A64038" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="160" y="5312" name="inst_B4A64038" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_beat" x="2912" y="1664" name="inst_8D0171D7" locked="0" code="sequence[0] = Pair(0,command.jump);&#xA;sequence[1] = Pair(2.5,command.jump);&#xA;&#xA;sequence[2] = Pair(0,command.plat_toggle);&#xA;sequence[3] = Pair(2.5,command.plat_toggle);&#xA;&#xA;" scaleX="2" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="176" y="5056" name="inst_ADD06119" locked="0" code="" scaleX="1.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_trigger_box" x="1376" y="5760" name="inst_903EC0EC" locked="0" code="trigger = &quot;reset cycle&quot;;&#xA;" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_trigger_box" x="1376" y="5760" name="inst_903EC0EC" locked="0" code="trigger = &quot;reset cycle&quot;;" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="288" y="4256" name="inst_46BA338C" locked="0" code="" scaleX="5" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="784" y="4128" name="inst_EEBDD993" locked="0" code="move_trigger = &quot;s9_0&quot;;&#xA;reset_trigger = &quot;reset&quot;;&#xA;one_way = true;&#xA;beats = .1;&#xA;path = pth_bb_s9_12;&#xA;" scaleX="3.5" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="784" y="4000" name="inst_2DBC4BDA" locked="0" code="move_trigger = &quot;s9_1&quot;;&#xA;reset_trigger = &quot;reset&quot;;&#xA;one_way = true;&#xA;beats = .1;&#xA;path = pth_bb_s9_13;&#xA;" scaleX="3.5" scaleY="2" colour="4294967295" rotation="0"/>
@@ -293,6 +286,14 @@
     <instance objName="obj_kill" x="784" y="3744" name="inst_7F94DFF6" locked="0" code="move_trigger = &quot;s9_3&quot;;&#xA;reset_trigger = &quot;reset&quot;;&#xA;one_way = true;&#xA;beats = .1;&#xA;path = pth_bb_s9_15;&#xA;" scaleX="3.5" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="784" y="3616" name="inst_620F70A1" locked="0" code="move_trigger = &quot;s9_4&quot;;&#xA;reset_trigger = &quot;reset&quot;;&#xA;one_way = true;&#xA;beats = .1;&#xA;path = pth_bb_s9_16;&#xA;" scaleX="3.5" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill" x="832" y="4256" name="inst_DFE8E915" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beat" x="1280" y="3840" name="inst_9CDC3211" locked="0" code="sequence[0] = Triple(0, command.plat_move, 5.5);&#xA;sequence[1] = Triple(2, command.plat_move, -1);&#xA;" scaleX="3" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="1280" y="4048" name="inst_6C38C6E1" locked="0" code="path = pth_bb_s5_3;&#xA;plat_key = 5.5;&#xA;beats = 2;&#xA;reset_trigger = &quot;reset&quot;;&#xA;" scaleX="8" scaleY="2.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_kill" x="1280" y="4336" name="inst_1C9BB2D6" locked="0" code="path = pth_bb_s5_4;&#xA;plat_key = 5.5;&#xA;beats = 4;&#xA;reset_trigger = &quot;reset&quot;;&#xA;" scaleX="8" scaleY="2.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera_hint" x="832" y="1376" name="inst_FD07262A" locked="0" code="keep_above = true;&#xA;deactivate_trigger = &quot;near the top&quot;;&#xA;" scaleX="1" scaleY="0.125" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="3904" y="5952" name="inst_3D9CFB14" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="4480" y="5952" name="inst_F5291B01" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="1440" y="5856" name="inst_849CEC7F" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera_hint" x="800" y="6112" name="inst_93CA4F18" locked="0" code="keep_above = true;&#xA;" scaleX="1.5" scaleY="0.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
