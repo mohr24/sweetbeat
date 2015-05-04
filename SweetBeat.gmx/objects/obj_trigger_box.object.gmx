@@ -57,7 +57,7 @@ trigger = undefined;
 
 if (player_on &amp;&amp; !player_was_on)
     SetTrigger(trigger, true);
-else
+else if (!player_on &amp;&amp; player_was_on)
     SetTrigger(trigger, false);
     
 player_was_on = player_on;
