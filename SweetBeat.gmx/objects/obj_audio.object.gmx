@@ -35,7 +35,7 @@ second_tolerance_max = .025;
 
 audio_advance = obj_lag.audio_lag / room_speed
 
-audio_sound_set_track_position(obj_manager.music, audio_advance);
+//audio_sound_set_track_position(obj_manager.music, audio_advance);
 </string>
           </argument>
         </arguments>
@@ -63,7 +63,7 @@ audio_sound_set_track_position(obj_manager.music, audio_advance);
 if (audio_is_playing(obj_manager.music))    // check progress
 {
     music_progress++;
-    var music_pos_predicted = (music_progress / room_speed) + audio_advance;
+    var music_pos_predicted = (music_progress / room_speed);
     var music_pos_actual = audio_sound_get_track_position(current_music);
     var music_pos_diff = music_pos_actual - music_pos_predicted;
     if (music_pos_diff &lt; second_tolerance_min || music_pos_diff &gt; second_tolerance_max)
@@ -73,10 +73,10 @@ if (audio_is_playing(obj_manager.music))    // check progress
         show_debug_message(music_pos_diff);
     }
 }
-else if (obj_manager.down_beat)
+else if ((obj_manager.counter + obj_lag.audio_lag) % (obj_manager.fpb * obj_manager.bpm) == 0)
 {
     music_progress = 0;
-    current_music = audio_play_sound(obj_manager.music, 10, false); // restart on down beat
+    current_music = audio_play_sound(obj_manager.music, 10, false); // restart on (audio lag before) down beat
 }
 </string>
           </argument>
