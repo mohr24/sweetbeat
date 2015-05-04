@@ -85,7 +85,7 @@ if (trigger)
             <kind>1</kind>
             <string>/// check respawn
 
-if (obj_manager.kill_player)
+if (obj_player.respawning)
 {
     x = pos_x;
     y = pos_y;

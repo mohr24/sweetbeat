@@ -176,6 +176,7 @@
     </paths>
     <paths name="deadly_dance">
       <path>paths\pth_dd_s3_1</path>
+      <path>paths\pth_dd_s4_1</path>
     </paths>
   </paths>
   <scripts name="scripts">
