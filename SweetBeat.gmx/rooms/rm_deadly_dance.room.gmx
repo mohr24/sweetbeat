@@ -169,7 +169,7 @@
     <instance objName="obj_kill_toggle" x="5152" y="1264" name="inst_62F36054" locked="0" code="toggle_key = &quot;s3_b&quot;;&#xA;reset_trigger = &quot;s3_reset&quot;;" scaleX="3" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill_toggle" x="5056" y="400" name="inst_F646574D" locked="0" code="toggle_key = &quot;s3_a&quot;;&#xA;reset_trigger = &quot;s3_reset&quot;;&#xA;" scaleX="6" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill_toggle" x="5056" y="304" name="inst_64B7D7A1" locked="0" code="toggle_key = &quot;s3_b&quot;;&#xA;reset_trigger = &quot;s3_reset&quot;;" scaleX="6" scaleY="1.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_thru" x="5216" y="544" name="inst_633D27C9" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="5248" y="544" name="inst_633D27C9" locked="0" code="" scaleX="1.5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill_toggle" x="5152" y="688" name="inst_54DBA4F4" locked="0" code="toggle_key = &quot;s3_b&quot;;&#xA;reset_trigger = &quot;s3_reset&quot;;" scaleX="3" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_kill_toggle" x="5152" y="784" name="inst_2AD3CC01" locked="0" code="toggle_key = &quot;s3_a&quot;;&#xA;reset_trigger = &quot;s3_reset&quot;;&#xA;" scaleX="3" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_thru" x="5056" y="352" name="inst_B6621F37" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
@@ -211,7 +211,7 @@
     <instance objName="obj_destruct" x="4544" y="656" name="inst_751A82C1" locked="0" code="" scaleX="0.5" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="4288" y="640" name="inst_C4FF0249" locked="0" code="" scaleX="0.5" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="4544" y="864" name="inst_2C049254" locked="0" code="" scaleX="0.5" scaleY="3" colour="4294967295" rotation="0"/>
-    <instance objName="obj_thru" x="4416" y="736" name="inst_F25FCC95" locked="0" code="" scaleX="3.5" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_thru" x="4416" y="736" name="inst_F25FCC95" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="4664" y="176" name="inst_0F3243C4" locked="0" code="" scaleX="4.25" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_moving_plat" x="4832" y="224" name="inst_F41C665C" locked="0" code="path = pth_dd_s4_1;&#xA;beats = .5;&#xA;one_way = true;&#xA;move_trigger = &quot;s4&quot;;&#xA;" scaleX="0.888888895511627" scaleY="1.77777779102325" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="4152" y="560" name="inst_5A4842D9" locked="0" code="" scaleX="3.75" scaleY="0.5" colour="4294967295" rotation="0"/>
@@ -256,6 +256,7 @@
     <instance objName="obj_kill_toggle" x="7040" y="1760" name="inst_34098216" locked="0" code="toggle_key = &quot;s5_d&quot;;&#xA;start_opaque = false;&#xA;" scaleX="6" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_checkpoint" x="7040" y="1056" name="inst_70743935" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_mlg_directional_indicator" x="7040" y="896" name="inst_5B6242C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_destruct" x="4416" y="752" name="inst_B2F06EB3" locked="0" code="" scaleX="3.5" scaleY="0.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -27,9 +27,9 @@
             <kind>1</kind>
             <string>///var
 
-txt_x_scale = 1;
-txt_y_scale = 1;
-txt_color = c_white;
+txt_x_scale = .75;
+txt_y_scale = .75;
+txt_color = make_color_rgb(30,255,30);
 left = -1;
 </string>
           </argument>
@@ -66,20 +66,16 @@ if (obj_player.x&gt; 1200 &amp;&amp; left == -1 ){
     left = 60;
 }
 
-var maxSize = 1.2;
+var maxSize = .75*1.2;
 if (obj_manager.beat_id!=0){
-    if (txt_y_scale &lt; maxSize)
-        txt_y_scale += (maxSize - 1) / obj_manager.fpb;
-    else
-        txt_y_scale = 1;
-
+    txt_y_scale = lerp(.75, maxSize, obj_manager.current_beat_progress);
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -101,7 +97,8 @@ if (obj_manager.beat_id!=0){
 draw_set_font(fnt_2);
 draw_set_colour(txt_color);
 draw_set_valign(fa_center);
-draw_text_transformed(200,200,"Sweet Beat",txt_x_scale,txt_y_scale,0);
+draw_set_halign(fa_center);
+draw_text_transformed(x,y,"Sweet Beat",txt_x_scale,txt_y_scale,0);
 
 
 
@@ -113,7 +110,6 @@ if (left &gt; 0){
     with (obj_end_black){
         left = other.left;
     }
-    instance_destroy();
     /*
     left --;
     draw_set_color(c_black);

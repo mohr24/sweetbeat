@@ -91,6 +91,8 @@ step_cnt = -1;
 cur_bit = 0;
 cur_bit_start = 0;
 cur_bit_end = fpb - 1; // included
+
+finished = false;
 </string>
           </argument>
         </arguments>
