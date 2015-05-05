@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>///set text
 text = "show Text";
-size = 1;
-color = c_white;
+size = .5;
+color = make_color_rgb(30,255,30);
 fnt = fnt_0;
 </string>
           </argument>

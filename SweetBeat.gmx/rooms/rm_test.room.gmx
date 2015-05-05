@@ -149,7 +149,6 @@
     <instance objName="obj_wall" x="1408" y="224" name="inst_FA5BA7F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_beat_test" x="1216" y="224" name="inst_A7AB0C27" locked="0" code="text = &quot;Jump Test&quot;;&#xA;sequence[0] = Pair(2,command.jump);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_destruct" x="1728" y="224" name="inst_8E990F62" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_kill_destruct" x="1792" y="224" name="inst_FC409D77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2016" y="288" name="inst_3A121E3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2080" y="288" name="inst_F52F8642" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="2144" y="288" name="inst_84679A02" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
