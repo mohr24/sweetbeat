@@ -294,6 +294,7 @@
     <instance objName="obj_thru" x="4480" y="5952" name="inst_F5291B01" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_thru" x="1440" y="5856" name="inst_849CEC7F" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_camera_hint" x="800" y="6112" name="inst_93CA4F18" locked="0" code="keep_above = true;&#xA;" scaleX="1.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="6496" y="384" name="inst_210868F2" locked="0" code="" scaleX="1" scaleY="12" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

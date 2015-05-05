@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -33,6 +33,39 @@ left = 60;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// room control
+left --;
+if (left == 0){
+    if (room != room_last){
+        room_goto_next();
+    }
+    else
+    {
+        room_goto(0);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -55,16 +88,6 @@ draw_set_color(c_black);
 draw_set_alpha(1-left/60);
 draw_rectangle(0,0,view_wview[0]*10,view_hview[0]*10,false);
 draw_set_alpha(1);
-left --;
-if (left == 0){
-    if (room != room_last){
-        room_goto_next();
-    }
-    else
-    {
-        room_goto(0);
-    }
-}
 </string>
           </argument>
         </arguments>

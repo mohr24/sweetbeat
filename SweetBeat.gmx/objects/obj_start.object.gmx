@@ -30,7 +30,7 @@
 txt_x_scale = .75;
 txt_y_scale = .75;
 txt_color = make_color_rgb(30,255,30);
-left = -1;
+black = noone;
 </string>
           </argument>
         </arguments>
@@ -62,8 +62,9 @@ if (obj_player.x &lt; 20){
     game_end();
 }
 
-if (obj_player.x&gt; 1200 &amp;&amp; left == -1 ){
-    left = 60;
+if (obj_player.x &gt; 1100 &amp;&amp; black == noone )
+{
+    black = instance_create(0, 0, obj_end_black);
 }
 
 var maxSize = .75*1.2;
@@ -99,27 +100,6 @@ draw_set_colour(txt_color);
 draw_set_valign(fa_center);
 draw_set_halign(fa_center);
 draw_text_transformed(x,y,"Sweet Beat",txt_x_scale,txt_y_scale,0);
-
-
-
-//draw_text_transformed(900,400,"Start -&gt;",0.25,0.25,0);
-//draw_text_transformed(50,400,"&lt;- Quit",0.25,0.25,0);
-
-if (left &gt; 0){
-    instance_create(0,0,obj_end_black);
-    with (obj_end_black){
-        left = other.left;
-    }
-    /*
-    left --;
-    draw_set_color(c_black);
-    draw_set_alpha(1-left/60);
-    draw_rectangle(0,0,view_wview[0]*10,view_hview[0]*10,false);
-    draw_set_alpha(1);
-    if (left == 0) 
-        room_goto(room_next(room));*/
-}
-
 </string>
           </argument>
         </arguments>

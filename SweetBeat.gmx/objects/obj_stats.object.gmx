@@ -175,29 +175,28 @@ ds_list_destroy(deaths);
             <kind>1</kind>
             <string>/// draw the score
 
+var width = 256;
+var height = 128;
+
+var space = 32;
+
+draw_set_color(c_black);
+draw_line(x,y - height - space, x + width, y - height - space);
+draw_line(x,y, x + width, y);
+
 if (time_mode_count &gt; 0 &amp;&amp; death_mode_count &gt; 0)
-{
-    var width = 256;
-    var height = 128;
-    
-    var space = 16;
-    
+{    
     var start_time = ds_list_find_value(times, 0);
     var end_time = ds_list_find_value(times, ds_list_size(times)-1);
     var start_death = ds_list_find_value(deaths, 0);
     var end_death = ds_list_find_value(deaths, ds_list_size(deaths)-1);
     
     var bar_width_t = width / (end_time - start_time + 1);
-    var bar_height_t = height / time_mode_count;
+    var bar_height_t = min(height / time_mode_count, height / 2);
     var bar_width_d = width / (end_death - start_death + 1);
-    var bar_height_d = height / death_mode_count;
+    var bar_height_d = min(height / death_mode_count, height / 2);
     
-    draw_set_color(c_black);
-
-    draw_line(x,y - height - space, x + width, y - height - space);
     DrawAsGraph( x, y - height - space, start_time, bar_width_t, bar_height_t, times);
-    
-    draw_line(x,y, x + width, y);
     DrawAsGraph( x, y, start_death, bar_width_d, bar_height_d, deaths);
     
     var scale = .2;
@@ -205,13 +204,15 @@ if (time_mode_count &gt; 0 &amp;&amp; death_mode_count &gt; 0)
     draw_set_valign(fa_top);
     draw_set_halign(fa_center);
     draw_text_transformed(x,y - height - space, string(start_time*time_chunk)+"s",scale,scale,0);
-    draw_text_transformed(x + width - bar_width_t, y - height - space, string(end_time*time_chunk)+"s",scale,scale,0);
-    draw_text_transformed(x,y,string(start_death)+"d",scale,scale,0);
-    draw_text_transformed(x + width - bar_width_d, y, string(end_death)+"d",scale,scale,0);
+    draw_text_transformed(x + width, y - height - space, string((end_time+1)*time_chunk)+"s",scale,scale,0);
+    draw_text_transformed(x,y,string(start_death),scale,scale,0);
+    draw_text_transformed(x + width, y, string(end_death+1),scale,scale,0);
     
     draw_set_color(make_color_rgb(238, 0, 0));
-    draw_line_width( x + bar_width_t*add_time, y - height - space, x + bar_width_t*add_time, y - height - space - height, 3 );
-    draw_line_width( x + bar_width_d*add_death, y, x + bar_width_d*add_death, y - height, 3);
+    var time_x = x + bar_width_t*((add_time/time_chunk)-start_time);
+    var death_x = x + bar_width_d*(add_death - start_death);
+    draw_line_width( time_x, y - height - space, time_x, y - height - space - height, 3 );
+    draw_line_width( death_x, y, death_x, y - height, 3);
 }
 </string>
           </argument>

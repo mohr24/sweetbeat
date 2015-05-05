@@ -221,15 +221,15 @@
     <object>objects\obj_thru</object>
     <object>objects\obj_toggle_thru</object>
     <objects name="walls">
-      <object>objects\obj_toggle</object>
       <object>objects\obj_wall</object>
-      <object>objects\obj_moving_plat</object>
       <object>objects\obj_destruct</object>
+      <object>objects\obj_moving_plat</object>
+      <object>objects\obj_toggle</object>
     </objects>
     <objects name="kill blocks">
-      <object>objects\obj_kill_toggle</object>
-      <object>objects\obj_kill_layer</object>
       <object>objects\obj_kill</object>
+      <object>objects\obj_kill_layer</object>
+      <object>objects\obj_kill_toggle</object>
     </objects>
     <objects name="beat checkpoint">
       <object>objects\obj_beat</object>
@@ -238,25 +238,31 @@
       <object>objects\obj_beat_only</object>
     </objects>
     <object>objects\obj_finish</object>
+    <object>objects\obj_camera_hint</object>
     <object>objects\obj_trigger_box</object>
     <objects name="obj_visual">
       <object>objects\obj_background</object>
+      <object>objects\obj_start</object>
       <object>objects\obj_actions</object>
       <object>objects\obj_action_player</object>
       <object>objects\obj_tilee_background</object>
-      <object>objects\obj_start_black</object>
-      <object>objects\obj_end_black</object>
       <object>objects\obj_player_respawn</object>
+      <object>objects\obj_flame</object>
       <object>objects\obj_text</object>
       <object>objects\obj_mlg_directional_indicator</object>
+      <object>objects\obj_score</object>
     </objects>
-    <object>objects\obj_start</object>
-    <object>objects\obj_score</object>
-    <object>objects\obj_camera_hint</object>
-    <object>objects\obj_lag</object>
-    <object>objects\obj_lag_cal</object>
-    <object>objects\obj_flame</object>
+    <objects name="uncommon">
+      <object>objects\obj_lag_cal</object>
+      <object>objects\obj_beat_test</object>
+      <object>objects\obj_score_cal</object>
+      <object>objects\obj_lag</object>
+      <object>objects\obj_score_score_cal</object>
+      <object>objects\obj_select_room</object>
+      <object>objects\obj_chart_cal</object>
+    </objects>
     <objects name="dont place">
+      <object>objects\obj_start_black</object>
       <object>objects\obj_flame_spire</object>
       <object>objects\obj_audio</object>
       <object>objects\obj_path_tracer</object>
@@ -266,15 +272,9 @@
       <object>objects\obj_trigger_manager</object>
       <object>objects\obj_view_manager</object>
       <object>objects\obj_max_view_helper</object>
+      <object>objects\obj_stats</object>
+      <object>objects\obj_end_black</object>
     </objects>
-    <objects name="uncommon">
-      <object>objects\obj_beat_test</object>
-      <object>objects\obj_select_room</object>
-    </objects>
-    <object>objects\obj_stats</object>
-    <object>objects\obj_score_cal</object>
-    <object>objects\obj_chart_cal</object>
-    <object>objects\obj_score_score_cal</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
