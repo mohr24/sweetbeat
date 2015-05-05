@@ -29,7 +29,7 @@
 
 txt_x_scale = .75;
 txt_y_scale = .75;
-txt_color = make_color_rgb(30,255,30);
+txt_color = c_black;
 black = noone;
 </string>
           </argument>

@@ -28,7 +28,7 @@
             <string>///set text
 text = "show Text";
 size = .5;
-color = make_color_rgb(30,255,30);
+color = c_black;
 fnt = fnt_0;
 </string>
           </argument>

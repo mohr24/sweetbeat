@@ -54,8 +54,8 @@
     <sprite>sprites\spr_note</sprite>
     <sprite>sprites\spr_note_2</sprite>
     <sprite>sprites\spr_toggle</sprite>
-    <sprite>sprites\spr_toggle_thru</sprite>
     <sprite>sprites\spr_thru</sprite>
+    <sprite>sprites\spr_toggle_thru</sprite>
     <sprite>sprites\spr_hook</sprite>
     <sprite>sprites\spr_scoreboard</sprite>
     <sprite>sprites\spr_camera_hint</sprite>
@@ -69,6 +69,8 @@
     <sprite>sprites\spr_arrow</sprite>
     <sprite>sprites\spr_score_chart</sprite>
     <sprite>sprites\spr_score_score</sprite>
+    <sprite>sprites\spr_white</sprite>
+    <sprite>sprites\spr_key_arrow</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_0</background>
@@ -249,11 +251,12 @@
       <object>objects\obj_actions</object>
       <object>objects\obj_action_player</object>
       <object>objects\obj_tilee_background</object>
-      <object>objects\obj_player_respawn</object>
       <object>objects\obj_flame</object>
       <object>objects\obj_text</object>
       <object>objects\obj_mlg_directional_indicator</object>
       <object>objects\obj_score</object>
+      <object>objects\obj_white</object>
+      <object>objects\obj_key</object>
     </objects>
     <objects name="uncommon">
       <object>objects\obj_lag_cal</object>
@@ -281,8 +284,8 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
-    <room>rooms\rm_michael_3_2</room>
     <room>rooms\rm_beat_bridges</room>
+    <room>rooms\rm_michael_3_2</room>
     <room>rooms\rm_michael_3</room>
     <room>rooms\rm_deadly_dance</room>
     <room>rooms\rm_michael</room>

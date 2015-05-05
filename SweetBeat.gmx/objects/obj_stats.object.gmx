@@ -180,7 +180,7 @@ var height = 128;
 
 var space = 32;
 
-draw_set_color(c_black);
+draw_set_color(c_dkgray);
 draw_line(x,y - height - space, x + width, y - height - space);
 draw_line(x,y, x + width, y);
 
