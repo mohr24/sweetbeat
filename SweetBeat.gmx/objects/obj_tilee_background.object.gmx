@@ -47,12 +47,13 @@ prev_seed = seed;
 tile_x = ceil((room_width*(parallax_factor+1)) / tile_width);
 tile_y = ceil((room_height*(parallax_factor+1)) / tile_height);
 
+var f = 0;
 
-color_picker[0] = make_color_rgb(244,165,255);
-color_picker[1] = make_color_rgb(234,83,255);
-color_picker[2] = make_color_rgb(224,5,255);
-color_picker[3] = make_color_rgb(196,0,223);
-color_picker[4] = make_color_rgb(135,0,154);
+color_picker[0] = merge_color(make_color_rgb(244,165,255),c_white,f);
+color_picker[1] = merge_color(make_color_rgb(234,83,255),c_white,f);
+color_picker[2] = merge_color(make_color_rgb(224,5,255),c_white,f);
+color_picker[3] = merge_color(make_color_rgb(196,0,223),c_white,f);
+color_picker[4] = merge_color(make_color_rgb(135,0,154),c_white,f);
 
 initial = true;
 was_initial = true;
