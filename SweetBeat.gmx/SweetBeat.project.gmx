@@ -44,7 +44,6 @@
     <sprite>sprites\spr_jump_icon</sprite>
     <sprite>sprites\spr_none_icon</sprite>
     <sprite>sprites\spr_swipe</sprite>
-    <sprite>sprites\spr_swipe_old</sprite>
     <sprite>sprites\spr_select_room</sprite>
     <sprite>sprites\spr_swipe_icon</sprite>
     <sprite>sprites\spr_trigger_box</sprite>
