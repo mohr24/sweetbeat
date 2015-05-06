@@ -359,11 +359,22 @@ y_vel_remain = 0;
 
 if (swipe_instance != noone)
 {
-    var ox = swipe_x*swipe_offset;
-    var oy = swipe_y*swipe_offset;
-    if (swipe_x == 0 &amp;&amp; swipe_y == 0)
-        ox = swipe_offset;
-    swipe_instance.image_angle = point_direction(0,0,swipe_x,swipe_y);
+    var ox = swipe_x;
+    var oy = swipe_y;
+    if (swipe_x == 0 &amp;&amp; swipe_y == 0){
+        oy = -1;
+        swipe_instance.image_angle=90;
+    }else{
+        swipe_instance.image_angle = point_direction(0,0,swipe_x,swipe_y);
+    }
+    if(oy!=0)
+        swipe_offset = sprite_width * sqrt(stretch_factor) / 2;
+    else
+        swipe_offset = sprite_width * (1/sqrt(stretch_factor)) / 2;
+        
+    ox *= swipe_offset;
+    oy *= swipe_offset;
+    
     swipe_instance.x = x + ox;
     swipe_instance.y = y + oy;
 }
@@ -404,7 +415,9 @@ if (collision_count == 0)
         y_stretch += abs(y_vel);
 }
 
+
 stretch_factor = lerp(stretch_factor, (y_stretch/x_stretch), stretch_speed);
+
 </string>
           </argument>
         </arguments>
@@ -733,8 +746,10 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
         {
             if (swipe_instance == noone)
                 swipe_instance = instance_create(x, y, obj_swipe);  // moved end of frame
+           // swipe_instance.depth=1;
             x_vel = swipe_x*swipe_vel;
             y_vel = swipe_y*swipe_vel;
+            
         }
         swipe_total_counter += 1;
         
@@ -757,6 +772,7 @@ if (swipe_total_counter &lt; swipe_total_frames + swipe_post_animation_lag)
                 with (swipe_instance)
                     instance_destroy();
             swipe_instance = noone;
+            
         }
     }
 }

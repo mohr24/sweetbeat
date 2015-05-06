@@ -37,6 +37,8 @@ test_interval = floor(.75*room_speed);   // every .75 seconds
 
 test_deviation_tolerance = 15;  // 15 frames of tolerance
 test_certainty_tolerance = floor(.8*(test_runtime/test_interval));  // 80% good data points
+
+start_key_pressed=false;
 </string>
           </argument>
         </arguments>
@@ -135,28 +137,44 @@ ds_list_destroy(timing_list);
             <kind>1</kind>
             <string>/// do test
 
-running_time++;
-if (running_time % test_interval == 0)
-    audio_play_sound(snd_down_beat,10,false);
-if (test_started)
-{
-    if (keyboard_check_pressed(vk_space))
-        ds_list_add(timing_list, running_time);
-    if (running_time &gt; test_runtime)
+if (keyboard_check_pressed(ord('C'))){
+    start_key_pressed = true;
+    audio_stop_all();
+    with(obj_audio){
         instance_destroy();
-}
-else
-{
-    if (keyboard_check_pressed(vk_space))
-    {
-        test_started = true;
-        if (running_time &lt; test_interval / 2)
-            running_time += test_interval;
-        ds_list_add(timing_list, running_time);
     }
-    else if (running_time &gt; test_interval)
-        running_time -= test_interval;
+    
 }
+if(start_key_pressed){
+    running_time++;
+    if (running_time % test_interval == 0)
+        audio_play_sound(snd_down_beat,10,false);
+    if (test_started)
+    {
+        if (keyboard_check_pressed(vk_space))
+            ds_list_add(timing_list, running_time);
+        if (running_time &gt; test_runtime){
+            //instance_destroy();
+            running_time=0;
+            start_key_pressed=false;
+            test_started=false;
+            instance_create(0,0,obj_audio);
+        }
+            
+    }
+    else
+    {
+        if (keyboard_check_pressed(vk_space))
+        {
+            test_started = true;
+            if (running_time &lt; test_interval / 2)
+                running_time += test_interval;
+            ds_list_add(timing_list, running_time);
+        }
+        else if (running_time &gt; test_interval)
+            running_time -= test_interval;
+    }
+    }
 </string>
           </argument>
         </arguments>
