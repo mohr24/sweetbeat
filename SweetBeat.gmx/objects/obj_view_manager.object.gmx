@@ -152,7 +152,7 @@ var dy = obj_player.y - next_pos_y;
 var player_dx = obj_player.x - prev_player_x;
 var player_dy = obj_player.y - prev_player_y;
 
-if (!obj_manager.kill_player)
+if (!obj_player.respawning)
 {
     if (!r_lock &amp;&amp; dx &lt; view_trigger_left)
     {

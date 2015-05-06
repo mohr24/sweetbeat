@@ -445,37 +445,11 @@ stretch_factor = lerp(stretch_factor, (y_stretch/x_stretch), stretch_speed);
 if (obj_manager.kill_player &amp;&amp; death_count &lt;= 0)
 {
     audio_play_sound(snd_death, 10, false);
-    // begin_x and y for previous frame position
-    instance_create(begin_x,begin_y,obj_player_respawn);    
-    if (obj_manager.checkpoint_id == 0)
-    {
-        x = x_start;
-        y = y_start;
-    }
-    else
-    {
-        x = obj_manager.checkpoint_id.x;
-        y = obj_manager.checkpoint_id.bbox_bottom - (sprite_height / 2);
-     //   obj_manager.sequence = noone;
-      //  obj_manager.sequence[0] = Pair(0,command.none);
-    }
     if (swipe_instance != noone)
         with (swipe_instance)
             instance_destroy();
     swipe_instance = noone;
     death_count = death_wait;
-    
-    with (obj_player_respawn){
-        ani_time = other.death_wait;
-        target_y = other.y;
-        target_x = other.x;
-    }
-  //  var frames_left = (obj_manager.fpb * obj_manager.bpm - obj_manager.counter);
-   // if(frames_left &lt; obj_manager.fpb){
-   //     death_count = frames_left + obj_manager.fpb * obj_manager.bpm;
-   // }else{
-    //    death_count = frames_left;
-  //  }
     
     x_vel = 0;
     y_vel = 0;
@@ -625,7 +599,7 @@ if(x_stick != 0){
 var x_vel_target = horizontal_axis * move_speed;
 
 var x_accel = move_accel;
-if (sign(horizontal_axis) != sign(x_vel))
+if (sign(horizontal_axis) != sign(x_vel) &amp;&amp; x_vel != 0 &amp;&amp; horizontal_axis != 0)
     x_accel = move_deccel;
 x_vel_target += x_vel_ground;
 
@@ -835,10 +809,21 @@ respawning = false;
 if (death_count == 0)
 {
     death_count = 1;
+    if (obj_manager.checkpoint_id == 0)
+    {
+        x = x_start;
+        y = y_start;
+    }
+    else
+    {
+        x = obj_manager.checkpoint_id.x;
+        y = obj_manager.checkpoint_id.bbox_bottom - (sprite_height / 2);
+    }
+    begin_x = x;
+    begin_y = y;
    // obj_manager.sequence = obj_manager.checkpoint_id.sequence;
     if (obj_manager.tick_beat || obj_manager.beat_id == 0){
         death_count = -1;
-        with (obj_player_respawn) { instance_destroy(); } 
         respawning = true;
     }
 }
@@ -912,7 +897,8 @@ begin_y = y;
             <kind>1</kind>
             <string>/// signal our death
 
-obj_manager.mark_kill_player = true;
+if (y &gt; 0 &amp;&amp; (x &lt; 0 || x &gt; room_width))  // up out of bounds is okay
+    obj_manager.mark_kill_player = true;
 </string>
           </argument>
         </arguments>

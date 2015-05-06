@@ -29,8 +29,16 @@
 
 ani_time = 100;
 left = -100;
-target_y = -1;
-target_x = -1;
+if (obj_manager.checkpoint_id == 0)
+{
+    x = x_start;
+    y = y_start;
+}
+else
+{
+    x = obj_manager.checkpoint_id.x;
+    y = obj_manager.checkpoint_id.bbox_bottom - (sprite_height / 2);
+}
 rate = 0.5;
 scale = 1;
 spr = spr_player_die;
@@ -68,15 +76,8 @@ left --;
 var move_up = ani_time * rate;
 var move_down = ani_time * (1-rate);
 
-with (obj_player){
-    x = other.x;
-    y = other.y;
-}
-
 if (left &lt;= move_down){
     spr = spr_player;
-    x = target_x;
-    y = target_y;
     scale = (move_down - left) / move_down;
     if (scale &gt; 1) scale = 1;
     //var r = (ani_time - left) / move_up;

@@ -47,11 +47,12 @@ prev_seed = seed;
 tile_x = ceil((room_width*(parallax_factor+1)) / tile_width);
 tile_y = ceil((room_height*(parallax_factor+1)) / tile_height);
 
-color_picker[0] = make_color_rgb(255,87,255);
-color_picker[1] = make_color_rgb(255,0,255);
-color_picker[2] = make_color_rgb(160,0,160);
-color_picker[3] = make_color_rgb(114,0,114);
-color_picker[4] = make_color_rgb(68,0,68);
+
+color_picker[0] = make_color_rgb(244,165,255);
+color_picker[1] = make_color_rgb(234,83,255);
+color_picker[2] = make_color_rgb(224,5,255);
+color_picker[3] = make_color_rgb(196,0,223);
+color_picker[4] = make_color_rgb(135,0,154);
 
 initial = true;
 was_initial = true;
