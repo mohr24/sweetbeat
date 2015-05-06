@@ -48,11 +48,11 @@ tile_x = ceil((room_width*(parallax_factor+1)) / tile_width);
 tile_y = ceil((room_height*(parallax_factor+1)) / tile_height);
 
 
-color_picker[0] = make_color_rgb(81,  217, 255);
-color_picker[1] = make_color_rgb(47,  209, 255);
-color_picker[2] = make_color_rgb(6,   200, 255);
-color_picker[3] = make_color_rgb(0,   176, 226);
-color_picker[4] = make_color_rgb(0,   117, 150);
+color_picker[0] = make_color_rgb(75,  159, 183);
+color_picker[1] = make_color_rgb(41,  137, 164);
+color_picker[2] = make_color_rgb(5,   125, 159);
+color_picker[3] = make_color_rgb(4,   96,  123);
+color_picker[4] = make_color_rgb(2,   76,  96);
 
 initial = true;
 was_initial = true;
