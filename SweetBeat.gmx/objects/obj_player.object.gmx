@@ -362,9 +362,11 @@ if (swipe_instance != noone)
     var ox = swipe_x;
     var oy = swipe_y;
     if (swipe_x == 0 &amp;&amp; swipe_y == 0){
-        oy = -1;
-        swipe_instance.image_angle=90;
+        //oy = 1;
+        //swipe_instance.image_angle=90;
+        swipe_instance.sprite_index=spr_neutral_swipe;
     }else{
+        swipe_instance.sprite_index=spr_swipe;
         swipe_instance.image_angle = point_direction(0,0,swipe_x,swipe_y);
     }
     if(oy!=0)
