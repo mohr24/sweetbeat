@@ -23,6 +23,7 @@
     <sprite>sprites\spr_moving_plat</sprite>
     <sprite>sprites\spr_door</sprite>
     <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_player_swipe</sprite>
     <sprite>sprites\spr_player_respawn</sprite>
     <sprite>sprites\spr_player_die</sprite>
     <sprite>sprites\spr_player_2</sprite>
@@ -43,11 +44,12 @@
     <sprite>sprites\spr_jump_icon</sprite>
     <sprite>sprites\spr_none_icon</sprite>
     <sprite>sprites\spr_swipe</sprite>
+    <sprite>sprites\spr_swipe_old</sprite>
     <sprite>sprites\spr_select_room</sprite>
     <sprite>sprites\spr_swipe_icon</sprite>
-    <sprite>sprites\spr_beat_only</sprite>
     <sprite>sprites\spr_trigger_box</sprite>
     <sprite>sprites\spr_cloud</sprite>
+    <sprite>sprites\spr_beat_only</sprite>
     <sprite>sprites\spr_plat_move_icon</sprite>
     <sprite>sprites\spr_trigger_icon</sprite>
     <sprite>sprites\spr_clear</sprite>
